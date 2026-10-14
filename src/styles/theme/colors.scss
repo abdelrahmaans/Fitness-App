@@ -1,0 +1,55 @@
+@theme {
+  --color-orange-50: #fbeeea;
+  --color-orange-100: #f3d0c4;
+  --color-orange-200: #eab29f;
+  --color-orange-300: #e0947b;
+  --color-orange-400: #d77656;
+  --color-orange-500: #ff4100;
+  --color-orange-600: #cc3300;
+  --color-orange-700: #8f2400;
+  --color-orange-800: #661a00;
+  --color-orange-900: #380e00;
+  --color-orange-950: #290a00;
+
+  --color-muted: #d9d9d9;
+  --color-silver: #d3d3d3;
+  --color-ink: #242424;
+  --color-metal: #6d6d6d;
+  --color-graphite: #232425;
+
+  --font-baloo: 'Baloo Thambi 2', sans-serif;
+  --font-rubik: Rubik, sans-serif;
+  --font-inter: Inter, sans-serif;
+
+  --background-image-text-gradient: linear-gradient(to bottom, #6d6d6d, #d3d3d3);
+  --background-image-shade: linear-gradient(to bottom, #ffffff, #232425);
+  --background-image-section-watermark: linear-gradient(to bottom, #ffffff, #232425);
+}
+
+@utility text-gradient {
+  background-image: var(--background-image-text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility section-title-watermark-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 28%,
+    rgb(0 0 0 / 55%) 48%,
+    rgb(0 0 0 / 18%) 68%,
+    transparent 88%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 28%,
+    rgb(0 0 0 / 55%) 48%,
+    rgb(0 0 0 / 18%) 68%,
+    transparent 88%
+  );
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}

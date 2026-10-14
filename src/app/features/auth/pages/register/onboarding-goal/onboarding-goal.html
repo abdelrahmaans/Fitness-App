@@ -1,0 +1,17 @@
+<section
+  class="register-goal flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full"
+>
+  <app-auth-heading
+    step="5/6"
+    [headline]="'ONBOARDING.GOAL.HEADLINE' | translate"
+    [support]="'ONBOARDING.GOAL.SUPPORT' | translate"
+  />
+
+  <div class="w-full max-w-[344px]">
+    <app-auth-radio-button [options]="goals()" [(value)]="goal" />
+  </div>
+
+  <div class="register-goal__actions w-full max-w-[344px]">
+    <app-auth-button kind="next" [disabled]="!goal()" (clicked)="onNext()" />
+  </div>
+</section>

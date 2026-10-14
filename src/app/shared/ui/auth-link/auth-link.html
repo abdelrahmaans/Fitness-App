@@ -1,0 +1,11 @@
+<p
+  class="auth-link m-0 w-full font-baloo text-base font-normal leading-[1.4] text-silver"
+  [class]="customClass()"
+>
+  <ng-content select="[text]"></ng-content>
+  <span
+    class="auth-link__action [&>a]:font-bold [&>a]:text-orange-500 [&>a]:no-underline [&>a]:hover:underline [&>button]:cursor-pointer [&>button]:border-0 [&>button]:bg-transparent [&>button]:p-0 [&>button]:font-bold [&>button]:text-orange-500 [&>button]:hover:underline"
+  >
+    <ng-content select="[link]"></ng-content>
+  </span>
+</p>

@@ -1,0 +1,153 @@
+.workouts {
+  background-color: transparent;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    height: 771px;
+    min-height: 771px;
+  }
+
+  // 1. Gym photo full coverage
+  &__bg-photo {
+    img {
+      opacity: 0.85;
+      filter: brightness(0.65) contrast(1.1);
+    }
+  }
+
+  &__bg-dark-overlay {
+    background: radial-gradient(
+      circle at 50% 30%,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  // 2. Horizontal Banner Strip behind header & upper cards (Figma: top: 57px, height: 414px, opacity: 1)
+  &__banner-strip {
+    top: 2.5rem;
+    bottom: 8rem;
+    background-color: #232528;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    @media (min-width: 640px) {
+      top: 3.25rem;
+      bottom: 9.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      top: 57px;
+      height: 414px;
+      bottom: auto;
+      width: 100%;
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+
+  &__headline {
+    color: #ffffff;
+  }
+
+  &__filter-btn {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: transparent;
+
+    &:hover {
+      color: var(--color-orange-500, #ff4100);
+    }
+
+    &--active {
+      background-color: var(--color-orange-500, #ff4100) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.4);
+    }
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.35);
+
+    &:hover {
+      background-color: rgba(255, 65, 0, 0.7);
+    }
+
+    &--active {
+      width: 30px;
+      background-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 2px 8px rgba(255, 65, 0, 0.4);
+    }
+  }
+}
+
+// =============================================================================
+// Light Theme Support
+// =============================================================================
+:host-context(html.light),
+:host-context(.light) {
+  .workouts {
+    background-color: transparent;
+
+    &__bg-photo {
+      img {
+        opacity: 0.85;
+        filter: brightness(0.65) contrast(1.05);
+      }
+    }
+
+    &__bg-dark-overlay {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    // Exact #AEAEAD banner strip requested by the user!
+    &__banner-strip {
+      background-color: #AEAEAD !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    &__headline {
+      color: #111827;
+    }
+
+    &__filter-btn {
+      color: #1f2937;
+
+      &:hover {
+        color: var(--color-orange-500, #ff4100);
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(255, 65, 0, 0.35);
+      }
+    }
+
+    &__dot {
+      background-color: rgba(0, 0, 0, 0.28);
+
+      &:hover {
+        background-color: rgba(255, 65, 0, 0.7);
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100) !important;
+      }
+    }
+  }
+}
+
+// Utility: Hide scrollbar in category filter
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

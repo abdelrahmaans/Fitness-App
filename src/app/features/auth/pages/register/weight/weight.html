@@ -1,0 +1,16 @@
+<section
+  class="register-weight flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full"
+>
+  <app-auth-heading
+    step="3/6"
+    [headline]="'ONBOARDING.WEIGHT.HEADLINE' | translate"
+    [support]="'ONBOARDING.WEIGHT.SUPPORT' | translate"
+  />
+
+  <app-auth-number-picker unit="kg" [min]="20" [max]="300" [(value)]="weight" />
+
+  <div class="register-weight__actions w-full max-w-[344px]">
+    <app-auth-button kind="next" (clicked)="onNext()" />
+  </div>
+</section>
+

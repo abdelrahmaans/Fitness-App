@@ -1,0 +1,129 @@
+<!-- ====== Main Widget Container ====== -->
+<div class="chat-bot" [class.chat-bot--open]="isChatOpen()">
+  <!-- ====== Floating Trigger ====== -->
+  <div class="chat-trigger">
+    <div
+      class="chat-trigger__robot"
+      [class.chat-trigger__robot--waving]="!isChatOpen()"
+      (click)="toggleChat()"
+    >
+      <img src="images/chatbot.webp" [alt]="'SMART_COACH' | translate" />
+    </div>
+
+    <button
+      class="chat-trigger__button"
+      type="button"
+      (click)="toggleChat()"
+      [attr.aria-expanded]="isChatOpen()"
+      [attr.aria-label]="
+        isChatOpen() ? ('CHATBOT.TAP_TO_CLOSE' | translate) : ('CHATBOT.HEY_ASK_ME' | translate)
+      "
+    >
+      {{ isChatOpen() ? ('CHATBOT.TAP_TO_CLOSE' | translate) : ('CHATBOT.HEY_ASK_ME' | translate) }}
+    </button>
+  </div>
+
+  <!-- ====== Chat Window ====== -->
+  @if (isChatOpen()) {
+    <div class="chat-window">
+      <!-- Background image (full opacity) -->
+      <div class="chat-window__bg"></div>
+      <!-- Dark overlay in front of background -->
+      <div class="chat-window__overlay"></div>
+
+      <!-- Main Chat Content -->
+      <div class="chat-window__content">
+        <!-- Header -->
+        <header class="chat-window__header">
+          <h2 class="chat-window__title">{{ 'CHATBOT.SMART_COACH' | translate }}</h2>
+          <button
+            class="chat-window__menu-btn"
+            type="button"
+            [attr.aria-label]="'CHATBOT.PREVIOUS_CONVERSATIONS' | translate"
+            (click)="toggleDrawer()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="18"
+              viewBox="0 0 22 18"
+              fill="none"
+            >
+              <path d="M2 2.5H15" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" />
+              <path d="M2 9H9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" />
+              <path
+                d="M2 15.5H20"
+                stroke="currentColor"
+                stroke-width="2.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Messages Area -->
+        <div class="chat-window__messages" #messagesContainer>
+          @for (message of chatBotService.messages(); track $index) {
+            <app-chat-bubble [message]="message" />
+          }
+
+          @if (chatBotService.isLoading()) {
+            <div class="chat-window__typing">
+              <div class="chat-window__typing-dot"></div>
+              <div class="chat-window__typing-dot"></div>
+              <div class="chat-window__typing-dot"></div>
+            </div>
+          }
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-window__input-area">
+          <div class="chat-window__input-wrapper">
+            <svg
+              class="chat-window__input-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
+
+            <input
+              class="chat-window__input"
+              type="text"
+              [placeholder]="'CHATBOT.INPUT_PLACEHOLDER' | translate"
+              [ngModel]="userInput()"
+              (ngModelChange)="userInput.set($event)"
+              (keydown)="onKeyDown($event)"
+              [disabled]="chatBotService.isLoading()"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous Conversations Popover Card (Figma Style) -->
+      @if (isDrawerOpen()) {
+        <div
+          class="chat-window__backdrop"
+          tabindex="0"
+          role="button"
+          [attr.aria-label]="'CHATBOT.TAP_TO_CLOSE' | translate"
+          (click)="closeDrawer()"
+          (keydown.enter)="closeDrawer()"
+          (keydown.escape)="closeDrawer()"
+        ></div>
+
+        <div class="chat-window__popover">
+          <app-previous-conversations (closed)="closeDrawer()" />
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,17 @@
+<div class="auth-otp-input flex w-full items-center justify-center gap-2 sm:gap-3" (paste)="onPaste($event)">
+  @for (slot of slots(); track slot) {
+    <input
+      #otpInput
+      type="text"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      maxlength="1"
+      class="auth-otp-input__box h-12 w-10 sm:h-14 sm:w-12 rounded-[14px] border border-muted bg-transparent text-center font-baloo text-xl font-bold text-white outline-none transition-all focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
+      [class.border-orange-500]="!!digits()[slot]"
+      [value]="digits()[slot]"
+      [attr.aria-label]="'Digit ' + (slot + 1) + ' of ' + length()"
+      (input)="onInput(slot, $event)"
+      (keydown)="onKeyDown(slot, $event)"
+    />
+  }
+</div>

@@ -1,0 +1,11 @@
+<div class="auth-social-media-icons flex items-center justify-center gap-3">
+  @for (provider of providers; track provider.id) {
+    <div
+      class="auth-social-media-icons__item flex size-8 shrink-0 items-center justify-center rounded-full bg-ink text-white"
+      [attr.aria-label]="provider.name"
+      role="img"
+    >
+      <fa-icon class="auth-social-media-icons__icon text-base" [icon]="provider.icon" aria-hidden="true" />
+    </div>
+  }
+</div>

@@ -1,0 +1,36 @@
+<div class="verify-code flex w-full flex-col gap-4">
+  <app-auth-heading [headline]="'AUTH.VERIFY_CODE_PAGE.HEADLINE' | translate" />
+
+  <div
+    class="verify-code__card flex w-full flex-col gap-6 rounded-[50px] border border-muted px-[87.5px] py-[40px]"
+  >
+    <p class="verify-code__label m-0 text-center font-rubik text-base font-normal text-white">
+      {{ 'AUTH.VERIFY_CODE_PAGE.LABEL' | translate }}
+    </p>
+
+    <app-auth-otp-input
+      [length]="6"
+      [(value)]="otpCode"
+      (completed)="onOtpCompleted($event)"
+    />
+
+    @if (errorMessage(); as message) {
+      <app-auth-error [message]="message" />
+    }
+
+    @if (resendSuccessMessage(); as successMsg) {
+      <p class="m-0 text-center font-rubik text-sm text-green-400">{{ successMsg }}</p>
+    }
+
+    <div class="verify-code__cta flex flex-col gap-3">
+      <app-auth-button kind="confirm" [disabled]="isSubmitting()" (clicked)="onConfirm()" />
+
+      <app-auth-link>
+        <span text>{{ 'AUTH.VERIFY_CODE_PAGE.DIDNT_RECEIVE' | translate }}</span>
+        <button link type="button" (click)="onResend()" [disabled]="isResending()">
+          {{ isResending() ? ('AUTH.VERIFY_CODE_PAGE.SENDING' | translate) : ('AUTH.VERIFY_CODE_PAGE.RESEND' | translate) }}
+        </button>
+      </app-auth-link>
+    </div>
+  </div>
+</div>

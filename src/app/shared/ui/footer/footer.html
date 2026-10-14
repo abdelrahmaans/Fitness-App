@@ -1,0 +1,83 @@
+<footer
+  class="bg-white px-6 py-11 font-baloo text-sm leading-snug text-slate-900 transition-colors duration-300 dark:bg-[#232424] dark:text-white lg:px-16 lg:py-12"
+>
+  <div class="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+    <div class="flex flex-col gap-4">
+      <a routerLink="/home" class="inline-flex w-fit">
+        <img
+          class="h-auto w-[87px] max-w-full"
+          src="assets/images/logo/logo.webp"
+          alt="Super Fitness"
+          width="87"
+          height="48"
+        />
+      </a>
+      <p class="m-0 max-w-48 font-normal leading-snug text-slate-900/78 dark:text-white/78">
+        {{ 'FOOTER.TAGLINE_LINE1' | translate }}<br />
+        {{ 'FOOTER.TAGLINE_LINE2' | translate }}
+      </p>
+    </div>
+
+    <div>
+      <h2 class="mb-3 font-bold text-slate-900 dark:text-white">{{ 'FOOTER.CONTACT_US' | translate }}</h2>
+      <ul class="m-0 flex list-none flex-col gap-2 p-0">
+        <li>
+          <a
+            class="group inline-flex items-center gap-2 text-slate-900 no-underline transition-colors hover:text-orange-500 dark:text-white"
+            href="tel:+91123456789"
+          >
+            <span
+              class="box-border flex size-9 shrink-0 items-center justify-center rounded-3xl border border-ink text-ink transition-colors group-hover:border-orange-500 group-hover:text-orange-500 dark:border-white/85 dark:text-white"
+            >
+              <svg class="block size-[18px] shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+            </span>
+            <span class="font-normal text-slate-900/78 group-hover:text-orange-500 dark:text-white/78"
+              >+91 123 456 789</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            class="group inline-flex items-center gap-2 text-slate-900 no-underline transition-colors hover:text-orange-500 dark:text-white"
+            href="mailto:info@gmail.com"
+          >
+            <span
+              class="box-border flex size-9 shrink-0 items-center justify-center rounded-3xl border border-ink text-ink transition-colors group-hover:border-orange-500 group-hover:text-orange-500 dark:border-white/85 dark:text-white"
+            >
+              <svg class="block size-[18px] shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+            </span>
+            <span class="font-normal text-slate-900/78 group-hover:text-orange-500 dark:text-white/78"
+              >info@gmail.com</span
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-3 font-bold text-slate-900 dark:text-white">{{ 'FOOTER.GYM_TIMING' | translate }}</h2>
+      <ul class="m-0 flex list-none flex-col gap-2 p-0">
+        <li class="font-normal text-slate-900/78 dark:text-white/78">{{ 'FOOTER.HOURS_WEEKDAYS' | translate }}</li>
+        <li class="font-normal text-slate-900/78 dark:text-white/78">{{ 'FOOTER.HOURS_WEEKEND' | translate }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="mb-3 font-bold text-slate-900 dark:text-white">{{ 'FOOTER.LOCATION' | translate }}</h2>
+      <address class="m-0 not-italic font-normal leading-snug text-slate-900/78 dark:text-white/78">
+        <span class="block">{{ 'FOOTER.LOCATION_LINE1' | translate }}</span>
+        <span class="block">{{ 'FOOTER.LOCATION_LINE2' | translate }}</span>
+      </address>
+    </div>
+  </div>
+</footer>

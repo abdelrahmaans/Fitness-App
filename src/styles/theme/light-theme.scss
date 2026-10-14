@@ -1,0 +1,401 @@
+// =============================================================================
+// Super Fitness - Modern Luxury Light Mode Theme
+// Clean, luminous, high-contrast, state-of-the-art styling
+// =============================================================================
+
+html.light {
+  color-scheme: light;
+
+  // Background overrides
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .bg-ink {
+    background-color: #f8fafc !important;
+  }
+
+  // Ultra-clean luminous canvas (no dark image bleeding through)
+  .auth-layout-backdrop {
+    background-color: #f8fafc !important;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255, 65, 0, 0.06) 0%, transparent 42%),
+      radial-gradient(circle at 88% 82%, rgba(255, 65, 0, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(241, 245, 249, 0.7) 0%, transparent 75%),
+      linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+    opacity: 1 !important;
+  }
+
+  // Auth Aside (Left Side with athlete & logo)
+  .auth-aside {
+    @media (min-width: 1024px) {
+      border-right: 1px solid rgba(226, 232, 240, 0.9) !important;
+      box-shadow: 15px 0 45px -20px rgba(15, 23, 42, 0.06) !important;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(241, 245, 249, 0.25) 100%
+      ) !important;
+    }
+  }
+
+  // Crisp Floating Auth Cards (Login, Register, Forgot Password, Verify Code, Reset Password)
+  .login__form,
+  .register-form__form,
+  .forgot-password__form,
+  .verify-code__card,
+  .reset-password__form,
+  .rounded-\[50px\].border-muted {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    box-shadow:
+      0 20px 45px -12px rgba(15, 23, 42, 0.08),
+      0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+    backdrop-filter: blur(12px);
+  }
+
+  // Headings & Titles
+  .auth-heading__headline,
+  .login__title,
+  .register-form__title,
+  h1:not(.text-orange-500),
+  h2:not(.text-orange-500) {
+    color: #0f172a !important;
+  }
+
+  // Subtitles & Labels
+  .auth-heading__lead,
+  .forgot-password__label,
+  .verify-code__label,
+  .reset-password__instruction,
+  p.text-white {
+    color: #334155 !important;
+  }
+
+  .auth-heading__step-label {
+    color: #000000 !important;
+  }
+
+  .auth-heading__support,
+  .text-silver {
+    color: #64748b !important;
+  }
+
+  .auth-link {
+    color: #64748b !important;
+  }
+
+  // Form Inputs (AuthInput)
+  .auth-input__field {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.03);
+    transition: all 0.2s ease;
+
+    &:focus-within {
+      border-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.12) !important;
+    }
+  }
+
+  .auth-input__control {
+    color: #0f172a !important;
+
+    &::placeholder {
+      color: #94a3b8 !important;
+    }
+  }
+
+  .auth-input__icon,
+  .auth-input__toggle {
+    color: #64748b !important;
+
+    &:hover {
+      color: #0f172a !important;
+    }
+  }
+
+  // Dividers
+  .auth-or-divider__line {
+    background-color: #e2e8f0 !important;
+  }
+
+  .auth-or-divider__label {
+    color: #64748b !important;
+  }
+
+  // Social Media Icons
+  .auth-social-media-icons__item {
+    background-color: #f8fafc !important;
+    color: #334155 !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f1f5f9 !important;
+      color: var(--color-orange-500, #ff4100) !important;
+      border-color: var(--color-orange-500, #ff4100) !important;
+      transform: translateY(-1px);
+    }
+  }
+
+  // OTP Input Boxes
+  .auth-otp-input__box {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.03);
+    transition: all 0.2s ease;
+
+    &:focus,
+    &.border-orange-500 {
+      border-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.12) !important;
+    }
+  }
+
+  // Number Picker (Age, Height, Weight)
+  .auth-number-picker__item {
+    color: #334155 !important;
+
+    &--d0 {
+      color: var(--color-orange-500, #ff4100) !important;
+    }
+  }
+
+  .auth-number-picker__unit {
+    color: var(--color-orange-500, #ff4100) !important;
+  }
+
+  // Radio Buttons (Goals, Activity Level)
+  app-auth-radio-button label {
+    &:not(.border-orange-500) {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      color: #1e293b !important;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      .text-gray-300 {
+        color: #1e293b !important;
+      }
+
+      .border-gray-400 {
+        border-color: #cbd5e1 !important;
+      }
+    }
+
+    &.border-orange-500 {
+      background-color: rgba(255, 65, 0, 0.06) !important;
+      border-color: var(--color-orange-500, #ff4100) !important;
+      box-shadow: 0 4px 12px rgba(255, 65, 0, 0.1) !important;
+    }
+  }
+
+  // Gender Selection
+  .register-gender button {
+    &:not(.bg-\[\#FF4500\]) {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #334155 !important;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--color-orange-500, #ff4100) !important;
+        color: var(--color-orange-500, #ff4100) !important;
+        background-color: rgba(255, 65, 0, 0.04) !important;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // Preferences Switcher Widget (Language & Theme Floating Pill)
+  app-language-switcher > div {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow:
+      0 12px 30px -5px rgba(15, 23, 42, 0.12),
+      0 0 0 1px rgba(226, 232, 240, 0.7) !important;
+
+    .bg-\[\#3a3a3c\] {
+      background-color: #e2e8f0 !important;
+    }
+
+    button:not(.bg-\[\#ff4100\]) {
+      background-color: #f1f5f9 !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #0f172a !important;
+
+      &:hover {
+        background-color: #e2e8f0 !important;
+        color: var(--color-orange-500, #ff4100) !important;
+      }
+    }
+  }
+
+  // Home Page
+  header.border-metal\/20 {
+    border-color: #e2e8f0 !important;
+  }
+
+  // ===========================================================================
+  // Smart Coach ChatBot (Light Mode)
+  // ===========================================================================
+  .chat-window {
+    box-shadow:
+      0 20px 48px -12px rgba(15, 23, 42, 0.2),
+      0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+
+    &__bg {
+      opacity: 0.45 !important;
+
+      &::after {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(248, 250, 252, 0.35) 40%,
+          rgba(255, 255, 255, 0.5) 100%
+        ) !important;
+      }
+    }
+
+    &__title {
+      color: #0f172a !important;
+    }
+
+    &__welcome-text {
+      color: #475569 !important;
+    }
+
+    &__backdrop {
+      background: rgba(15, 23, 42, 0.35) !important;
+    }
+
+    &__typing-dot {
+      background: #ff4100 !important;
+    }
+
+    &__input-area {
+      border-top-color: #e2e8f0 !important;
+    }
+
+    &__input-wrapper {
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+
+      &:focus-within {
+        border-color: #ff4100 !important;
+        box-shadow: 0 0 0 3px rgba(255, 65, 0, 0.15) !important;
+      }
+    }
+
+    &__input {
+      color: #0f172a !important;
+
+      &::placeholder {
+        color: #94a3b8 !important;
+      }
+    }
+  }
+
+  // Chat Bubbles (Light Mode)
+  .chat-bubble {
+    &--bot {
+      .chat-bubble__avatar {
+        background: #f1f5f9 !important;
+        border-color: #e2e8f0 !important;
+      }
+
+      .chat-bubble__content {
+        background: #f1f5f9 !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .chat-bubble__text {
+        color: #0f172a !important;
+      }
+    }
+
+    &--user {
+      .chat-bubble__avatar {
+        background: rgba(255, 65, 0, 0.12) !important;
+        border-color: rgba(255, 65, 0, 0.25) !important;
+        color: #ff4100 !important;
+      }
+
+      .chat-bubble__content {
+        background: #ff4100 !important;
+      }
+
+      .chat-bubble__text {
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  // Previous Conversations Floating Card (Light Mode)
+  .previous-conversations {
+    background: #ffffffba !important;
+    box-shadow:
+      0 20px 45px -10px rgba(15, 23, 42, 0.18),
+      0 0 0 1px rgba(226, 232, 240, 0.9) !important;
+
+    &__title {
+      color: #0f172a !important;
+    }
+
+    &__new-btn {
+      color: #0f172a !important;
+
+      &:hover {
+        color: #ff4100 !important;
+
+        .previous-conversations__new-icon,
+        .previous-conversations__new-icon line {
+          stroke: #ff4100 !important;
+        }
+      }
+    }
+
+    &__new-icon {
+      color: #0f172a !important;
+      stroke: #0f172a !important;
+
+      line,
+      path {
+        stroke: #0f172a !important;
+      }
+    }
+
+    &__item {
+      color: #334155 !important;
+      border-bottom-color: #bcbdbd !important;
+
+      &:hover {
+        color: #0f172a !important;
+        background-color: #f8fafc !important;
+      }
+    }
+
+    &__empty {
+      color: #64748b !important;
+    }
+  }
+
+  // Workouts Section (Light Mode)
+  .workouts__banner-strip {
+    background-color: #AEAEAD !important;
+  }
+}

@@ -1,0 +1,20 @@
+<section
+  class="register-activity-level flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full"
+>
+  <app-auth-heading
+    step="6/6"
+    [headline]="'ONBOARDING.ACTIVITY.HEADLINE' | translate"
+    [support]="'ONBOARDING.ACTIVITY.SUPPORT' | translate"
+  />
+
+  <div class="w-full max-w-[344px]">
+    <app-auth-radio-button [options]="activityLevels()" [(value)]="activityLevel" />
+  </div>
+
+  <div class="register-activity-level__actions w-full max-w-[344px]">
+    @if (errorMessage(); as error) {
+      <app-auth-error class="mb-2 block" [message]="error" />
+    }
+    <app-auth-button kind="next" [disabled]="!activityLevel() || isSubmitting()" (clicked)="onNext()" />
+  </div>
+</section>

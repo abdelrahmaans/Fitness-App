@@ -1,0 +1,102 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.auth-number-picker {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px 8px;
+}
+
+.auth-number-picker__track {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Figma Frame 23: horizontal, 16px gap, align items to vertical center */
+.auth-number-picker__row {
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  touch-action: none;
+  cursor: grab;
+  transition: transform 180ms ease-out;
+  will-change: transform;
+
+  &--dragging {
+    cursor: grabbing;
+    transition: none;
+  }
+}
+
+.auth-number-picker__slot {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.auth-number-picker__item {
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  line-height: 1;
+  color: #fff;
+  width: max-content;
+
+  &--d0 {
+    color: var(--color-orange-500);
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  &--d1 {
+    font-size: 38px;
+    font-weight: 600;
+    opacity: 0.92;
+  }
+
+  &--d2 {
+    font-size: 24px;
+    font-weight: 500;
+    opacity: 0.78;
+  }
+
+  &--d3 {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.62;
+  }
+
+  &--d4 {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.48;
+  }
+}
+
+.auth-number-picker__unit {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.auth-number-picker__caret {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid var(--color-orange-500);
+  border-left: 7px solid transparent;
+}

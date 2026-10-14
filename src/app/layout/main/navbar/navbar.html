@@ -1,0 +1,217 @@
+<header
+  class="navbar fixed top-0 inset-x-0 z-50 w-full transition-all duration-300"
+  [class.navbar--scrolled]="isScrolled()"
+  [class.navbar--mobile-open]="isMobileMenuOpen()"
+>
+  <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <!-- Brand Logo (Left) -->
+    <a
+      routerLink="/home"
+      (click)="closeMobileMenu()"
+      class="navbar__logo flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg group"
+      [attr.aria-label]="'NAV.HOME' | translate"
+    >
+      <img
+        src="assets/images/logo/logo.webp"
+        [alt]="'NAV.LOGO_ALT' | translate"
+        class="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+        width="110"
+        height="48"
+      />
+    </a>
+
+    <!-- Navigation Links (Center - Desktop) -->
+    <nav class="navbar__links hidden md:flex items-center gap-8 lg:gap-10" aria-label="Main Navigation">
+      @for (item of navLinks; track item.labelKey) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="navbar__link--active text-orange-500 font-semibold"
+          [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+          class="navbar__link font-baloo text-base lg:text-lg transition-colors hover:text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded"
+        >
+          {{ item.labelKey | translate }}
+        </a>
+      }
+    </nav>
+
+    <!-- Auth Actions (Right - Desktop) -->
+    <div class="navbar__actions hidden md:flex items-center gap-3 lg:gap-4">
+      @if (authService.isAuthenticated()) {
+        <!-- Authenticated: Circular Profile Avatar Icon -->
+        <div class="relative">
+          <button
+            type="button"
+            (click)="toggleUserMenu()"
+            class="navbar__avatar relative size-11 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md transition-all duration-200 hover:bg-orange-600 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+            [attr.aria-label]="'NAV.USER_MENU' | translate"
+            [attr.aria-expanded]="isUserMenuOpen()"
+          >
+            <svg lucideUser class="size-6 text-white stroke-[2.2]" aria-hidden="true"></svg>
+          </button>
+
+          <!-- Dropdown Profile Menu -->
+          @if (isUserMenuOpen()) {
+            <div
+              class="navbar__dropdown absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-56 rounded-2xl p-2 shadow-xl border backdrop-blur-md transition-all z-50"
+              role="menu"
+            >
+              @if (authService.currentUser(); as user) {
+                <div class="px-3 py-2 border-b border-metal/20 mb-1">
+                  <p class="text-xs text-metal font-rubik">{{ 'NAV.PROFILE' | translate }}</p>
+                  <p class="text-sm font-semibold truncate font-rubik" [title]="user.email ?? ''">
+                    {{ user.email ?? ('APP_TITLE' | translate) }}
+                  </p>
+                </div>
+              }
+
+              <button
+                type="button"
+                (click)="logout()"
+                class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-red-500 transition-colors hover:bg-red-500/10 font-rubik cursor-pointer"
+                role="menuitem"
+              >
+                <svg lucideLogOut class="size-4 rtl:-scale-x-100" aria-hidden="true"></svg>
+                <span>{{ 'NAV.LOGOUT' | translate }}</span>
+              </button>
+            </div>
+          }
+        </div>
+      } @else {
+        <!-- Unauthenticated Guest: Solid LOGIN & Outlined SIGN UP buttons -->
+        <a
+          routerLink="/auth/login"
+          class="navbar__btn navbar__btn--login inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 py-2 text-xs sm:text-sm font-baloo font-bold tracking-wider text-white uppercase shadow-sm transition-all duration-200 hover:bg-orange-600 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+        >
+          <span>{{ 'NAV.LOGIN' | translate }}</span>
+          <span
+            class="navbar__btn-arrow size-5 sm:size-6 rounded-full border border-white flex items-center justify-center text-white shrink-0"
+          >
+            <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px] sm:size-5 sm:max-w-[22px]" />
+          </span>
+        </a>
+
+        <a
+          routerLink="/auth/register"
+          class="navbar__btn navbar__btn--signup inline-flex items-center gap-2 rounded-full border-2 border-orange-500 px-5 py-2 text-xs sm:text-sm font-baloo font-bold tracking-wider text-orange-500 uppercase transition-all duration-200 hover:bg-orange-500/10 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+        >
+          <span>{{ 'NAV.SIGN_UP' | translate }}</span>
+          <span
+            class="navbar__btn-arrow size-5 sm:size-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0"
+          >
+            <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px] sm:size-5 sm:max-w-[22px]" />
+          </span>
+        </a>
+      }
+    </div>
+
+    <!-- Mobile Actions (Right - Mobile) -->
+    <div class="flex items-center gap-2.5 md:hidden">
+      @if (authService.isAuthenticated()) {
+        <button
+          type="button"
+          (click)="toggleUserMenu()"
+          class="navbar__avatar-mobile size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md hover:bg-orange-600 active:scale-95 transition-all cursor-pointer"
+          [attr.aria-label]="'NAV.USER_MENU' | translate"
+        >
+          <svg lucideUser class="size-5 text-white stroke-[2.2]" aria-hidden="true"></svg>
+        </button>
+      }
+
+      <button
+        type="button"
+        (click)="toggleMobileMenu()"
+        class="navbar__toggle size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md hover:bg-orange-600 active:scale-95 transition-all cursor-pointer"
+        [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+      >
+        @if (isMobileMenuOpen()) {
+          <svg lucideX class="size-5 stroke-[2.5]" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideMenu class="size-5 stroke-[2.5]" aria-hidden="true"></svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Backdrop Overlay -->
+  @if (isMobileMenuOpen()) {
+    <div
+      class="navbar__backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+      (click)="closeMobileMenu()"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Mobile Navigation Drawer (Sleek Top Panel matching mockup) -->
+    <div
+      class="navbar__mobile-menu absolute top-full left-0 right-0 z-50 md:hidden border-b px-6 py-6 shadow-2xl transition-all"
+    >
+      <nav class="flex flex-col gap-3 mb-6" aria-label="Mobile Navigation">
+        @for (item of navLinks; track item.labelKey) {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="text-orange-500 font-semibold"
+            [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+            (click)="closeMobileMenu()"
+            class="navbar__link font-baloo text-lg transition-colors hover:text-orange-500 py-1.5"
+          >
+            {{ item.labelKey | translate }}
+          </a>
+        }
+      </nav>
+
+      <div class="border-t border-metal/20 pt-4">
+        @if (authService.isAuthenticated()) {
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md shrink-0">
+                <svg lucideUser class="size-5 stroke-[2.2]" aria-hidden="true"></svg>
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs text-metal font-rubik">{{ 'NAV.PROFILE' | translate }}</p>
+                <p class="text-sm font-semibold truncate font-rubik">
+                  {{ authService.currentUser()?.email ?? ('APP_TITLE' | translate) }}
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              (click)="logout()"
+              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-red-500 hover:bg-red-500/10 font-rubik transition-colors cursor-pointer"
+            >
+              <svg lucideLogOut class="size-4 rtl:-scale-x-100" aria-hidden="true"></svg>
+              <span>{{ 'NAV.LOGOUT' | translate }}</span>
+            </button>
+          </div>
+        } @else {
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              routerLink="/auth/login"
+              (click)="closeMobileMenu()"
+              class="navbar__btn navbar__btn--login inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-5 py-2.5 text-sm font-baloo font-bold tracking-wider text-white uppercase shadow-sm transition-all hover:bg-orange-600"
+            >
+              <span>{{ 'NAV.LOGIN' | translate }}</span>
+              <span
+                class="navbar__btn-arrow size-5 rounded-full border border-white flex items-center justify-center text-white shrink-0"
+              >
+                <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px]" />
+              </span>
+            </a>
+
+            <a
+              routerLink="/auth/register"
+              (click)="closeMobileMenu()"
+              class="navbar__btn navbar__btn--signup inline-flex items-center justify-center gap-2 rounded-full border-2 border-orange-500 px-5 py-2.5 text-sm font-baloo font-bold tracking-wider text-orange-500 uppercase transition-all hover:bg-orange-500/10"
+            >
+              <span>{{ 'NAV.SIGN_UP' | translate }}</span>
+              <span
+                class="navbar__btn-arrow size-5 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0"
+              >
+                <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px]" />
+              </span>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</header>

@@ -1,0 +1,97 @@
+<section class="hero relative isolate w-full overflow-hidden flex flex-col justify-center min-h-dvh pt-20">
+  <!-- Subtle Ambient Radial Glows -->
+  <div class="hero__glow-1 absolute -top-40 -left-40 size-[500px] rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+  <div class="hero__glow-2 absolute top-1/3 -right-20 size-[600px] rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+    <!-- Left Column: Content & Statistics & Buttons -->
+    <div class="lg:col-span-7 flex flex-col justify-center z-10 pt-4 lg:pt-0">
+      <!-- Headline with STAND and ALMOST highlighted in orange -->
+      <h1 class="hero__headline font-baloo font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.08] mb-6">
+        <!-- Desktop / Tablet layout (sm and up) -->
+        <span class="hidden sm:block text-white hero__headline-text">
+          {{ 'HERO.TITLE_PART1' | translate }}
+          <span class="hero__highlight text-orange-500">{{ 'HERO.STAND' | translate }}</span>
+        </span>
+        <span class="hidden sm:block text-white hero__headline-text">
+          <span class="hero__highlight text-orange-500">{{ 'HERO.ALMOST' | translate }}</span>
+          {{ 'HERO.TITLE_PART2' | translate }}
+        </span>
+
+        <!-- Mobile layout (<sm) matching mobile mockup -->
+        <span class="block sm:hidden text-white hero__headline-text">
+          {{ 'HERO.TITLE_PART1' | translate }}
+        </span>
+        <span class="block sm:hidden hero__highlight text-orange-500">
+          {{ 'HERO.STAND' | translate }} {{ 'HERO.ALMOST' | translate }}
+        </span>
+        <span class="block sm:hidden text-white hero__headline-text">
+          {{ 'HERO.TITLE_PART2' | translate }}
+        </span>
+      </h1>
+
+      <!-- Motivational Subtext bordered by a vertical orange line on the left/inline-start -->
+      <div class="hero__subtext-wrapper border-s-4 border-orange-500 ps-4 sm:ps-5 mb-8 sm:mb-10 max-w-xl">
+        <p class="hero__subtext font-rubik text-sm sm:text-base leading-relaxed text-silver">
+          {{ 'HERO.SUBTEXT' | translate }}
+        </p>
+      </div>
+
+      <!-- Three Statistical Figures (Stacked vertically on mobile, horizontal on tablet/desktop) -->
+      <div class="hero__stats flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 sm:gap-10 lg:gap-12 mb-8 sm:mb-10">
+        @for (stat of stats; track stat.labelKey) {
+          <div class="hero__stat-item flex flex-col">
+            <span class="hero__stat-value font-baloo font-bold text-2xl sm:text-3xl text-white">
+              {{ stat.valueKey | translate }}
+            </span>
+            <span class="hero__stat-label font-rubik text-xs sm:text-sm text-metal">
+              {{ stat.labelKey | translate }}
+            </span>
+          </div>
+        }
+      </div>
+
+      <!-- Action Buttons (Side by side on mobile and desktop) -->
+      <div class="hero__actions flex flex-row items-center gap-3 sm:gap-6">
+        <a
+          routerLink="/auth/register"
+          class="hero__btn hero__btn--primary inline-flex items-center gap-2 rounded-full bg-orange-500 px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-base font-baloo font-bold tracking-wider text-white uppercase shadow-md transition-all duration-200 hover:bg-orange-600 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 shrink-0"
+        >
+          <span>{{ 'HERO.GET_STARTED' | translate }}</span>
+          <span
+            class="hero__btn-arrow size-5 sm:size-6 rounded-full border border-white flex items-center justify-center text-white shrink-0"
+          >
+            <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px] sm:size-5 sm:max-w-[22px]" />
+          </span>
+        </a>
+
+        <a
+          routerLink="/home"
+          class="hero__btn hero__btn--secondary inline-flex items-center gap-2 rounded-full border-2 border-orange-500 px-5 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-base font-baloo font-bold tracking-wider text-orange-500 uppercase transition-all duration-200 hover:bg-orange-500/10 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 shrink-0"
+        >
+          <span>{{ 'HERO.EXPLORE_MORE' | translate }}</span>
+          <span
+            class="hero__btn-arrow size-5 sm:size-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0"
+          >
+            <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px] sm:size-5 sm:max-w-[22px]" />
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Fitness Trainer Image -->
+    <div class="lg:col-span-5 relative flex items-end justify-center lg:justify-end mt-4 lg:mt-0">
+      <div class="hero__trainer-wrapper relative w-full max-w-[440px] lg:max-w-none flex items-end justify-center">
+        <img
+          src="images/hero.webp"
+          [alt]="'HERO.TRAINER_ALT' | translate"
+          class="hero__trainer-img w-auto h-auto max-h-[500px] sm:max-h-[580px] lg:max-h-[660px] xl:max-h-[720px] object-contain object-bottom drop-shadow-2xl z-10"
+          width="550"
+          height="750"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</section>

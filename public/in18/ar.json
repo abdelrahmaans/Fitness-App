@@ -1,0 +1,260 @@
+{
+  "WELCOME": "مرحبًا بك في سوبر فيتنس",
+  "APP_TITLE": "سوبر فيتنس",
+  "LANGUAGE": "اللغة",
+  "ENGLISH": "English",
+  "ARABIC": "العربية",
+  "SWITCH_TO_ARABIC": "العربية",
+  "SWITCH_TO_ENGLISH": "English",
+  "CURRENT_LANGUAGE": "العربية",
+  "COMMON": {
+    "OR": "أو",
+    "SUBMIT": "إرسال",
+    "CANCEL": "إلغاء",
+    "NEXT": "التالي",
+    "PREVIOUS": "السابق",
+    "SAVE": "حفظ",
+    "CONFIRM": "تأكيد",
+    "DONE": "تم",
+    "LOADING": "جارٍ التحميل...",
+    "SENDING": "جارٍ الإرسال...",
+    "RESEND_CODE": "إعادة إرسال الرمز"
+  },
+  "AUTH": {
+    "BUTTONS": {
+      "LOGIN": "تسجيل الدخول",
+      "REGISTER": "إنشاء حساب",
+      "NEXT": "التالي",
+      "PREVIOUS": "السابق",
+      "DONE": "تم",
+      "CONFIRM": "تأكيد",
+      "SENTOTP": "إرسال رمز التحقق"
+    },
+    "LOGIN_PAGE": {
+      "LEAD": "مرحبًا بك",
+      "HEADLINE": "أهلاً بعودتك",
+      "TITLE": "تسجيل الدخول",
+      "EMAIL_PLACEHOLDER": "البريد الإلكتروني",
+      "PASSWORD_PLACEHOLDER": "كلمة المرور",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "NO_ACCOUNT": "ليس لديك حساب بعد؟ ",
+      "REGISTER_LINK": "إنشاء حساب"
+    },
+    "REGISTER_PAGE": {
+      "LEAD": "مرحبًا بك",
+      "HEADLINE": "إنشاء حساب جديد",
+      "TITLE": "إنشاء حساب",
+      "FIRST_NAME": "الاسم الأول",
+      "LAST_NAME": "اسم العائلة",
+      "EMAIL": "البريد الإلكتروني",
+      "PASSWORD": "كلمة المرور",
+      "RE_PASSWORD": "تأكيد كلمة المرور",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "ALREADY_HAVE_ACCOUNT": "هل لديك حساب بالفعل؟ ",
+      "LOGIN_LINK": "تسجيل الدخول"
+    },
+    "FORGOT_PASSWORD_PAGE": {
+      "HEADLINE": "نسيت كلمة المرور",
+      "LABEL": "أدخل بريدك الإلكتروني",
+      "EMAIL_PLACEHOLDER": "البريد الإلكتروني",
+      "SEND_OTP": "إرسال رمز التحقق"
+    },
+    "VERIFY_CODE_PAGE": {
+      "HEADLINE": "رمز التحقق",
+      "LABEL": "أدخل رمز التحقق المرسل إلى بريدك الإلكتروني",
+      "CONFIRM": "تأكيد",
+      "DIDNT_RECEIVE": "لم تستلم رمز التحقق؟ ",
+      "RESEND": "إعادة إرسال الرمز",
+      "SENDING": "جارٍ الإرسال..."
+    },
+    "RESET_PASSWORD_PAGE": {
+      "HEADLINE": "إنشاء كلمة مرور جديدة",
+      "INSTRUCTION": "تأكد من أنها تتكون من 8 أحرف أو أكثر",
+      "PASSWORD": "كلمة المرور الجديدة",
+      "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+      "SAVE": "حفظ"
+    }
+  },
+  "ONBOARDING": {
+    "GENDER": {
+      "HEADLINE": "أخبرنا عن نفسك!",
+      "SUPPORT": "نحتاج إلى معرفة جنسك",
+      "MALE": "ذكر",
+      "FEMALE": "أنثى"
+    },
+    "AGE": {
+      "HEADLINE": "كم عمرك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "سنة"
+    },
+    "WEIGHT": {
+      "HEADLINE": "ما هو وزنك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "كجم"
+    },
+    "HEIGHT": {
+      "HEADLINE": "ما هو طولك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "UNIT": "سم"
+    },
+    "GOAL": {
+      "HEADLINE": "ما هو هدفك؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "GAIN_WEIGHT": "زيادة الوزن",
+      "LOSE_WEIGHT": "خسارة الوزن",
+      "GET_FITTER": "تحسين اللياقة",
+      "GAIN_FLEXIBLE": "زيادة المرونة",
+      "LEARN_BASIC": "تعلم الأساسيات"
+    },
+    "ACTIVITY": {
+      "HEADLINE": "مستوى نشاطك البدني المعتاد؟",
+      "SUPPORT": "هذا يساعدنا في تصميم خطتك المخصصة",
+      "ROOKIE": "مبتدئ تمامًا",
+      "BEGINNER": "مبتدئ",
+      "INTERMEDIATE": "متوسط",
+      "ADVANCE": "متقدم",
+      "TRUE_BEAST": "محترف رياضي"
+    }
+  },
+  "HOME": {
+    "WELCOME_BACK": "مرحبًا بك مجددًا في سوبر فيتنس",
+    "DASHBOARD": "لوحة التحكم"
+  },
+  "SECTION_TITLE": {
+    "HEALTHY": {
+      "WATERMARK": "صحّي",
+      "LABEL": "تغذية صحية",
+      "HEADING_PART1": "غذِّ رحلتك الرياضية بخطط",
+      "HEADING_HIGHLIGHT": "وجبات مخصصة",
+      "HEADING_PART2": "لك",
+      "SEE_MORE": "عرض المزيد"
+    },
+    "WHY_US": {
+      "WATERMARK": "لماذا نحن",
+      "LABEL": "لماذا نحن"
+    },
+    "WORKOUTS": {
+      "WATERMARK": "التمارين",
+      "LABEL": "حصة لياقة"
+    },
+    "ABOUT_US": {
+      "WATERMARK": "من نحن",
+      "LABEL": "من نحن"
+    }
+  },
+  "ABOUT": {
+    "HEADLINE_BEFORE": "نُمكّنك لتحقيق",
+    "HEADLINE_ACCENT": "أهداف لياقتك",
+    "HEADLINE_AFTER": "",
+    "INTRO": "نؤمن أن اللياقة أكثر من مجرد تمرين—إنها أسلوب حياة. بمرافقنا المتطورة ومدربينا المعتمدين ومجتمعنا الداعم، نحن هنا لنلهمك ونرشدك في كل خطوة.",
+    "GET_STARTED": "ابدأ الآن",
+    "IMAGE_ALT_1": "مدرب لياقة يحمل kettlebell",
+    "IMAGE_ALT_2": "عضو يتدرب في النادي",
+    "IMAGE_ALT_3": "صورة مدرب شخصي",
+    "FEATURES": {
+      "TRAINER": {
+        "TITLE": "مدرب شخصي",
+        "DESCRIPTION": "حقّق أهداف لياقتك بإرشاد مدربينا المعتمدين."
+      },
+      "CARDIO": {
+        "TITLE": "برامج cardio",
+        "DESCRIPTION": "من الجري المستمر إلى السبرنتات المتقطعة، برامجنا على السير."
+      },
+      "EQUIPMENT": {
+        "TITLE": "معدات عالية الجودة",
+        "DESCRIPTION": "نادينا مجهّز بأحدث أجهزة cardio والقوة."
+      },
+      "NUTRITION": {
+        "TITLE": "تغذية صحية",
+        "DESCRIPTION": "غذِّ رحلة لياقتك بخطط وجبات مخصصة لك."
+      }
+    }
+  },
+  "FOOTER": {
+    "TAGLINE_LINE1": "ادفع بقوة، واصل إلى الأمام. رحلتك",
+    "TAGLINE_LINE2": "اللياقة تبدأ اليوم!",
+    "CONTACT_US": "تواصل معنا",
+    "GYM_TIMING": "مواعيد النادي",
+    "LOCATION": "موقعنا",
+    "HOURS_WEEKDAYS": "الإثنين - الجمعة : 08:00 ص - 10:00 م",
+    "HOURS_WEEKEND": "السبت - الأحد : 08:00 ص - 09:00 م",
+    "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
+    "LOCATION_LINE2": "Dakota 83475"
+  },
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "انقر للإغلاق",
+    "HEY_ASK_ME": "اسألني الآن",
+    "SMART_COACH": "المدرب الذكي",
+    "PREVIOUS_CONVERSATIONS": "المحادثات السابقة",
+    "INPUT_PLACEHOLDER": "اسألني أي شيء",
+    "NEW_CONVERSATION": "محادثة جديدة"
+  },
+  "NAV": {
+    "HOME": "الرئيسية",
+    "ABOUT": "من نحن",
+    "CLASSES": "التمارين",
+    "HEALTHY": "صحي",
+    "LOGIN": "تسجيل الدخول",
+    "SIGN_UP": "إنشاء حساب",
+    "LOGOUT": "تسجيل الخروج",
+    "PROFILE": "الملف الشخصي",
+    "USER_MENU": "قائمة المستخدم",
+    "TOGGLE_MENU": "تبديل القائمة"
+  },
+  "HERO": {
+    "TITLE_PART1": "جسدك يمكنه",
+    "STAND": "تحمل",
+    "ALMOST": "أي شيء",
+    "TITLE_PART2": "تقريبًا",
+    "SUBTEXT": "عقلك هو ما يحتاج إلى الإقناع. تجاوز حدودك، والتزم بالهدف، وشاهد كيف يتحول جسدك إلى قوة هائلة من الصلابة والمرونة. ابدأ رحلتك اليوم واكتشف قدراتك الحقيقية!",
+    "MEMBERS_COUNT": "1200+",
+    "MEMBERS_LABEL": "عضو نشط",
+    "TRAINERS_COUNT": "12+",
+    "TRAINERS_LABEL": "مدرب معتمد",
+    "EXPERIENCE_COUNT": "20+",
+    "EXPERIENCE_LABEL": "سنوات خبرة",
+    "GET_STARTED": "ابدأ الآن",
+    "EXPLORE_MORE": "استكشف المزيد",
+    "CHATBOT_BTN": "تحدث معي",
+    "TRAINER_ALT": "مدرب لياقة بدنية محترف",
+    "CHATBOT_ALT": "المساعد الآلي الذكي"
+  },
+  "MEAL_CARD": {
+    "READ_MORE": "اقرأ المزيد",
+    "BREAKFAST": "الإفطار",
+    "LUNCH": "الغداء",
+    "DINNER": "العشاء"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "اقرأ المزيد"
+  },
+  "WHY_US": {
+    "TITLE_MAIN": "ارتقِ بياقتك البدنية بـ",
+    "TITLE_HIGHLIGHT": "أفضل طريقة",
+    "TITLE_SUFFIX": "ممكنة",
+    "DESCRIPTION": "نقدم لك رحلة لياقة بدنية مصممة خصيصًا لأهدافك، بدعم من مدربين محترفين ومجتمع مشجع. سواء كان هدفك خسارة الوزن، بناء القوة، أو العناية بالصحة العامة، فإن أساليبنا مثبتة النجاح.",
+    "STEP_1_TITLE": "خطط لياقة مخصصة",
+    "STEP_1_DESC": "نقوم بتصميم كل تمرين ليتناسب مع أهدافك الفريدة ومستوى لياقتك لتضمن تحقيق أقصى تقدم.",
+    "STEP_2_TITLE": "التركيز على نتائج ملموسة",
+    "STEP_2_DESC": "كل ما نقدمه مصمم لمساعدتك على تحقيق نتائج يمكنك قياسها ورؤيتها بدقة.",
+    "STEP_3_TITLE": "معدات حديثة ومتطورة",
+    "STEP_3_DESC": "نوفر أحدث الأجهزة الرياضية من أجهزة الكارديو للأوزان الحرة لتلبية جميع احتياجاتك.",
+    "ALT_IMAGE_1": "رياضي يتدرب على الحلقات",
+    "ALT_IMAGE_2": "رياضي يرفع الأثقال",
+    "ALT_IMAGE_3": "مدرب في صالة ألعاب رياضية حديثة",
+    "ALT_IMAGE_4": "رياضي يقوم بتمارين الإطالة"
+  },
+  "WORKOUTS": {
+    "TITLE_MAIN": "غيّر جسدك مع تماريننا",
+    "TITLE_DYNAMIC": "الديناميكية",
+    "TITLE_HIGHLIGHT": "التمارين القادمة",
+    "FILTER_FULL_BODY": "كامل الجسم",
+    "EXPLORE": "استكشف",
+    "GROUP_WORKOUT": "تمارين جماعية",
+    "PERSONAL_TRAINING": "تدريب شخصي",
+    "MUSCLE_BUILDING": "بناء العضلات",
+    "NO_WORKOUTS": "لا توجد تمارين متاحة لهذه الفئة حالياً.",
+    "PREVIOUS": "السابق",
+    "NEXT": "التالي"
+  }
+}

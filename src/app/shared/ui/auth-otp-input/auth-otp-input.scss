@@ -1,0 +1,10 @@
+.auth-otp-input__box {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.auth-otp-input__box::-webkit-outer-spin-button,
+.auth-otp-input__box::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

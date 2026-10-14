@@ -1,0 +1,42 @@
+<article
+  class="reusable-card group relative flex flex-col w-full overflow-hidden rounded-2xl sm:rounded-3xl border transition-all duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer select-none"
+  [tabindex]="0"
+  [attr.role]="'article'"
+  [attr.aria-label]="title() | translate"
+  (click)="onCardClick()"
+>
+  <!-- Top Portion: Image Container with smooth zoom on hover -->
+  <div class="reusable-card__image-wrapper relative w-full aspect-[4/3] sm:aspect-[1.15/1] overflow-hidden bg-graphite/40">
+    <img
+      [src]="image()"
+      [alt]="alt() || (title() | translate)"
+      class="reusable-card__image h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Bottom Portion: Glassmorphic Frosted Content Panel -->
+  <div class="reusable-card__content relative flex flex-col justify-between p-4 sm:p-5 lg:p-6 backdrop-blur-md transition-colors duration-300">
+    <!-- Card Title -->
+    <h4 class="reusable-card__title font-baloo text-lg sm:text-xl font-bold uppercase tracking-wider truncate mb-2 sm:mb-3">
+      {{ title() | translate }}
+    </h4>
+
+    <!-- Read More CTA Row -->
+    <div class="reusable-card__cta flex items-center justify-between gap-3">
+      <span class="reusable-card__cta-label font-rubik text-xs sm:text-sm font-semibold transition-colors duration-200">
+        {{ ctaLabel() | translate }}
+      </span>
+
+      <span
+        class="reusable-card__cta-btn size-6 sm:size-7 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-sm transition-all duration-200 group-hover:scale-110 group-hover:bg-orange-600"
+        aria-hidden="true"
+      >
+        <svg
+          lucideArrowRight
+          class="size-3 sm:size-3.5 stroke-[2.5] rtl:-scale-x-100 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5"
+        ></svg>
+      </span>
+    </div>
+  </div>
+</article>

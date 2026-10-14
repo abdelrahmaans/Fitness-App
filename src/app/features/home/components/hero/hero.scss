@@ -1,0 +1,84 @@
+.hero {
+  position: relative;
+  background-color: transparent;
+
+  &__glow-1 {
+    background: radial-gradient(circle, rgba(255, 65, 0, 0.09) 0%, transparent 70%);
+  }
+
+  &__glow-2 {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  }
+
+  &__headline-text {
+    color: #ffffff;
+  }
+
+  &__highlight {
+    color: var(--color-orange-500, #ff4100);
+  }
+
+  &__subtext-wrapper {
+    border-color: var(--color-orange-500, #ff4100);
+  }
+
+  &__subtext {
+    color: var(--color-silver, #d3d3d3);
+  }
+
+  &__stat-value {
+    color: #ffffff;
+  }
+
+  &__stat-label {
+    color: var(--color-metal, #6d6d6d);
+  }
+}
+
+// =============================================================================
+// Light Theme Support (matches modern silver-slate aesthetic in mockups)
+// =============================================================================
+:host-context(html.light) {
+  .hero {
+    &__glow-1 {
+      background: radial-gradient(circle, rgba(255, 65, 0, 0.06) 0%, transparent 70%);
+    }
+
+    &__glow-2 {
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    }
+
+    &__headline-text {
+      color: #1e293b !important;
+    }
+
+    &__subtext {
+      color: #334155 !important;
+    }
+
+    &__stat-value {
+      color: #0f172a !important;
+    }
+
+    &__stat-label {
+      color: #475569 !important;
+    }
+
+    &__btn--secondary {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-color: var(--color-orange-500, #ff4100);
+      color: var(--color-orange-500, #ff4100);
+
+      &:hover {
+        background-color: rgba(255, 65, 0, 0.08);
+      }
+    }
+  }
+}
+
+// RTL adjustments
+[dir='rtl'] {
+  .rtl\:-scale-x-100 {
+    transform: scaleX(-1);
+  }
+}

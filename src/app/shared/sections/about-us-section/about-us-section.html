@@ -1,0 +1,102 @@
+<section
+  class="about-us-section bg-white px-4 py-14 text-ink transition-colors duration-300 sm:px-6 lg:px-8 lg:py-20 dark:bg-ink dark:text-white"
+  aria-labelledby="about-us-heading"
+>
+  <div class="mx-auto max-w-7xl">
+    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-[80px]" dir="ltr">
+      <div
+        class="about-us-section__collage relative mx-auto flex w-max max-w-full items-start gap-[20px] pb-6 lg:mx-0 lg:justify-self-start"
+        dir="ltr"
+      >
+        <img
+          class="relative z-[1] block h-[300px] w-[200px] shrink-0 rounded-[18px] object-cover object-center sm:h-[380px] sm:w-[260px] lg:h-[440px] lg:w-[320px]"
+          src="images/about-us-1.webp"
+          [alt]="'ABOUT.IMAGE_ALT_1' | translate"
+          width="420"
+          height="520"
+          loading="lazy"
+        />
+
+        <div
+          class="relative z-[2] flex w-[168px] shrink-0 flex-col gap-[20px] pt-12 sm:w-[200px] sm:pt-16 lg:w-[240px] lg:pt-20"
+        >
+          <img
+            class="aspect-[5/4] w-full rounded-[18px] object-cover object-center sm:aspect-[4/3]"
+            src="images/about-us-2.webp"
+            [alt]="'ABOUT.IMAGE_ALT_2' | translate"
+            width="280"
+            height="210"
+            loading="lazy"
+          />
+          <img
+            class="relative z-[3] h-[300px] w-[calc(100%+8rem)] max-w-[460px] self-end rounded-[18px] object-cover object-[center_top] sm:h-[350px] lg:h-[420px] lg:object-[left_20%] -ms-[8rem]"
+            src="images/about-us-3.webp"
+            [alt]="'ABOUT.IMAGE_ALT_3' | translate"
+            width="280"
+            height="360"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col text-start">
+        <app-section-title
+          backgroundTitleKey="SECTION_TITLE.ABOUT_US.WATERMARK"
+          labelKey="SECTION_TITLE.ABOUT_US.LABEL"
+          align="start"
+        />
+
+        <h2
+          id="about-us-heading"
+          class="mt-5 font-baloo text-2xl font-extrabold uppercase leading-tight tracking-tight text-ink sm:text-3xl lg:text-4xl dark:text-white"
+        >
+          {{ 'ABOUT.HEADLINE_BEFORE' | translate }}
+          <span class="text-orange-500">{{ 'ABOUT.HEADLINE_ACCENT' | translate }}</span>
+          {{ 'ABOUT.HEADLINE_AFTER' | translate }}
+        </h2>
+
+        <p
+          class="mt-4 max-w-xl font-rubik text-sm leading-relaxed text-metal sm:text-base dark:text-silver"
+        >
+          {{ 'ABOUT.INTRO' | translate }}
+        </p>
+
+        <ul class="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6">
+          @for (feature of features; track feature.titleKey; let i = $index) {
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0" aria-hidden="true">
+                <app-right-arrow-icon sizeClass="size-4 max-w-[22px]" />
+              </span>
+              <div class="min-w-0">
+                <h3 class="font-baloo text-base font-bold text-ink dark:text-white">
+                  {{ feature.titleKey | translate }}
+                </h3>
+                <p class="mt-1 font-rubik text-xs leading-relaxed text-metal sm:text-sm dark:text-silver">
+                  {{ feature.descriptionKey | translate }}
+                </p>
+              </div>
+            </li>
+            @if (i === 1) {
+              <li class="col-span-1 list-none sm:col-span-2" aria-hidden="true">
+                <hr class="m-0 border-0 border-t border-metal/25 dark:border-white/20" />
+              </li>
+            }
+          }
+        </ul>
+
+        <a
+          routerLink="/auth/register"
+          class="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-orange-500 px-6 py-3 font-baloo text-sm font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+        >
+          <span>{{ 'ABOUT.GET_STARTED' | translate }}</span>
+          <span
+            class="flex size-5 shrink-0 items-center justify-center rounded-full border border-white sm:size-6"
+            aria-hidden="true"
+          >
+            <app-right-arrow-icon variant="white" sizeClass="size-4 max-w-[20px] sm:size-5 sm:max-w-[22px]" />
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

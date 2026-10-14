@@ -1,0 +1,199 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.previous-conversations {
+  display: flex;
+  flex-direction: column;
+  background: #1c1c1ebe;
+  border-radius: 16px;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.675),
+    0 0 0 1px rgba(255, 255, 255, 0.125);
+  padding: 1.25rem 1.125rem;
+  max-height: calc(75vh - 32px);
+  overflow: hidden;
+
+  // ------ Header ------
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.875rem;
+  }
+
+  &__title {
+    font-family: var(--font-rubik, Rubik, sans-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  &__new-btn {
+    background: none;
+    border: none;
+    color: #ffffff !important;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  &__new-icon {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+
+    line,
+    path {
+      stroke: #ffffff !important;
+    }
+  }
+
+  // ------ List ------
+  &__list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0.25rem;
+    background: none;
+    border: none;
+    color: #d1d1d1;
+    font-family: var(--font-rubik, Rubik, sans-serif);
+    font-size: 0.8125rem;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+      color 0.15s ease,
+      padding-left 0.15s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      color: #ffffff;
+      padding-left: 0.25rem;
+
+      .previous-conversations__item-arrow {
+        transform: translateX(2px);
+      }
+    }
+  }
+
+  &__item-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 0.625rem;
+  }
+
+  &__item-arrow {
+    flex-shrink: 0;
+    color: #ff4100;
+    transition: transform 0.15s ease;
+
+    :host-context([dir="rtl"]) & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // ------ Empty State ------
+  &__empty {
+    font-family: var(--font-rubik, Rubik, sans-serif);
+    font-size: 0.8125rem;
+    color: #888;
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+    margin: 0;
+  }
+}
+
+// ------ Light Mode Support ------
+:host-context(html.light) {
+  .previous-conversations {
+    background: #ffffff;
+    box-shadow:
+      0 20px 45px -10px rgba(15, 23, 42, 0.18),
+      0 0 0 1px rgba(226, 232, 240, 0.9);
+
+    &__title {
+      color: #0f172a;
+    }
+
+    &__new-btn {
+      color: #0f172a !important;
+
+      &:hover {
+        color: #ff4100 !important;
+
+        .previous-conversations__new-icon,
+        .previous-conversations__new-icon line,
+        .previous-conversations__new-icon path {
+          stroke: #ff4100 !important;
+        }
+      }
+    }
+
+    &__new-icon {
+      color: #0f172a !important;
+      stroke: #0f172a !important;
+
+      line,
+      path {
+        stroke: #0f172a !important;
+      }
+    }
+
+    &__list {
+      &::-webkit-scrollbar-thumb {
+        background: rgba(15, 23, 42, 0.15);
+      }
+    }
+
+    &__item {
+      color: #334155;
+      border-bottom-color: #e2e8f0;
+
+      &:hover {
+        color: #0f172a;
+        background-color: #f8fafc;
+      }
+    }
+
+    &__empty {
+      color: #64748b;
+    }
+  }
+}

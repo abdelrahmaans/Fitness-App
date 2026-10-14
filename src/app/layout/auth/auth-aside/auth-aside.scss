@@ -1,0 +1,31 @@
+:host {
+  --auth-scale: min(100dvh / 1024px, 50vw / 720px);
+  display: block;
+  height: 100%;
+  min-height: 0;
+}
+
+.auth-aside {
+  box-sizing: border-box;
+  padding-inline: calc(32px * var(--auth-scale));
+  padding-block: calc(153px * var(--auth-scale));
+
+  @media (min-width: 1024px) {
+    border-right: calc(2px * var(--auth-scale)) solid rgb(255 65 0 / 0.2);
+    box-shadow: 0 calc(4px * var(--auth-scale)) calc(79.8px * var(--auth-scale))
+      calc(47px * var(--auth-scale)) rgb(0 0 0 / 0.25);
+  }
+}
+
+.auth-aside-logo {
+  width: calc(243px * var(--auth-scale));
+  height: auto;
+  margin-bottom: calc(80px * var(--auth-scale));
+}
+
+.auth-aside-image {
+  width: calc(628px * var(--auth-scale));
+  height: calc(474px * var(--auth-scale));
+  max-width: 100%;
+  object-fit: contain;
+}

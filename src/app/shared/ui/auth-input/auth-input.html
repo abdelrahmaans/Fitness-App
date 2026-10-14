@@ -1,0 +1,48 @@
+<div class="auth-input flex w-full flex-col gap-1">
+  <div
+    class="auth-input__field flex items-center gap-2 rounded-[20px] border bg-transparent px-4 py-3.5 transition-colors focus-within:border-orange-500"
+    [class.border-muted]="!errorMessage"
+    [class.border-red-500]="errorMessage"
+  >
+    <svg
+      class="auth-input__icon size-4 shrink-0 text-silver"
+      [lucideIcon]="leadingIcon()"
+      aria-hidden="true"
+    ></svg>
+
+    <input
+      class="auth-input__control min-w-0 flex-1 border-0 bg-transparent p-0 font-rubik text-sm text-white outline-none placeholder:text-silver"
+      [id]="id"
+      [type]="inputType()"
+      [placeholder]="placeholder()"
+      [attr.aria-label]="placeholder()"
+      [attr.autocomplete]="autocomplete()"
+      [attr.aria-invalid]="!!errorMessage"
+      [attr.aria-describedby]="errorMessage ? errorId : null"
+      [value]="value()"
+      [disabled]="disabled()"
+      (input)="handleInput($event)"
+      (blur)="handleBlur()"
+    />
+
+    @if (type() === 'password') {
+      <button
+        type="button"
+        class="auth-input__toggle flex shrink-0 cursor-pointer text-silver transition-colors hover:text-white"
+        [attr.aria-label]="passwordVisible() ? 'Hide password' : 'Show password'"
+        [attr.aria-pressed]="passwordVisible()"
+        (click)="togglePassword()"
+      >
+        @if (passwordVisible()) {
+          <svg lucideEyeOff class="size-4" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideEye class="size-4" aria-hidden="true"></svg>
+        }
+      </button>
+    }
+  </div>
+
+  @if (errorMessage; as message) {
+    <app-auth-error [id]="errorId" [message]="message" />
+  }
+</div>

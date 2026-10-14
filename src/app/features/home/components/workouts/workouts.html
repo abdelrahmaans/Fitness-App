@@ -1,0 +1,120 @@
+<section class="workouts relative isolate w-full overflow-hidden py-10 sm:py-14 lg:py-0 lg:h-[771px] transition-colors duration-300 flex flex-col justify-start">
+  <!-- 1. Background Gym Photo (spans entire section) -->
+  <div class="workouts__bg-photo absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <img
+      src="/images/workouts-bg.webp"
+      alt=""
+      class="h-full w-full object-cover object-center"
+      loading="lazy"
+    />
+    <!-- Base dark wash over photo -->
+    <div class="workouts__bg-dark-overlay absolute inset-0 transition-colors duration-300"></div>
+  </div>
+
+  <!-- 2. Horizontal Grey Banner Strip (#AEAEAD in Light Mode) behind header & upper half of cards -->
+  <div class="workouts__banner-strip absolute inset-x-0 z-[1] transition-colors duration-300 pointer-events-none" aria-hidden="true"></div>
+
+  <!-- 3. Foreground Content -->
+  <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8 w-full lg:pt-[58px]">
+    <!-- Center Watermark & Subtitle -->
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
+      labelKey="SECTION_TITLE.WORKOUTS.LABEL"
+      align="center"
+    />
+
+    <!-- Main Headline with UPCOMING WORKOUTS highlighted in orange -->
+    <h2 class="workouts__headline text-center font-baloo text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[30px] font-extrabold uppercase tracking-tight mt-1 sm:mt-2 mb-3 sm:mb-4 max-w-3xl leading-snug">
+      {{ 'WORKOUTS.TITLE_MAIN' | translate }} <br />
+      <span>{{ 'WORKOUTS.TITLE_DYNAMIC' | translate }} </span>
+      <span class="text-orange-500">{{ 'WORKOUTS.TITLE_HIGHLIGHT' | translate }}</span>
+    </h2>
+
+    <!-- Horizontal Category Filter Bar -->
+    <nav
+      class="workouts__filters flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar w-full max-w-4xl py-2 px-2"
+      aria-label="Muscle Categories Filter"
+    >
+      <!-- 'Full Body' Primary Pill -->
+      <button
+        type="button"
+        (click)="selectCategory('all')"
+        class="workouts__filter-btn transition-all duration-200 shrink-0 rounded-full px-5 py-2 font-baloo text-sm sm:text-base font-bold tracking-wider uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+        [class.workouts__filter-btn--active]="activeCategory() === 'all'"
+      >
+        {{ 'WORKOUTS.FILTER_FULL_BODY' | translate }}
+      </button>
+
+      <!-- Backend API Muscle Categories -->
+      @for (group of muscleGroups(); track group._id) {
+        <button
+          type="button"
+          (click)="selectCategory(group._id)"
+          class="workouts__filter-btn transition-all duration-200 shrink-0 rounded-full px-4 sm:px-5 py-2 font-baloo text-sm sm:text-base font-semibold tracking-wider uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+          [class.workouts__filter-btn--active]="activeCategory() === group._id"
+        >
+          {{ group.name }}
+        </button>
+      }
+    </nav>
+
+    <!-- Interactive Carousel Cards Track Viewport -->
+    <div
+      class="workouts__carousel-viewport relative w-full overflow-hidden max-w-6xl mx-auto mt-4 sm:mt-6 select-none"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      @if (isLoading()) {
+        <div class="flex items-center justify-center min-h-[380px] w-full" aria-busy="true">
+          <div class="size-12 rounded-full border-4 border-orange-500 border-t-transparent animate-spin"></div>
+        </div>
+      } @else if (items().length === 0) {
+        <div class="flex items-center justify-center min-h-[300px] w-full text-center">
+          <p class="font-rubik text-base sm:text-lg text-gray-300">
+            {{ 'WORKOUTS.NO_WORKOUTS' | translate }}
+          </p>
+        </div>
+      } @else {
+        <div
+          class="workouts__carousel-track flex transition-transform duration-500 ease-out will-change-transform"
+          [style.transform]="trackTransform()"
+        >
+          @for (item of items(); track item.id; let idx = $index) {
+            <div
+              class="workouts__carousel-slide flex-shrink-0 px-2.5 sm:px-3.5 box-border"
+              [style.width]="slideWidth()"
+            >
+              <app-reusable-card
+                [title]="item.title"
+                [image]="item.image"
+                [alt]="item.alt ?? item.title"
+                ctaLabel="WORKOUTS.EXPLORE"
+                (cardClick)="onCardClick(item)"
+              />
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Pagination Dots -->
+    @if (!isLoading() && items().length > 0) {
+      <div
+        class="workouts__pagination flex items-center justify-center gap-2.5 mt-8 sm:mt-12"
+        role="tablist"
+        aria-label="Workouts Carousel Pagination"
+      >
+        @for (page of pages(); track $index) {
+          <button
+            type="button"
+            (click)="goToSlide($index)"
+            class="workouts__dot transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+            [class.workouts__dot--active]="currentSlide() === $index"
+            [attr.aria-label]="'Slide ' + ($index + 1)"
+            [attr.aria-selected]="currentSlide() === $index"
+          ></button>
+        }
+      </div>
+    }
+  </div>
+</section>

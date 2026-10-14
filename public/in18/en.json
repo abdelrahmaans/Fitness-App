@@ -1,0 +1,260 @@
+{
+  "WELCOME": "Welcome to Super Fitness",
+  "APP_TITLE": "Super Fitness",
+  "LANGUAGE": "Language",
+  "ENGLISH": "English",
+  "ARABIC": "العربية",
+  "SWITCH_TO_ARABIC": "العربية",
+  "SWITCH_TO_ENGLISH": "English",
+  "CURRENT_LANGUAGE": "English",
+  "COMMON": {
+    "OR": "Or",
+    "SUBMIT": "Submit",
+    "CANCEL": "Cancel",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SAVE": "Save",
+    "CONFIRM": "Confirm",
+    "DONE": "Done",
+    "LOADING": "Loading...",
+    "SENDING": "Sending...",
+    "RESEND_CODE": "Resend Code"
+  },
+  "AUTH": {
+    "BUTTONS": {
+      "LOGIN": "Login",
+      "REGISTER": "Register",
+      "NEXT": "Next",
+      "PREVIOUS": "Previous",
+      "DONE": "Done",
+      "CONFIRM": "Confirm",
+      "SENTOTP": "Send OTP"
+    },
+    "LOGIN_PAGE": {
+      "LEAD": "Hey There",
+      "HEADLINE": "WELCOME BACK",
+      "TITLE": "Login",
+      "EMAIL_PLACEHOLDER": "Email",
+      "PASSWORD_PLACEHOLDER": "Password",
+      "FORGOT_PASSWORD": "Forgot Password?",
+      "NO_ACCOUNT": "Dont Have An Account Yet ? ",
+      "REGISTER_LINK": "Register"
+    },
+    "REGISTER_PAGE": {
+      "LEAD": "Hey There",
+      "HEADLINE": "Create An Account",
+      "TITLE": "Register",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "RE_PASSWORD": "Re-Password",
+      "FORGOT_PASSWORD": "Forget Password ?",
+      "ALREADY_HAVE_ACCOUNT": "Already Have An Account ? ",
+      "LOGIN_LINK": "Login"
+    },
+    "FORGOT_PASSWORD_PAGE": {
+      "HEADLINE": "Forget Password",
+      "LABEL": "Enter Your Email",
+      "EMAIL_PLACEHOLDER": "Email",
+      "SEND_OTP": "Send OTP"
+    },
+    "VERIFY_CODE_PAGE": {
+      "HEADLINE": "OTP CODE",
+      "LABEL": "Enter Your OTP Check Your Email",
+      "CONFIRM": "Confirm",
+      "DIDNT_RECEIVE": "Didn't Receive Verification Code? ",
+      "RESEND": "Resend Code",
+      "SENDING": "Sending..."
+    },
+    "RESET_PASSWORD_PAGE": {
+      "HEADLINE": "Create New Password",
+      "INSTRUCTION": "Make Sure Its 8 Characters Or More",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "SAVE": "Save"
+    }
+  },
+  "ONBOARDING": {
+    "GENDER": {
+      "HEADLINE": "tell us about yourself!",
+      "SUPPORT": "We Need To Know Your Gender",
+      "MALE": "Male",
+      "FEMALE": "Female"
+    },
+    "AGE": {
+      "HEADLINE": "How Old Are You ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "yr"
+    },
+    "WEIGHT": {
+      "HEADLINE": "what is your weight ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "kg"
+    },
+    "HEIGHT": {
+      "HEADLINE": "what is your height ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "UNIT": "cm"
+    },
+    "GOAL": {
+      "HEADLINE": "What Is Your Goal ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "GAIN_WEIGHT": "Gain Weight",
+      "LOSE_WEIGHT": "Lose Weight",
+      "GET_FITTER": "Get Fitter",
+      "GAIN_FLEXIBLE": "Gain More Flexible",
+      "LEARN_BASIC": "Learn The Basic"
+    },
+    "ACTIVITY": {
+      "HEADLINE": "Your Regular Physical Activity Level ?",
+      "SUPPORT": "This Helps Us Create Your Personalized Plan",
+      "ROOKIE": "Rookie",
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCE": "Advance",
+      "TRUE_BEAST": "True Beast"
+    }
+  },
+  "HOME": {
+    "WELCOME_BACK": "Welcome Back to Super Fitness",
+    "DASHBOARD": "Dashboard"
+  },
+  "SECTION_TITLE": {
+    "HEALTHY": {
+      "WATERMARK": "HEALTHY",
+      "LABEL": "Healthy Nutritions",
+      "HEADING_PART1": "FUEL YOUR FITNESS JOURNEY WITH CUSTOMIZED",
+      "HEADING_HIGHLIGHT": "MEAL PLANS",
+      "HEADING_PART2": "FOR YOU",
+      "SEE_MORE": "See More"
+    },
+    "WHY_US": {
+      "WATERMARK": "WHY US",
+      "LABEL": "Why Us"
+    },
+    "WORKOUTS": {
+      "WATERMARK": "WORKOUTS",
+      "LABEL": "Fitness Class"
+    },
+    "ABOUT_US": {
+      "WATERMARK": "ABOUT US",
+      "LABEL": "About Us"
+    }
+  },
+  "ABOUT": {
+    "HEADLINE_BEFORE": "EMPOWERING YOU TO ACHIEVE",
+    "HEADLINE_ACCENT": "YOUR FITNESS",
+    "HEADLINE_AFTER": "GOALS",
+    "INTRO": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+    "GET_STARTED": "Get Started",
+    "IMAGE_ALT_1": "Fitness trainer holding a kettlebell",
+    "IMAGE_ALT_2": "Member training in the gym",
+    "IMAGE_ALT_3": "Personal trainer portrait",
+    "FEATURES": {
+      "TRAINER": {
+        "TITLE": "Personal Trainer",
+        "DESCRIPTION": "Achieve your fitness goals with the guidance of our certified trainers."
+      },
+      "CARDIO": {
+        "TITLE": "Cardio Programs",
+        "DESCRIPTION": "From steady-state runs to interval sprints, our treadmill programs."
+      },
+      "EQUIPMENT": {
+        "TITLE": "Quality Equipment",
+        "DESCRIPTION": "Our gym is equipped with the latest cardio & strength machines."
+      },
+      "NUTRITION": {
+        "TITLE": "Healthy Nutritions",
+        "DESCRIPTION": "Fuel your fitness journey with customized meal plans for you."
+      }
+    }
+  },
+  "FOOTER": {
+    "TAGLINE_LINE1": "Push harder, go further. Your",
+    "TAGLINE_LINE2": "fitness journey starts today!",
+    "CONTACT_US": "Contact Us",
+    "GYM_TIMING": "Our Gym Timing",
+    "LOCATION": "Our Location",
+    "HOURS_WEEKDAYS": "Mon - Fri : 08:00 AM - 10:00 PM",
+    "HOURS_WEEKEND": "Sat - Sun : 08:00 AM - 09:00 PM",
+    "LOCATION_LINE1": "2715 Ash Dr. San Jose, South",
+    "LOCATION_LINE2": "Dakota 83475"
+  },
+  "CHATBOT": {
+    "TAP_TO_CLOSE": "Tap To Close",
+    "HEY_ASK_ME": "Hey Ask Me",
+    "SMART_COACH": "Smart Coach",
+    "PREVIOUS_CONVERSATIONS": "Previous Conversations",
+    "INPUT_PLACEHOLDER": "Ask Me Any Things",
+    "NEW_CONVERSATION": "New Conversation"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "CLASSES": "Classes",
+    "HEALTHY": "Healthy",
+    "LOGIN": "LOGIN",
+    "SIGN_UP": "SIGN UP",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile",
+    "USER_MENU": "User Menu",
+    "TOGGLE_MENU": "Toggle Navigation Menu"
+  },
+  "HERO": {
+    "TITLE_PART1": "YOUR BODY CAN",
+    "STAND": "STAND",
+    "ALMOST": "ALMOST",
+    "TITLE_PART2": "ANYTHING",
+    "SUBTEXT": "It's your mind that needs convincing. Push past your limits, stay committed, and watch as your body transform into powerhouse of strength and resilience. Start your journey today & truly capable of!",
+    "MEMBERS_COUNT": "1200+",
+    "MEMBERS_LABEL": "Active Members",
+    "TRAINERS_COUNT": "12+",
+    "TRAINERS_LABEL": "Certified Trainers",
+    "EXPERIENCE_COUNT": "20+",
+    "EXPERIENCE_LABEL": "Year Of Experience",
+    "GET_STARTED": "Get Started",
+    "EXPLORE_MORE": "Explore More",
+    "CHATBOT_BTN": "Hey Ask Me",
+    "TRAINER_ALT": "Professional Fitness Trainer",
+    "CHATBOT_ALT": "Fitness AI Assistant Robot"
+  },
+  "MEAL_CARD": {
+    "READ_MORE": "Read More",
+    "BREAKFAST": "BREAKFAST",
+    "LUNCH": "LUNCH",
+    "DINNER": "DINNER"
+  },
+  "REUSABLE_CARD": {
+    "READ_MORE": "Read More"
+  },
+  "WHY_US": {
+    "TITLE_MAIN": "ELEVATE FITNESS WITH THE",
+    "TITLE_HIGHLIGHT": "BEST WAY",
+    "TITLE_SUFFIX": "POSSIBLE",
+    "DESCRIPTION": "We offer a fitness journey that's tailored to your goals, supported by professional trainers and a welcoming community. Whether it's weight loss, strength building, or overall wellness, our proven methods.",
+    "STEP_1_TITLE": "Personalized Fitness Plans",
+    "STEP_1_DESC": "We tailor every workout to fit your unique goals and fitness level ensuring that you make the most progress.",
+    "STEP_2_TITLE": "Results-Driven Focus",
+    "STEP_2_DESC": "Everything we do is designed to help you achieve measurable results, whether you're aiming for weight loss.",
+    "STEP_3_TITLE": "State-Of-The-Art Equipment",
+    "STEP_3_DESC": "We provide the latest in gym equipment, from cardio machines to free weights, designed to support every type.",
+    "ALT_IMAGE_1": "Gymnast training on rings",
+    "ALT_IMAGE_2": "Bodybuilder curling dumbbells",
+    "ALT_IMAGE_3": "Trainer in modern gym",
+    "ALT_IMAGE_4": "Athlete stretching arms"
+  },
+  "WORKOUTS": {
+    "TITLE_MAIN": "TRANSFORM YOUR BODY WITH OUR",
+    "TITLE_DYNAMIC": "DYNAMIC",
+    "TITLE_HIGHLIGHT": "UPCOMING WORKOUTS",
+    "FILTER_FULL_BODY": "Full Body",
+    "EXPLORE": "Explore",
+    "GROUP_WORKOUT": "GROUP WORKOUT",
+    "PERSONAL_TRAINING": "PERSONAL TRAINING",
+    "MUSCLE_BUILDING": "MUSCLE BUILDING",
+    "NO_WORKOUTS": "No workouts found for this category.",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
+  }
+}

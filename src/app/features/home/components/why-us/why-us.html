@@ -1,0 +1,109 @@
+<section class="w-full bg-[#f8f9fa] dark:bg-[#1a1b1e] text-gray-900 dark:text-white py-12 md:py-20 px-4 sm:px-6 font-sans transition-colors duration-300">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+    <!-- Left Column: Content & Timeline -->
+    <div class="flex flex-col">
+
+      <!-- Section Title Component -->
+      <app-section-title
+      backgroundTitleKey="SECTION_TITLE.WHY_US.WATERMARK"
+      labelKey="SECTION_TITLE.WHY_US.LABEL"
+    />
+
+      <!-- Main Headline -->
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug tracking-wide my-3 uppercase text-gray-900 dark:text-white">
+        {{ 'WHY_US.TITLE_MAIN' | translate }} <br />
+        <span class="text-[#ff3b00]">{{ 'WHY_US.TITLE_HIGHLIGHT' | translate }}</span> {{ 'WHY_US.TITLE_SUFFIX' | translate }}
+      </h2>
+
+      <!-- Paragraph Description -->
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-lg">
+        {{ 'WHY_US.DESCRIPTION' | translate }}
+      </p>
+
+      <!-- Timeline Steps -->
+      <div class="flex flex-col">
+
+        <!-- Step 1 -->
+        <div class="flex gap-5 rtl:gap-5">
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#ff3b00] text-white font-bold text-sm flex items-center justify-center shrink-0">
+              01
+            </div>
+            <div class="w-px flex-grow my-2 bg-gray-300 dark:bg-white/15"></div>
+          </div>
+          <div class="pb-7">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mt-1.5 mb-1.5">
+              {{ 'WHY_US.STEP_1_TITLE' | translate }}
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              {{ 'WHY_US.STEP_1_DESC' | translate }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-5 rtl:gap-5">
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#ff3b00] text-white font-bold text-sm flex items-center justify-center shrink-0">
+              02
+            </div>
+            <div class="w-px flex-grow my-2 bg-gray-300 dark:bg-white/15"></div>
+          </div>
+          <div class="pb-7">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mt-1.5 mb-1.5">
+              {{ 'WHY_US.STEP_2_TITLE' | translate }}
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              {{ 'WHY_US.STEP_2_DESC' | translate }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-5 rtl:gap-5">
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#ff3b00] text-white font-bold text-sm flex items-center justify-center shrink-0">
+              03
+            </div>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mt-1.5 mb-1.5">
+              {{ 'WHY_US.STEP_3_TITLE' | translate }}
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              {{ 'WHY_US.STEP_3_DESC' | translate }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Column: Staggered Gallery -->
+    <div class="w-full grid grid-cols-2 gap-3 sm:gap-4 items-start">
+
+      <!-- Gallery Left Column -->
+      <div class="flex flex-col gap-3 sm:gap-4">
+        <div class="w-full overflow-hidden rounded-2xl aspect-[4/5] group">
+          <img src="/images/why-us-1.webp" [alt]="'WHY_US.ALT_IMAGE_1' | translate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+        <div class="w-full overflow-hidden rounded-2xl aspect-square group">
+          <img src="/images/why-us-3.webp" [alt]="'WHY_US.ALT_IMAGE_3' | translate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Gallery Right Column (Offset Downward) -->
+      <div class="flex flex-col gap-3 sm:gap-4 pt-12 sm:pt-16">
+        <div class="w-full overflow-hidden rounded-2xl aspect-square group">
+          <img src="/images/why-us-2.webp" [alt]="'WHY_US.ALT_IMAGE_2' | translate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+        <div class="w-full overflow-hidden rounded-2xl aspect-[4/5] group">
+          <img src="/images/why-us-4.webp" [alt]="'WHY_US.ALT_IMAGE_4' | translate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

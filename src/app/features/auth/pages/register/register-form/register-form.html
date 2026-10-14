@@ -1,0 +1,72 @@
+<div class="register-form flex w-full flex-col gap-4">
+  <app-auth-heading
+    [lead]="'AUTH.REGISTER_PAGE.LEAD' | translate"
+    [headline]="'AUTH.REGISTER_PAGE.HEADLINE' | translate"
+  />
+
+  <form
+    class="register-form__form flex w-full flex-col gap-4 rounded-[50px] border border-muted px-[87.5px] py-[40px]"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <h2 class="register-form__title m-0 text-center font-baloo text-xl font-bold text-white">
+      {{ 'AUTH.REGISTER_PAGE.TITLE' | translate }}
+    </h2>
+
+    <app-auth-input
+      type="text"
+      [placeholder]="'AUTH.REGISTER_PAGE.FIRST_NAME' | translate"
+      formControlName="firstName"
+      autocomplete="given-name"
+    />
+
+    <app-auth-input
+      type="text"
+      [placeholder]="'AUTH.REGISTER_PAGE.LAST_NAME' | translate"
+      formControlName="lastName"
+      autocomplete="family-name"
+    />
+
+    <app-auth-input
+      type="email"
+      [placeholder]="'AUTH.REGISTER_PAGE.EMAIL' | translate"
+      formControlName="email"
+      autocomplete="email"
+    />
+
+    <app-auth-input
+      type="password"
+      [placeholder]="'AUTH.REGISTER_PAGE.PASSWORD' | translate"
+      formControlName="password"
+      autocomplete="new-password"
+    />
+
+    <div class="register-form__password flex flex-col gap-1">
+      <app-auth-input
+        type="password"
+        [placeholder]="'AUTH.REGISTER_PAGE.RE_PASSWORD' | translate"
+        formControlName="rePassword"
+        autocomplete="new-password"
+      />
+      <app-auth-link customClass="text-end">
+        <a link routerLink="/auth/forgot-password" class="font-rubik text-sm">
+          {{ 'AUTH.REGISTER_PAGE.FORGOT_PASSWORD' | translate }}
+        </a>
+      </app-auth-link>
+    </div>
+
+    <div class="register-form__social flex flex-col gap-3">
+      <app-auth-or-divider />
+      <app-auth-social-media-icons />
+    </div>
+
+    <div class="register-form__cta flex flex-col gap-2">
+      <app-auth-button kind="next" type="submit" />
+
+      <app-auth-link>
+        <span text>{{ 'AUTH.REGISTER_PAGE.ALREADY_HAVE_ACCOUNT' | translate }}</span>
+        <a link routerLink="/auth/login">{{ 'AUTH.REGISTER_PAGE.LOGIN_LINK' | translate }}</a>
+      </app-auth-link>
+    </div>
+  </form>
+</div>

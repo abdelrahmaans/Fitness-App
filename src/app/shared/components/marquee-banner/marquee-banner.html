@@ -1,0 +1,19 @@
+<div class="marquee-wrapper" aria-label="Gym Services Banner" role="region">
+  <div class="marquee-track" [style.animation-duration.s]="animationSpeed">
+
+    <div class="marquee-group">
+      @for (service of services; track $index) {
+        <span class="marquee-item">{{ service }}</span>
+        <span class="star-icon" aria-hidden="true">✦</span>
+      }
+    </div>
+
+    <div class="marquee-group" aria-hidden="true">
+      @for (service of services; track $index) {
+        <span class="marquee-item">{{ service }}</span>
+        <span class="star-icon" aria-hidden="true">✦</span>
+      }
+    </div>
+
+  </div>
+</div>

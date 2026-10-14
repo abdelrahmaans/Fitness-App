@@ -1,0 +1,55 @@
+<section class="healthy-nutrition">
+  <div class="healthy-nutrition__container">
+    <!-- Section Title: watermark + label -->
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.HEALTHY.WATERMARK"
+      labelKey="SECTION_TITLE.HEALTHY.LABEL"
+      align="center"
+    />
+
+    <!-- Heading with highlighted "MEAL PLANS" -->
+    <h2 class="healthy-nutrition__heading">
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART1' | translate }}
+      <span class="healthy-nutrition__heading--highlight">
+        {{ 'SECTION_TITLE.HEALTHY.HEADING_HIGHLIGHT' | translate }}
+      </span>
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART2' | translate }}
+    </h2>
+
+    <!-- Meal Cards Grid -->
+    <div class="healthy-nutrition__cards">
+      @for (card of visibleCards(); track card.id) {
+        <app-reusable-card
+          [title]="card.titleKey"
+          [image]="card.image"
+          [alt]="card.alt"
+          ctaLabel="MEAL_CARD.READ_MORE"
+        />
+      }
+    </div>
+
+    <!-- Carousel Pagination (Desktop/Tablet) -->
+    <div class="healthy-nutrition__pagination mt-8 sm:mt-12 justify-center items-center gap-3 relative z-10 hidden sm:flex" [class.!hidden]="pages().length <= 1">
+      @for (pageIndex of pages(); track pageIndex) {
+        <button 
+          class="healthy-nutrition__dot transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" 
+          [class.healthy-nutrition__dot--active]="activeIndex() === pageIndex"
+          (click)="activeIndex.set(pageIndex)"
+          [attr.aria-label]="'Go to page ' + (pageIndex + 1)"
+        ></button>
+      }
+    </div>
+
+    <!-- See More Button (Mobile) -->
+    @if (!showAllOnMobile() && pages().length > 1) {
+      <div class="healthy-nutrition__see-more w-full mt-6 flex justify-end relative z-10 sm:hidden">
+        <button 
+          class="healthy-nutrition__see-more-btn font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-md"
+          (click)="showAllOnMobile.set(true)"
+        >
+          {{ 'SECTION_TITLE.HEALTHY.SEE_MORE' | translate }}
+        </button>
+      </div>
+    }
+  </div>
+</section>

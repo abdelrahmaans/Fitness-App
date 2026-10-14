@@ -1,0 +1,47 @@
+<section class="register-gender flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full">
+
+  <app-auth-heading
+    step="1/6"
+    [headline]="'ONBOARDING.GENDER.HEADLINE' | translate"
+    [support]="'ONBOARDING.GENDER.SUPPORT' | translate"
+  />
+<!-- Options Container -->
+  <div class="flex flex-col gap-5 mb-10">
+    <!-- Male Option -->
+    <button
+      type="button"
+      (click)="selectGender('male')"
+      [ngClass]="{
+        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': gender() === 'male',
+        'bg-transparent border-gray-500 hover:border-[#FF4500]': gender() !== 'male'
+      }"
+      class="w-24 h-24 rounded-full border-2 text-white flex flex-col items-center justify-center transition-all duration-300 outline-none cursor-pointer">
+      <svg class="w-7 h-7 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="10" cy="14" r="5"></circle>
+        <line x1="19" y1="5" x2="13.6" y2="10.4"></line>
+        <polyline points="19 10 19 5 14 5"></polyline>
+      </svg>
+      <span class="text-xs font-medium">{{ 'ONBOARDING.GENDER.MALE' | translate }}</span>
+    </button>
+
+    <!-- Female Option -->
+    <button
+      type="button"
+      (click)="selectGender('female')"
+      [ngClass]="{
+        'bg-[#FF4500] border-[#FF4500] shadow-lg shadow-[#FF4500]/40': gender() === 'female',
+        'bg-transparent border-gray-500 hover:border-[#FF4500]': gender() !== 'female'
+      }"
+      class="w-24 h-24 rounded-full border-2 text-white flex flex-col items-center justify-center transition-all duration-300 outline-none cursor-pointer">
+      <svg class="w-7 h-7 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="9" r="5"></circle>
+        <line x1="12" y1="14" x2="12" y2="21"></line>
+        <line x1="9" y1="18" x2="15" y2="18"></line>
+      </svg>
+      <span class="text-xs font-medium">{{ 'ONBOARDING.GENDER.FEMALE' | translate }}</span>
+    </button>
+  </div>
+    <div class="register-gender__actions w-full max-w-[344px]">
+    <app-auth-button kind="next" (clicked)="onNext()" />
+  </div>
+</section>

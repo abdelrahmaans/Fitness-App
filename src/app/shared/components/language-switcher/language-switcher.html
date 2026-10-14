@@ -1,0 +1,68 @@
+<div
+  class="relative inline-flex flex-col items-center gap-1.5 rounded-full bg-[#1c1c1e] p-1.5 border border-[#2c2c2e] shadow-2xl backdrop-blur-md select-none transition-all duration-300"
+  role="region"
+  aria-label="Language and theme preferences"
+>
+  <!-- Single Language Toggle Button -->
+  <button
+    type="button"
+    (click)="toggleLanguage()"
+    class="relative z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[#ff4100] text-white font-inter text-xs font-bold tracking-wider shadow-md transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50"
+    [attr.aria-label]="currentLang() === 'en' ? 'Switch to Arabic' : 'Switch to English'"
+    [title]="currentLang() === 'en' ? 'العربية' : 'English'"
+    data-test="toggle-lang"
+  >
+    {{ currentLang() === 'en' ? 'AR' : 'EN' }}
+  </button>
+
+  <!-- Divider -->
+  <div class="h-[1px] w-4 rounded-full bg-[#3a3a3c]" aria-hidden="true"></div>
+
+  <!-- Single Theme Toggle Button -->
+  <button
+    type="button"
+    (click)="toggleTheme()"
+    class="relative z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[#2c2c2e] text-white hover:text-orange-500 hover:bg-[#3a3a3c] transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50"
+    [attr.aria-label]="currentTheme() === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+    [title]="currentTheme() === 'dark' ? 'Light Mode' : 'Dark Mode'"
+    data-test="toggle-theme"
+  >
+    @if (currentTheme() === 'dark') {
+      <!-- Sun Icon (indicating click to switch to light) -->
+      <svg
+        class="h-4.5 w-4.5 text-yellow-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.93 4.93 1.41 1.41"></path>
+        <path d="m17.66 17.66 1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m6.34 17.66-1.41 1.41"></path>
+        <path d="m19.07 4.93-1.41 1.41"></path>
+      </svg>
+    } @else {
+      <!-- Moon Icon (indicating click to switch to dark) -->
+      <svg
+        class="h-4.5 w-4.5 text-orange-400"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      </svg>
+    }
+  </button>
+</div>

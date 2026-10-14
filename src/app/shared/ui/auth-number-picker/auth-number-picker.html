@@ -1,0 +1,41 @@
+<div class="auth-number-picker block w-full max-w-[344px]">
+  <div class="auth-number-picker__track">
+    <div
+      class="auth-number-picker__row flex w-full"
+      [class.auth-number-picker__row--dragging]="isDragging()"
+      role="slider"
+      [style.transform]="rowTransform()"
+      [attr.aria-valuemin]="min()"
+      [attr.aria-valuemax]="max()"
+      [attr.aria-valuenow]="value()"
+      [attr.aria-label]="unitLabel()"
+      (pointerdown)="onPointerDown($event)"
+      (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp($event)"
+      (pointercancel)="onPointerCancel($event)"
+    >
+      @for (n of windowNumbers(); track n) {
+        <div class="auth-number-picker__slot">
+          @if (isSelected(n)) {
+            <span class="auth-number-picker__unit font-baloo text-base font-medium leading-none text-orange-500">
+              {{ unitLabel() }}
+            </span>
+          }
+
+          <button
+            type="button"
+            class="auth-number-picker__item shrink-0 font-baloo tabular-nums transition-[color,font-size,opacity] duration-150 ease-out"
+            [class]="itemDistanceClass(n)"
+            (click)="selectValue(n, $event)"
+          >
+            {{ n }}
+          </button>
+
+          @if (isSelected(n)) {
+            <div class="auth-number-picker__caret" aria-hidden="true"></div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

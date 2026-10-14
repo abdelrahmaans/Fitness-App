@@ -1,0 +1,39 @@
+<header
+  class="relative flex w-full max-w-full overflow-visible"
+  [class.justify-start]="align() === 'start'"
+  [class.justify-center]="align() === 'center'"
+>
+  <div
+    class="relative grid max-w-full items-end overflow-visible pb-[0.35rem] max-md:pb-0"
+    [class]="align() === 'start' ? 'inline-grid w-max max-w-full' : 'w-full'"
+  >
+    <h3
+      class="col-start-1 row-start-1 relative z-0 m-0 box-border w-fit max-w-full overflow-visible px-1.5 pb-0.5 pt-2 font-baloo text-[64px] font-extrabold leading-[1.15] tracking-[0.02em] uppercase pointer-events-none select-none text-ink [-webkit-text-fill-color:currentColor] [-webkit-text-stroke:1px_#fff] [paint-order:stroke_fill] section-title-watermark-mask light:text-slate-50 light:[-webkit-text-stroke:1px_var(--color-graphite)] rtl:normal-case"
+      [class.max-md:hidden]="labelKey()"
+      [class.justify-self-start]="align() === 'start'"
+      [class.justify-self-center]="align() === 'center'"
+      [class.text-center]="align() === 'center'"
+      [attr.aria-hidden]="labelKey() ? true : null"
+    >
+      {{ backgroundTitleKey() | translate }}
+    </h3>
+
+    @if (labelKey(); as key) {
+      <p
+        class="col-start-1 row-start-1 relative z-[2] self-end inline-flex items-center gap-1.5 m-0 -translate-y-1 font-inter text-sm font-semibold leading-none text-orange-500 max-md:translate-y-0 max-md:self-auto"
+        [class.justify-self-start]="align() === 'start'"
+        [class.justify-self-center]="align() === 'center'"
+      >
+        <img
+          class="block h-auto w-9 shrink-0"
+          src="assets/images/icons/weight.png"
+          alt=""
+          width="42"
+          height="24"
+          aria-hidden="true"
+        />
+        <span>{{ key | translate }}</span>
+      </p>
+    }
+  </div>
+</header>

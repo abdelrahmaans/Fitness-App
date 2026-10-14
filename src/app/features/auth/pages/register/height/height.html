@@ -1,0 +1,15 @@
+<section
+  class="register-height flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full"
+>
+  <app-auth-heading
+    step="4/6"
+    [headline]="'ONBOARDING.HEIGHT.HEADLINE' | translate"
+    [support]="'ONBOARDING.HEIGHT.SUPPORT' | translate"
+  />
+
+  <app-auth-number-picker unit="cm" [min]="100" [max]="250" [(value)]="height" />
+
+  <div class="register-height__actions w-full max-w-[344px]">
+    <app-auth-button kind="next" (clicked)="onNext()" />
+  </div>
+</section>

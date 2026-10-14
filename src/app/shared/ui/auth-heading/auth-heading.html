@@ -1,0 +1,23 @@
+<header class="auth-heading flex w-full flex-col items-center text-center">
+  @if (step(); as stepLabel) {
+    <app-auth-heading-step [progress]="resolveStep(stepLabel)"></app-auth-heading-step>
+  } @else if (lead(); as leadText) {
+    <p class="auth-heading__lead m-0 mb-4 font-rubik text-base font-normal text-white">
+      {{ leadText }}
+    </p>
+  }
+
+  <h1
+    class="auth-heading__headline leading-[140%] m-0 font-baloo text-[48px] font-extrabold font-[800] text-white sm:text-4xl"
+  >
+    {{ headline() }}
+  </h1>
+
+  @if (support(); as supportText) {
+    <p
+      class="auth-heading__support m-0 mt-1 font-rubik text-base font-normal leading-snug text-silver"
+    >
+      {{ supportText }}
+    </p>
+  }
+</header>

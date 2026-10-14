@@ -1,0 +1,29 @@
+<div
+  class="auth-heading__step relative mb-1 flex size-16 items-center justify-center"
+  [attr.aria-label]="progress().ariaLabel"
+>
+  @if (progress().showRing && progress().ringDasharray) {
+    <svg
+      class="auth-heading__step-ring absolute inset-0 size-full text-orange-500"
+      [style.transform]="ringTransform"
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+    >
+      <circle
+        class="auth-heading__step-ring-stroke"
+        cx="32"
+        cy="32"
+        [attr.r]="ring.radius"
+        fill="none"
+        stroke="currentColor"
+        [attr.stroke-width]="ring.strokeWidth"
+        stroke-linecap="round"
+        [attr.stroke-dasharray]="progress().ringDasharray"
+      />
+    </svg>
+  }
+
+  <span class="auth-heading__step-label relative z-10 font-rubik text-sm font-semibold text-white">
+    {{ progress().display }}
+  </span>
+</div>

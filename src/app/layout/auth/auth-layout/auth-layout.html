@@ -1,0 +1,19 @@
+<div class="relative isolate min-h-dvh overflow-x-hidden bg-ink lg:h-dvh lg:overflow-hidden">
+  <div class="auth-layout-backdrop absolute inset-0" aria-hidden="true"></div>
+
+  <!-- Floating Preferences Widget (Language & Theme) -->
+  <aside class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 pointer-events-auto">
+    <app-language-switcher />
+  </aside>
+
+  <div class="relative z-10 flex min-h-dvh flex-col lg:h-full lg:flex-row">
+    <app-auth-aside
+      class="relative hidden min-h-0 w-full lg:block lg:h-full lg:w-1/2"
+    ></app-auth-aside>
+    <div
+      class="auth-layout__main flex min-h-dvh w-full flex-1 items-center justify-center px-6 lg:h-full lg:min-h-0 lg:w-1/2 lg:overflow-y-auto"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

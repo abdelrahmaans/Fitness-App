@@ -1,0 +1,15 @@
+<section
+  class="register-age flex min-h-dvh w-full max-w-[486px] flex-col items-center justify-center gap-10 lg:min-h-full"
+>
+  <app-auth-heading
+    step="2/6"
+    [headline]="'ONBOARDING.AGE.HEADLINE' | translate"
+    [support]="'ONBOARDING.AGE.SUPPORT' | translate"
+  />
+
+  <app-auth-number-picker unit="yr" [min]="10" [max]="100" [(value)]="age" />
+
+  <div class="register-age__actions w-full max-w-[344px]">
+    <app-auth-button kind="next" (clicked)="onNext()" />
+  </div>
+</section>
