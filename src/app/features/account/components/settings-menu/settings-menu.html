@@ -1,12 +1,12 @@
-<section class="settings-menu w-full max-w-4xl mx-auto flex flex-col items-center select-none" aria-label="Account Settings Menu">
-  <!-- Centralized 3-Column Grid of Settings Cards -->
-  <div class="settings-menu__grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 w-full justify-items-center">
+<section class="settings-menu w-full max-w-[880px] mx-auto flex flex-col items-center select-none" aria-label="Account Settings Menu">
+  <!-- Centralized 3-Column Grid of Settings Cards (Exact 880px total width matching Basic Metrics) -->
+  <div class="settings-menu__grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-6 sm:gap-y-8 gap-x-5 md:gap-x-0 w-full max-w-[880px]">
     
-    <!-- 1. Change Password Card -->
+    <!-- 1. Change Password Card (Col 1: Left Aligned) -->
     <button
       type="button"
       id="settings-card-change-password"
-      class="settings-card group"
+      class="settings-card group justify-self-center md:justify-self-start"
       (click)="openModal('change-password')"
       [attr.aria-label]="'ACCOUNT.CHANGE_PASSWORD' | translate"
     >
@@ -18,11 +18,11 @@
       </span>
     </button>
 
-    <!-- 2. Select Language Card -->
+    <!-- 2. Select Language Card (Col 2: Center Aligned) -->
     <button
       type="button"
       id="settings-card-select-language"
-      class="settings-card group"
+      class="settings-card group justify-self-center"
       (click)="openModal('language')"
       [attr.aria-label]="'ACCOUNT.SELECT_LANGUAGE' | translate"
     >
@@ -37,10 +37,10 @@
       </div>
     </button>
 
-    <!-- 3. Mood (Theme Preference) Card -->
+    <!-- 3. Mood (Theme Preference) Card (Col 3: Right Aligned) -->
     <div
       id="settings-card-mood"
-      class="settings-card group cursor-pointer"
+      class="settings-card group cursor-pointer justify-self-center md:justify-self-end"
       (click)="toggleTheme()"
       role="button"
       tabindex="0"
@@ -59,18 +59,18 @@
       <div class="settings-card__label flex items-center gap-1.5 text-center">
         <span>{{ 'ACCOUNT.MOOD' | translate }}</span>
         <span>(</span>
-        <span class="text-orange-500 font-semibold">
+        <span class="text-orange-500 font-semibold" [class.lowercase]="!isDark()">
           {{ (isDark() ? 'ACCOUNT.DARK' : 'ACCOUNT.LIGHT') | translate }}
         </span>
         <span>)</span>
       </div>
 
-      <!-- Toggle Switch matching Figma -->
+      <!-- Toggle Switch matching Figma (Orange when Dark, Dark/Black when Light) -->
       <div class="settings-card__toggle-wrapper mt-1 pointer-events-none">
         <div
           class="settings-toggle w-11 h-6 rounded-full relative transition-colors duration-300"
           [class.bg-orange-500]="isDark()"
-          [class.bg-slate-400]="!isDark()"
+          [class.bg-[#1e293b]]="!isDark()"
         >
           <div
             class="settings-toggle__thumb w-5 h-5 bg-white rounded-full absolute top-0.5 transition-transform duration-300 shadow-md"
@@ -81,11 +81,11 @@
       </div>
     </div>
 
-    <!-- 4. Security Card -->
+    <!-- 4. Security Card (Col 1: Left Aligned) -->
     <button
       type="button"
       id="settings-card-security"
-      class="settings-card group"
+      class="settings-card group justify-self-center md:justify-self-start"
       (click)="openModal('security')"
       [attr.aria-label]="'ACCOUNT.SECURITY' | translate"
     >
@@ -97,11 +97,11 @@
       </span>
     </button>
 
-    <!-- 5. Privacy Policy Card -->
+    <!-- 5. Privacy Policy Card (Col 2: Center Aligned) -->
     <button
       type="button"
       id="settings-card-privacy"
-      class="settings-card group"
+      class="settings-card group justify-self-center"
       (click)="openModal('privacy-policy')"
       [attr.aria-label]="'ACCOUNT.PRIVACY_POLICY' | translate"
     >
@@ -113,11 +113,11 @@
       </span>
     </button>
 
-    <!-- 6. Help Card -->
+    <!-- 6. Help Card (Col 3: Right Aligned) -->
     <button
       type="button"
       id="settings-card-help"
-      class="settings-card group"
+      class="settings-card group justify-self-center md:justify-self-end"
       (click)="openModal('help')"
       [attr.aria-label]="'ACCOUNT.HELP' | translate"
     >
@@ -129,11 +129,11 @@
       </span>
     </button>
 
-    <!-- 7. Logout Card (Dedicated Center Placement) -->
+    <!-- 7. Logout Card (Col 2: Centered in Row 3) -->
     <button
       type="button"
       id="settings-card-logout"
-      class="settings-card settings-card--logout group md:col-start-2 justify-self-center"
+      class="settings-card settings-card--logout group justify-self-center md:col-start-2"
       (click)="openModal('logout')"
       [attr.aria-label]="'ACCOUNT.LOGOUT' | translate"
     >

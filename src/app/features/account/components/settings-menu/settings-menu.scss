@@ -89,26 +89,26 @@
 :host-context(html.light),
 :host-context(.light) {
   .settings-card {
-    border-color: rgba(15, 23, 42, 0.12);
-    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(15, 23, 42, 0.45);
+    background: rgba(255, 255, 255, 0.32);
     color: #0f172a;
     box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
 
     &:hover,
     &:focus-visible {
-      border-color: rgba(255, 65, 0, 0.65);
-      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(255, 65, 0, 0.75);
+      background: rgba(255, 255, 255, 0.6);
       box-shadow: 0 10px 25px -5px rgba(255, 65, 0, 0.15);
     }
 
     &--logout {
-      border-color: rgba(255, 65, 0, 0.25);
-      background: rgba(255, 65, 0, 0.03);
+      border-color: rgba(15, 23, 42, 0.45);
+      background: rgba(255, 255, 255, 0.32);
 
       &:hover,
       &:focus-visible {
         border-color: #ff4100;
-        background: rgba(255, 65, 0, 0.06);
+        background: rgba(255, 65, 0, 0.08);
       }
     }
   }
