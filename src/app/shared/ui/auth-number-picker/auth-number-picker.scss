@@ -100,3 +100,21 @@
   border-bottom: 10px solid var(--color-orange-500);
   border-left: 7px solid transparent;
 }
+
+// =============================================================================
+// Light Theme Support
+// =============================================================================
+:host-context(html.light),
+:host-context(.light) {
+  .auth-number-picker__item {
+    color: #0f172a;
+
+    &--d0 {
+      color: var(--color-orange-500, #ff4100);
+    }
+  }
+
+  .auth-number-picker__unit {
+    color: #64748b;
+  }
+}

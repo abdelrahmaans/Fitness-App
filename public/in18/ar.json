@@ -264,6 +264,29 @@
     "LEVEL": "المستوى",
     "WEIGHT": "الوزن",
     "TAP_TO_CHANGE": "اضغط للتغيير",
+    "MODAL": {
+      "WHAT_IS_YOUR_GOAL": "ما هو هدفك؟",
+      "WHAT_IS_YOUR_LEVEL": "ما هو مستواك الرياضي؟",
+      "WHAT_IS_YOUR_WEIGHT": "كم هو وزنك الحالي؟",
+      "SUBTITLE": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "NEXT": "حفظ",
+      "SAVE": "حفظ",
+      "UPDATING": "جاري التحديث..."
+    },
+    "GOALS": {
+      "GAIN_WEIGHT": "زيادة الوزن",
+      "LOSE_WEIGHT": "خسارة الوزن",
+      "GET_FITTER": "تحسين اللياقة البدنية",
+      "GAIN_FLEXIBLE": "زيادة المرونة",
+      "LEARN_BASIC": "تعلم الأساسيات"
+    },
+    "LEVELS": {
+      "ROOKIE": "مبتدئ جداً",
+      "BEGINNER": "مبتدئ",
+      "INTERMEDIATE": "متوسط",
+      "ADVANCE": "متقدم",
+      "TRUE_BEAST": "وحش حقيقي"
+    },
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
     "SELECT_LANGUAGE": "اختر اللغة",
     "MOOD": "المظهر",
