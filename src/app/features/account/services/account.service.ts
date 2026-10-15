@@ -6,6 +6,8 @@ import type { AuthUser } from '../../../core/models/auth.models';
 import { AuthService } from '../../../core/services/auth.service';
 import {
   ACTIVITY_LEVEL_OPTIONS,
+  type ChangePasswordRequest,
+  type ChangePasswordResponse,
   type EditProfileRequest,
   type EditProfileResponse,
   type ProfileDataResponse,
@@ -45,6 +47,28 @@ export class AccountService {
           this.isUpdating.set(false);
           if (res.user) {
             this.authService.updateUserProfile(res.user);
+          }
+        }),
+        catchError((err) => {
+          this.isUpdating.set(false);
+          throw err;
+        }),
+      );
+  }
+
+  /**
+   * Updates user password on backend
+   * Endpoint: PATCH /auth/change-password
+   */
+  changePassword(payload: ChangePasswordRequest): Observable<ChangePasswordResponse> {
+    this.isUpdating.set(true);
+    return this.http
+      .patch<ChangePasswordResponse>(`${this.baseUrl}/auth/change-password`, payload)
+      .pipe(
+        tap((res) => {
+          this.isUpdating.set(false);
+          if (res.token) {
+            this.authService.saveToken(res.token);
           }
         }),
         catchError((err) => {

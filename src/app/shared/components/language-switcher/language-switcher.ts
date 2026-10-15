@@ -1,9 +1,9 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import type { SupportedLanguage } from '../../../core/models/translation.models';
+import { ThemeService, type AppTheme } from '../../../core/services/theme.service';
 import { TranslationService } from '../../../core/services/translation.service';
 
-export type AppTheme = 'light' | 'dark';
+export type { AppTheme };
 
 @Component({
   selector: 'app-language-switcher',
@@ -13,8 +13,7 @@ export type AppTheme = 'light' | 'dark';
 })
 export class LanguageSwitcher {
   private readonly translationService = inject(TranslationService);
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly document = inject(DOCUMENT);
+  private readonly themeService = inject(ThemeService);
 
   /** Active language signal ('en' | 'ar') */
   readonly currentLang = this.translationService.currentLang;
@@ -25,12 +24,8 @@ export class LanguageSwitcher {
   /** True if translation file is currently loading */
   readonly isLoading = this.translationService.isLoading;
 
-  /** Active theme signal ('light' | 'dark') - defaults to 'dark' matching the brand aesthetic */
-  readonly currentTheme = signal<AppTheme>(this.resolveInitialTheme());
-
-  constructor() {
-    this.applyTheme(this.currentTheme());
-  }
+  /** Active theme signal ('light' | 'dark') */
+  readonly currentTheme = this.themeService.currentTheme;
 
   /** Selects a specific language */
   selectLanguage(lang: SupportedLanguage): void {
@@ -46,54 +41,12 @@ export class LanguageSwitcher {
 
   /** Selects a specific theme */
   selectTheme(theme: AppTheme): void {
-    if (this.currentTheme() !== theme) {
-      this.currentTheme.set(theme);
-      this.applyTheme(theme);
-      this.persistTheme(theme);
-    }
+    this.themeService.setTheme(theme);
   }
 
   /** Toggles between 'light' and 'dark' */
   toggleTheme(): void {
-    const nextTheme: AppTheme = this.currentTheme() === 'dark' ? 'light' : 'dark';
-    this.selectTheme(nextTheme);
-  }
-
-  private resolveInitialTheme(): AppTheme {
-    if (!isPlatformBrowser(this.platformId)) {
-      return 'dark';
-    }
-    try {
-      const stored = localStorage.getItem('app_theme');
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
-      }
-    } catch {
-      // Fallback to dark
-    }
-    return 'dark';
-  }
-
-  private persistTheme(theme: AppTheme): void {
-    if (isPlatformBrowser(this.platformId)) {
-      try {
-        localStorage.setItem('app_theme', theme);
-      } catch {
-        // Ignore storage write issues
-      }
-    }
-  }
-
-  private applyTheme(theme: AppTheme): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const root = this.document.documentElement;
-      if (theme === 'dark') {
-        root.classList.add('dark');
-        root.classList.remove('light');
-      } else {
-        root.classList.add('light');
-        root.classList.remove('dark');
-      }
-    }
+    this.themeService.toggleTheme();
   }
 }
+
