@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HealthyNutrition } from './healthy-nutrition';
@@ -12,7 +13,7 @@ describe('HealthyNutrition', () => {
   let httpTestingController: HttpTestingController;
 
   const mockTranslationService = {
-    translate: jasmine.createSpy('translate').and.callFake((key: string) => key),
+    translate: vi.fn((key: string) => key),
   };
 
   beforeEach(async () => {

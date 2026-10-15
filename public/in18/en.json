@@ -197,6 +197,7 @@
     "LOGIN": "LOGIN",
     "SIGN_UP": "SIGN UP",
     "LOGOUT": "Logout",
+    "ACCOUNT": "Account",
     "PROFILE": "Profile",
     "USER_MENU": "User Menu",
     "TOGGLE_MENU": "Toggle Navigation Menu"
@@ -256,5 +257,21 @@
     "NO_WORKOUTS": "No workouts found for this category.",
     "PREVIOUS": "Previous",
     "NEXT": "Next"
+  },
+  "ACCOUNT": {
+    "TITLE": "Account",
+    "YOUR_GOAL": "Your Goal",
+    "LEVEL": "Level",
+    "WEIGHT": "Weight",
+    "TAP_TO_CHANGE": "TAP TO CHANGE",
+    "CHANGE_PASSWORD": "Change Password",
+    "SELECT_LANGUAGE": "Select Language",
+    "MOOD": "Mood",
+    "DARK": "Dark",
+    "LIGHT": "Light",
+    "SECURITY": "Security",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "HELP": "Help",
+    "LOGOUT": "Logout"
   }
 }

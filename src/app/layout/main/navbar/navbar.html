@@ -64,6 +64,16 @@
                 </div>
               }
 
+              <a
+                routerLink="/account"
+                (click)="closeUserMenu()"
+                class="navbar__dropdown-item flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-colors hover:bg-orange-500/10 hover:text-orange-500 font-rubik cursor-pointer mb-1"
+                role="menuitem"
+              >
+                <svg lucideUser class="size-4" aria-hidden="true"></svg>
+                <span>{{ 'NAV.ACCOUNT' | translate }}</span>
+              </a>
+
               <button
                 type="button"
                 (click)="logout()"
@@ -161,26 +171,37 @@
 
       <div class="border-t border-metal/20 pt-4">
         @if (authService.isAuthenticated()) {
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md shrink-0">
-                <svg lucideUser class="size-5 stroke-[2.2]" aria-hidden="true"></svg>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="size-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md shrink-0">
+                  <svg lucideUser class="size-5 stroke-[2.2]" aria-hidden="true"></svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs text-metal font-rubik">{{ 'NAV.PROFILE' | translate }}</p>
+                  <p class="text-sm font-semibold truncate font-rubik">
+                    {{ authService.currentUser()?.email ?? ('APP_TITLE' | translate) }}
+                  </p>
+                </div>
               </div>
-              <div class="min-w-0">
-                <p class="text-xs text-metal font-rubik">{{ 'NAV.PROFILE' | translate }}</p>
-                <p class="text-sm font-semibold truncate font-rubik">
-                  {{ authService.currentUser()?.email ?? ('APP_TITLE' | translate) }}
-                </p>
-              </div>
+              <button
+                type="button"
+                (click)="logout()"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-red-500 hover:bg-red-500/10 font-rubik transition-colors cursor-pointer"
+              >
+                <svg lucideLogOut class="size-4 rtl:-scale-x-100" aria-hidden="true"></svg>
+                <span>{{ 'NAV.LOGOUT' | translate }}</span>
+              </button>
             </div>
-            <button
-              type="button"
-              (click)="logout()"
-              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-red-500 hover:bg-red-500/10 font-rubik transition-colors cursor-pointer"
+
+            <a
+              routerLink="/account"
+              (click)="closeMobileMenu()"
+              class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-rubik font-medium transition-colors hover:bg-orange-500/10 hover:text-orange-500 bg-metal/10"
             >
-              <svg lucideLogOut class="size-4 rtl:-scale-x-100" aria-hidden="true"></svg>
-              <span>{{ 'NAV.LOGOUT' | translate }}</span>
-            </button>
+              <svg lucideUser class="size-4" aria-hidden="true"></svg>
+              <span>{{ 'NAV.ACCOUNT' | translate }}</span>
+            </a>
           </div>
         } @else {
           <div class="flex flex-col sm:flex-row gap-3">

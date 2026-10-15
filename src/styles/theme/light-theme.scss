@@ -398,4 +398,11 @@ html.light {
   .workouts__banner-strip {
     background-color: #AEAEAD !important;
   }
+
+  // Account Page (Light Mode - Frosted white blur overlay over background image)
+  .account__bg-overlay {
+    background: rgba(255, 255, 255, 0.58) !important;
+    backdrop-filter: blur(86px) !important;
+    -webkit-backdrop-filter: blur(86px) !important;
+  }
 }

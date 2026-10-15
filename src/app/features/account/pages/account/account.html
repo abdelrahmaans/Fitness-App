@@ -1,0 +1,29 @@
+<!-- Fixed Background Image & Frosted Overlay Canvas -->
+<div class="account__bg-wrapper fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+  <img
+    src="/images/bg-img.webp"
+    alt=""
+    class="account__bg-image w-full h-full object-cover"
+    loading="eager"
+  />
+  <div class="account__bg-overlay absolute inset-0 transition-colors duration-300"></div>
+</div>
+
+<!-- Foreground Page Content -->
+<section class="account__layout relative z-10 flex min-h-dvh flex-col overflow-x-hidden">
+  <!-- Top Navigation Bar -->
+  <app-navbar />
+
+  <!-- Main Account Container -->
+  <main class="account__content flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 flex flex-col items-center">
+    <!-- Slot for Basic Metrics & Settings Menu tasks -->
+    <div class="w-full flex flex-col items-center gap-8 md:gap-12 transition-all duration-300">
+      <!-- Container ready for task 1 (Basic Metrics) and task 2 (Settings Menu) -->
+    </div>
+  </main>
+
+  <!-- Language & Theme Switcher Float -->
+  <aside class="pointer-events-auto fixed bottom-4 left-4 z-40 sm:bottom-6 sm:left-6">
+    <app-language-switcher />
+  </aside>
+</section>
