@@ -18,6 +18,36 @@
   }
 
   // =========================================================================
+  // Interactive Video Preview
+  // =========================================================================
+  &__preview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+
+    &:hover .main-video__play-btn {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 0 14px rgba(255, 65, 0, 0.4),
+        0 10px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    &:hover .main-video__thumbnail {
+      transform: scale(1.03);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-orange-500, #ff4100);
+      outline-offset: 2px;
+      border-radius: 20px;
+    }
+  }
+
+  // =========================================================================
   // Thumbnail Background
   // =========================================================================
   &__thumbnail {
@@ -28,6 +58,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    transition: transform 0.4s ease;
   }
 
   // =========================================================================

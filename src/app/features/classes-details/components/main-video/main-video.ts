@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   inject,
   input,
   signal,
@@ -72,6 +73,14 @@ export class MainVideo {
     const embed = getYouTubeEmbedUrl(rawUrl);
     return embed ? this.sanitizer.bypassSecurityTrustResourceUrl(embed) : null;
   });
+
+  constructor() {
+    // Reset video player when active exercise changes so the new exercise does NOT autoplay
+    effect(() => {
+      this.exercise();
+      this.isPlaying.set(false);
+    });
+  }
 
   /** Plays the video (embeds player or opens demonstration link) */
   onPlayVideo(): void {

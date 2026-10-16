@@ -1,4 +1,4 @@
-<div class="main-video">
+<div class="main-video" [class.main-video--playing]="isPlaying()">
   @if (isPlaying() && embedUrl()) {
     <!-- Embedded Video Player -->
     <div class="main-video__player-wrapper">
@@ -29,52 +29,63 @@
       </button>
     </div>
   } @else {
-    <!-- Background Thumbnail Image -->
-    <img
-      class="main-video__thumbnail"
-      [src]="thumbnail()"
-      [alt]="title() + ' exercise demonstration'"
-      loading="eager"
-    />
+    <!-- Interactive Video Preview: clicking anywhere on the video plays it -->
+    <div
+      class="main-video__preview"
+      (click)="onPlayVideo()"
+      role="button"
+      tabindex="0"
+      [attr.aria-label]="'Play ' + title() + ' video'"
+      (keydown.enter)="onPlayVideo()"
+      (keydown.space)="$event.preventDefault(); onPlayVideo()"
+    >
+      <!-- Background Thumbnail Image -->
+      <img
+        class="main-video__thumbnail"
+        [src]="thumbnail()"
+        [alt]="title() + ' exercise demonstration'"
+        loading="eager"
+      />
 
-    <!-- Dark Gradient Overlay -->
-    <div class="main-video__overlay" aria-hidden="true"></div>
+      <!-- Dark Gradient Overlay -->
+      <div class="main-video__overlay" aria-hidden="true"></div>
 
-    <!-- Content Layer -->
-    <div class="main-video__content">
-      <!-- Center Section: Play Button + Exercise Title -->
-      <div class="main-video__center">
-        <button
-          type="button"
-          class="main-video__play-btn"
-          aria-label="Play video"
-          (click)="onPlayVideo()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="main-video__play-icon"
+      <!-- Content Layer -->
+      <div class="main-video__content">
+        <!-- Center Section: Play Button + Exercise Title -->
+        <div class="main-video__center">
+          <button
+            type="button"
+            class="main-video__play-btn"
+            aria-label="Play video"
+            (click)="$event.stopPropagation(); onPlayVideo()"
           >
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="main-video__play-icon"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
 
-        <h1 class="main-video__title">{{ title() }}</h1>
-      </div>
+          <h1 class="main-video__title">{{ title() }}</h1>
+        </div>
 
-      <!-- Bottom Section: Description + Badges -->
-      <div class="main-video__bottom">
-        <p class="main-video__description">{{ description() }}</p>
+        <!-- Bottom Section: Description + Badges -->
+        <div class="main-video__bottom">
+          <p class="main-video__description">{{ description() }}</p>
 
-        <div class="main-video__badges">
-          <span class="main-video__badge">{{ difficultyBadge() }}</span>
-          <span class="main-video__badge main-video__badge--equipment">
-            {{ equipmentBadge() }}
-          </span>
-          <span class="main-video__badge main-video__badge--posture">
-            {{ postureBadge() }}
-          </span>
+          <div class="main-video__badges">
+            <span class="main-video__badge">{{ difficultyBadge() }}</span>
+            <span class="main-video__badge main-video__badge--equipment">
+              {{ equipmentBadge() }}
+            </span>
+            <span class="main-video__badge main-video__badge--posture">
+              {{ postureBadge() }}
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -89,4 +89,34 @@ describe('MainVideo', () => {
     const badges = fixture.nativeElement.querySelectorAll('.main-video__badge');
     expect(badges.length).toBe(3);
   });
+
+  it('should play video when preview area is clicked', () => {
+    fixture.componentRef.setInput('exercise', mockExercise);
+    fixture.detectChanges();
+
+    const preview: HTMLElement = fixture.nativeElement.querySelector('.main-video__preview');
+    expect(preview).toBeTruthy();
+    preview.click();
+
+    expect(component.isPlaying()).toBe(true);
+  });
+
+  it('should reset isPlaying to false when exercise changes to prevent autoplay', () => {
+    fixture.componentRef.setInput('exercise', mockExercise);
+    fixture.detectChanges();
+
+    component.onPlayVideo();
+    expect(component.isPlaying()).toBe(true);
+
+    // Switch to a new exercise
+    const newExercise: Exercise = {
+      ...mockExercise,
+      _id: 'new_ex_2',
+      exercise: 'Incline Push Up',
+    };
+    fixture.componentRef.setInput('exercise', newExercise);
+    fixture.detectChanges();
+
+    expect(component.isPlaying()).toBe(false);
+  });
 });
