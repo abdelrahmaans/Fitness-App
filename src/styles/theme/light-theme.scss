@@ -62,7 +62,7 @@ html.light {
   .auth-heading__headline,
   .login__title,
   .register-form__title,
-  h1:not(.text-orange-500),
+  h1:not(.text-orange-500):not(.main-video__title),
   h2:not(.text-orange-500) {
     color: #0f172a !important;
   }
