@@ -44,10 +44,10 @@
     position: relative;
     z-index: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     gap: 20px;
-    max-width: 100%;
+    max-width: 50%;
     overflow-x: auto;
     scrollbar-width: none;
     padding: 6px 12px;
@@ -275,6 +275,14 @@
   }
 }
 
+@media (max-width: 768px) {
+  .classes-details {
+    &__badges {
+      display: none !important;
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .classes-details {
     gap: 12px;
@@ -288,8 +296,7 @@
     }
 
     &__badges {
-      gap: 16px;
-      flex-direction: column;
+      display: none !important;
     }
   }
 }
