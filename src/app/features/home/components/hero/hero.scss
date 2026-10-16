@@ -28,12 +28,9 @@
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
   }
 
-  &__glow-1 {
-    background: radial-gradient(circle, rgba(255, 65, 0, 0.09) 0%, transparent 70%);
-  }
-
+  &__glow-1,
   &__glow-2 {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    display: none;
   }
 
   &__headline-text {
@@ -58,6 +55,20 @@
 
   &__stat-label {
     color: var(--color-metal, #6d6d6d);
+  }
+}
+
+// =============================================================================
+// Dark Theme Support (matches account page backdrop overlay)
+// =============================================================================
+:host-context(html.dark),
+:host-context(.dark) {
+  .hero {
+    &__bg-overlay {
+      background: rgba(18, 19, 21, 0.72);
+      backdrop-filter: blur(86px);
+      -webkit-backdrop-filter: blur(86px);
+    }
   }
 }
 
