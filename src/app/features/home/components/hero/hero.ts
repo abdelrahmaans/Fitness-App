@@ -14,6 +14,9 @@ export interface HeroStat {
   imports: [RouterLink, TranslatePipe, RightArrowIcon],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
+  host: {
+    class: 'flex min-h-0 flex-1 flex-col',
+  },
 })
 export class Hero {
   /** Key fitness statistics displayed in hero */
