@@ -7,3 +7,14 @@
 @import './theme/colors';
 @import './base/typography';
 @import './theme/light-theme';
+
+// Hero & Account Page (Dark Mode - Frosted dark overlay matching Account page)
+html.dark,
+html:not(.light) {
+  .hero__bg-overlay,
+  .account__bg-overlay {
+    background: rgba(18, 19, 21, 0.72) !important;
+    backdrop-filter: blur(86px) !important;
+    -webkit-backdrop-filter: blur(86px) !important;
+  }
+}
