@@ -9,6 +9,8 @@
 
     <!-- Heading with highlighted "MEAL PLANS" -->
     <h2 class="healthy-nutrition__heading">
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_MAIN' | translate }}
+      <br />
       {{ 'SECTION_TITLE.HEALTHY.HEADING_PART1' | translate }}
       <span class="healthy-nutrition__heading--highlight">
         {{ 'SECTION_TITLE.HEALTHY.HEADING_HIGHLIGHT' | translate }}
@@ -16,34 +18,95 @@
       {{ 'SECTION_TITLE.HEALTHY.HEADING_PART2' | translate }}
     </h2>
 
-    <!-- Meal Cards Grid -->
-    <div class="healthy-nutrition__cards">
-      @for (card of visibleCards(); track card.id) {
-        <app-reusable-card
-          [title]="card.titleKey"
-          [image]="card.image"
-          [alt]="card.alt"
-          ctaLabel="MEAL_CARD.READ_MORE"
-        />
-      }
+    <!-- Categories Horizontal Filter Navigation -->
+    <div class="healthy-nutrition__filters-wrapper">
+      <!-- Scroll Left Arrow Button -->
+      <button
+        type="button"
+        class="healthy-nutrition__nav-btn healthy-nutrition__nav-btn--left"
+        (click)="scrollCategories('left')"
+        aria-label="Previous categories"
+      >
+        <svg lucideChevronLeft class="size-5 stroke-[2.5] rtl:rotate-180"></svg>
+      </button>
+
+      <!-- Scrollable Categories Track -->
+      <nav
+        #categoryTrack
+        class="healthy-nutrition__track no-scrollbar"
+        aria-label="Meal Categories Filter"
+        role="tablist"
+      >
+        @for (cat of categories(); track cat.idCategory) {
+          <button
+            type="button"
+            role="tab"
+            [attr.aria-selected]="activeCategory() === cat.strCategory"
+            class="healthy-nutrition__filter-btn"
+            [class.healthy-nutrition__filter-btn--active]="activeCategory() === cat.strCategory"
+            (click)="selectCategory(cat.strCategory)"
+          >
+            {{ cat.strCategory }}
+          </button>
+        }
+      </nav>
+
+      <!-- Scroll Right Arrow Button -->
+      <button
+        type="button"
+        class="healthy-nutrition__nav-btn healthy-nutrition__nav-btn--right"
+        (click)="scrollCategories('right')"
+        aria-label="Next categories"
+      >
+        <svg lucideChevronRight class="size-5 stroke-[2.5] rtl:rotate-180"></svg>
+      </button>
     </div>
+
+    <!-- Loading State -->
+    @if (isLoading()) {
+      <div class="healthy-nutrition__loading" aria-busy="true">
+        <div class="healthy-nutrition__spinner"></div>
+      </div>
+    } @else {
+      <!-- Meal Cards Grid -->
+      <div class="healthy-nutrition__cards">
+        @for (card of visibleCards(); track card.id) {
+          <app-reusable-card
+            [title]="card.titleKey"
+            [image]="card.image"
+            [alt]="card.alt"
+            ctaLabel="MEAL_CARD.READ_MORE"
+          />
+        }
+      </div>
+    }
 
     <!-- Carousel Pagination (Desktop/Tablet) -->
-    <div class="healthy-nutrition__pagination mt-8 sm:mt-12 justify-center items-center gap-3 relative z-10 hidden sm:flex" [class.!hidden]="pages().length <= 1">
-      @for (pageIndex of pages(); track pageIndex) {
-        <button 
-          class="healthy-nutrition__dot transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" 
-          [class.healthy-nutrition__dot--active]="activeIndex() === pageIndex"
-          (click)="activeIndex.set(pageIndex)"
-          [attr.aria-label]="'Go to page ' + (pageIndex + 1)"
-        ></button>
-      }
-    </div>
+    @if (!isLoading() && pages().length > 1) {
+      <div
+        class="healthy-nutrition__pagination mt-8 sm:mt-10 justify-center items-center gap-3 relative z-10 hidden sm:flex"
+        role="tablist"
+        aria-label="Meal plans pagination"
+      >
+        @for (pageIndex of pages(); track pageIndex) {
+          <button
+            type="button"
+            role="tab"
+            class="healthy-nutrition__dot transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            [class.healthy-nutrition__dot--active]="activeIndex() === pageIndex"
+            [attr.aria-selected]="activeIndex() === pageIndex"
+            [attr.aria-label]="'Go to page ' + (pageIndex + 1)"
+            (click)="setPage(pageIndex)"
+          ></button>
+        }
+      </div>
+    }
 
     <!-- See More Button (Mobile) -->
-    @if (!showAllOnMobile() && pages().length > 1) {
+    @if (!isLoading() && !showAllOnMobile() && pages().length > 1) {
       <div class="healthy-nutrition__see-more w-full mt-6 flex justify-end relative z-10 sm:hidden">
-        <button 
+        <button
+          type="button"
           class="healthy-nutrition__see-more-btn font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-md"
           (click)="showAllOnMobile.set(true)"
         >
