@@ -124,10 +124,14 @@
     "HEALTHY": {
       "WATERMARK": "صحّي",
       "LABEL": "تغذية صحية",
-      "HEADING_PART1": "غذِّ رحلتك الرياضية بخطط",
+      "HEADING_MAIN": "غذِّ رحلة لياقتك مع",
+      "HEADING_PART1": "خطط",
       "HEADING_HIGHLIGHT": "وجبات مخصصة",
       "HEADING_PART2": "لك",
-      "SEE_MORE": "عرض المزيد"
+      "SEE_MORE": "عرض المزيد",
+      "FILTER_BREAKFAST": "الإفطار",
+      "FILTER_LUNCH": "الغداء",
+      "FILTER_DINNER": "العشاء"
     },
     "WHY_US": {
       "WATERMARK": "لماذا نحن",
@@ -222,6 +226,7 @@
   },
   "MEAL_CARD": {
     "READ_MORE": "اقرأ المزيد",
+    "EXPLORE": "استكشف",
     "BREAKFAST": "الإفطار",
     "LUNCH": "الغداء",
     "DINNER": "العشاء"
