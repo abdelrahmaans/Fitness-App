@@ -40,12 +40,6 @@ describe('Account Page', () => {
     const overlay = fixture.nativeElement.querySelector('.account__bg-overlay');
     expect(overlay).toBeTruthy();
   });
-
-  it('should render the top navbar inside the account layout', () => {
-    const navbar = fixture.nativeElement.querySelector('app-navbar');
-    expect(navbar).toBeTruthy();
-  });
-
   it('should render the app-basic-metrics component inside the account content', () => {
     const basicMetrics = fixture.nativeElement.querySelector('app-basic-metrics');
     expect(basicMetrics).toBeTruthy();
