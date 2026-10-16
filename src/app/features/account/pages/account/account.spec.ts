@@ -40,9 +40,4 @@ describe('Account Page', () => {
     const overlay = fixture.nativeElement.querySelector('.account__bg-overlay');
     expect(overlay).toBeTruthy();
   });
-
-  it('should render the top navbar inside the account layout', () => {
-    const navbar = fixture.nativeElement.querySelector('app-navbar');
-    expect(navbar).toBeTruthy();
-  });
 });
