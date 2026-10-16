@@ -1,0 +1,295 @@
+// =============================================================================
+// Classes Details Page Layout
+// Playlist (left) + Main Video (right) top row, badges, then recommendations
+// =============================================================================
+
+.classes-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  padding-inline: 80px;
+
+  // =========================================================================
+  // Header: Watermark Outline + Horizontal Categories Filter
+  // =========================================================================
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 84px;
+    margin-bottom: 12px;
+    overflow: visible;
+    gap: 10px;
+  }
+
+  &__watermark {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -58%);
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  &__categories {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 6px 12px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__category-btn {
+    padding: 6px 18px;
+    border: none;
+    border-radius: 9999px;
+    background-color: transparent;
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &--active {
+      background-color: var(--color-orange-500, #ff4100);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.4);
+    }
+
+    :host-context(.light) & {
+      color: rgba(36, 36, 36, 0.75);
+
+      &:hover {
+        color: #000000;
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100);
+        color: #ffffff;
+      }
+    }
+  }
+
+  // =========================================================================
+  // Prime Mover Muscles Sub-strip
+  // =========================================================================
+  &__prime-movers {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 2px 8px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__prime-mover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    background-color: rgba(36, 36, 36, 0.45);
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &--active {
+      background-color: rgba(255, 65, 0, 0.18);
+      border-color: var(--color-orange-500, #ff4100);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    :host-context(.light) & {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.7);
+
+      &:hover {
+        color: #000000;
+        border-color: rgba(0, 0, 0, 0.25);
+      }
+
+      &--active {
+        background-color: rgba(255, 65, 0, 0.15);
+        border-color: var(--color-orange-500, #ff4100);
+        color: var(--color-orange-600, #cc3300);
+      }
+    }
+  }
+
+  &__prime-mover-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  // =========================================================================
+  // Top Row: Playlist + Main Video side by side
+  // =========================================================================
+  &__top {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  &__playlist {
+    display: block;
+    flex-shrink: 0;
+    width: 409px;
+    height: 62.25rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__video {
+    display: block;
+  }
+
+  // =========================================================================
+  // Expertly Designed Badges Row
+  // =========================================================================
+  &__badges {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--color-orange-500, #ff4100);
+    flex-shrink: 0;
+    border: 2px solid #f3f3f4;
+  }
+
+  &__badge-arrow {
+    width: 25px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+
+    :host-context([dir='rtl']) & {
+      transform: scaleX(-1);
+    }
+  }
+
+  &__badge-text {
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 16.4px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 0.85);
+
+    :host-context(.light) & {
+      color: var(--color-ink, #242424);
+    }
+  }
+}
+
+// =============================================================================
+// Responsive
+// =============================================================================
+@media (max-width: 1024px) {
+  .classes-details {
+    gap: 14px;
+    padding-inline: 40px;
+
+    &__top {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__playlist {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .classes-details {
+    gap: 12px;
+    padding-top: 88px;
+    padding-inline: 12px;
+
+    &__categories {
+      justify-content: flex-start;
+      gap: 12px;
+      padding-inline: 4px;
+    }
+
+    &__badges {
+      gap: 16px;
+      flex-direction: column;
+    }
+  }
+}
