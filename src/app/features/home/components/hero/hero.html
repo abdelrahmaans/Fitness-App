@@ -1,7 +1,18 @@
 <section class="hero relative isolate flex h-full min-h-0 w-full flex-1 flex-col overflow-hidden pt-20">
+  <!-- Hero Background Image & Frosted Overlay Canvas -->
+  <div class="hero__bg-wrapper absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <img
+      src="/images/bg-img.webp"
+      alt=""
+      class="hero__bg-image w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="hero__bg-overlay absolute inset-0 transition-colors duration-300"></div>
+  </div>
+
   <!-- Subtle Ambient Radial Glows -->
-  <div class="hero__glow-1 absolute -top-40 -left-40 size-[500px] rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
-  <div class="hero__glow-2 absolute top-1/3 -right-20 size-[600px] rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+  <div class="hero__glow-1 absolute -top-40 -left-40 size-[500px] rounded-full blur-[120px] pointer-events-none z-0" aria-hidden="true"></div>
+  <div class="hero__glow-2 absolute top-1/3 -right-20 size-[600px] rounded-full blur-[140px] pointer-events-none z-0" aria-hidden="true"></div>
 
   <div class="relative z-10 mx-auto grid h-full min-h-0 w-full max-w-7xl flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)] items-stretch gap-2 px-4 pt-1 pb-0 sm:gap-3 sm:px-6 lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-8 lg:px-8 lg:pt-6">
     <!-- Left Column: Content & Statistics & Buttons -->
