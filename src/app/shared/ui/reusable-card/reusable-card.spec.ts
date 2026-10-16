@@ -101,4 +101,18 @@ describe('ReusableCard', () => {
 
     expect(spy).toHaveBeenCalledTimes(1);
   });
+
+  it('should set title tooltip attribute on title element and host classes for grid uniformity', () => {
+    fixture.componentRef.setInput('title', 'SAMPLE_TITLE');
+    fixture.componentRef.setInput('image', 'images/healthy-1.webp');
+    fixture.detectChanges();
+
+    const titleEl = fixture.nativeElement.querySelector('.reusable-card__title') as HTMLElement;
+    expect(titleEl.getAttribute('title')).toBe('Sample Title');
+
+    const hostEl = fixture.nativeElement as HTMLElement;
+    expect(hostEl.classList.contains('min-w-0')).toBe(true);
+    expect(hostEl.classList.contains('w-full')).toBe(true);
+    expect(hostEl.classList.contains('h-full')).toBe(true);
+  });
 });

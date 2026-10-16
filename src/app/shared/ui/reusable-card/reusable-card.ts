@@ -22,7 +22,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
   templateUrl: './reusable-card.html',
   styleUrl: './reusable-card.scss',
   host: {
-    class: 'block w-full',
+    class: 'block w-full min-w-0 h-full',
   },
 })
 export class ReusableCard {
