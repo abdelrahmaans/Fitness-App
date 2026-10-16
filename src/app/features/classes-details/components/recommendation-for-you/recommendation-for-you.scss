@@ -1,0 +1,73 @@
+// =============================================================================
+// Recommendation For You — Classes Details
+// 3-column meal card grid with section heading, matching Figma design
+// =============================================================================
+
+:host {
+  display: block;
+}
+
+.recommendation {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  // =========================================================================
+  // Section Heading
+  // =========================================================================
+  &__heading {
+    font-family: var(--font-baloo), sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 16px;
+    line-height: 140%;
+    letter-spacing: 0px;
+
+    :host-context(.light) & {
+      color: var(--color-ink, #242424);
+    }
+  }
+
+  // =========================================================================
+  // Cards Grid
+  // =========================================================================
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+}
+
+// =============================================================================
+// Responsive
+// =============================================================================
+@media (max-width: 1024px) {
+  .recommendation {
+    &__heading {
+      font-size: 22px;
+    }
+
+    &__cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .recommendation {
+    &__heading {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__cards {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}

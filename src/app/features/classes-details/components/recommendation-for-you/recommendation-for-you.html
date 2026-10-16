@@ -1,0 +1,18 @@
+<section class="recommendation">
+  <!-- Section Heading -->
+  <h2 class="recommendation__heading">
+    {{ 'RECOMMENDATION.TITLE' | translate }}
+  </h2>
+
+  <!-- Meal Cards Grid -->
+  <div class="recommendation__cards">
+    @for (card of visibleCards(); track card.id) {
+      <app-reusable-card
+        [title]="card.titleKey"
+        [image]="card.image"
+        [alt]="card.alt"
+        ctaLabel="MEAL_CARD.READ_MORE"
+      />
+    }
+  </div>
+</section>
