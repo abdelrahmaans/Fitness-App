@@ -17,6 +17,7 @@ import { SectionTitle } from '../../../../shared/ui/section-title/section-title'
 import { MAX_MEALS_PER_CATEGORY, MEALS_PER_PAGE, MealCard } from '../../models/meal-card.model';
 import { MealCategory } from '../../models/meal-category.model';
 import { MealCategoryService } from '../../services/meal-category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-healthy-nutrition',
@@ -28,6 +29,7 @@ import { MealCategoryService } from '../../services/meal-category.service';
 export class HealthyNutrition {
   private readonly mealCategoryService = inject(MealCategoryService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
 
   readonly categoryTrack = viewChild<ElementRef<HTMLElement>>('categoryTrack');
 
@@ -127,4 +129,11 @@ export class HealthyNutrition {
       el.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   }
+
+    onCardClick(card: MealCard): void {
+      if (card.id) {
+        this.router.navigate(['/meals', card.id]);
+      }
+
+    }
 }

@@ -28,12 +28,28 @@ export const routes: Routes = [
         (m) => m.classesDetailsRoutes
       ),
   },
+    {
+    path: 'meals',
+    loadChildren: () =>
+      import('./features/meal-details/meal-details.routes').then(
+        (m) => m.mealDetailsRoutes
+      ),
+  },
   {
     path: 'classes-details/:id',
     redirectTo: 'classes/:id',
   },
+
   {
     path: 'classes-details',
+    redirectTo: 'home',
+  },
+    {
+    path: 'meals-details/:id',
+    redirectTo: 'meals/:id',
+  },
+    {
+    path: 'meals-details',
     redirectTo: 'home',
   },
   {
