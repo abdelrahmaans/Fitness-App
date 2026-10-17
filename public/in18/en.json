@@ -269,6 +269,29 @@
     "LEVEL": "Level",
     "WEIGHT": "Weight",
     "TAP_TO_CHANGE": "TAP TO CHANGE",
+    "MODAL": {
+      "WHAT_IS_YOUR_GOAL": "What Is Your Goal ?",
+      "WHAT_IS_YOUR_LEVEL": "What Is Your Fitness Level ?",
+      "WHAT_IS_YOUR_WEIGHT": "What Is Your Weight ?",
+      "SUBTITLE": "This Helps Us Create Your Personalized Plan",
+      "NEXT": "Next",
+      "SAVE": "Save",
+      "UPDATING": "Updating..."
+    },
+    "GOALS": {
+      "GAIN_WEIGHT": "Gain Weight",
+      "LOSE_WEIGHT": "Lose Weight",
+      "GET_FITTER": "Get Fitter",
+      "GAIN_FLEXIBLE": "Gain More Flexible",
+      "LEARN_BASIC": "Learn The Basic"
+    },
+    "LEVELS": {
+      "ROOKIE": "Rookie",
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCE": "Advance",
+      "TRUE_BEAST": "True Beast"
+    },
     "CHANGE_PASSWORD": "Change Password",
     "SELECT_LANGUAGE": "Select Language",
     "MOOD": "Mood",
@@ -278,5 +301,26 @@
     "PRIVACY_POLICY": "Privacy Policy",
     "HELP": "Help",
     "LOGOUT": "Logout"
+  },
+  "VIDEO_PLAYLIST": {
+    "BEGINNER": "Beginner",
+    "INTERMEDIATE": "Intermediate",
+    "ADVANCED": "Advanced"
+  },
+  "RECOMMENDATION": {
+    "TITLE": "Recommendation For You"
+  },
+  "CLASSES_DETAILS": {
+    "WATERMARK": "WORKOUTS",
+    "CATEGORIES": {
+      "FULL_BODY": "Full Body",
+      "CHEST": "Chest",
+      "ARM": "Arm",
+      "SHOULDER": "Shoulder",
+      "BACK": "Back",
+      "LEGS": "Legs",
+      "STOMACH": "Stomach"
+    },
+    "EXPERTLY_DESIGNED": "Expertly designed workout."
   }
 }

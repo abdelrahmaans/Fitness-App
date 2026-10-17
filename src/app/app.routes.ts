@@ -22,6 +22,21 @@ export const routes: Routes = [
       import('./features/healthy-page/healthy-page.routes').then((m) => m.healthyRoutes),
   },
   {
+    path: 'classes',
+    loadChildren: () =>
+      import('./features/classes-details/classes-details.routes').then(
+        (m) => m.classesDetailsRoutes
+      ),
+  },
+  {
+    path: 'classes-details/:id',
+    redirectTo: 'classes/:id',
+  },
+  {
+    path: 'classes-details',
+    redirectTo: 'home',
+  },
+  {
     path: 'account',
     canActivate: [authGuard],
     loadChildren: () => import('./features/account/account.routes').then((m) => m.accountRoutes),
