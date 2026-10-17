@@ -17,8 +17,21 @@ export const routes: Routes = [
     loadChildren: () => import('./features/about/about.routes').then((m) => m.aboutRoutes),
   },
   {
+    path: 'healthy',
+    loadChildren: () =>
+      import('./features/healthy-page/healthy-page.routes').then((m) => m.healthyRoutes),
+  },
+  {
     path: 'classes',
     loadChildren: () => import('./features/classes/classes.routes').then((m) => m.classesRoutes),
+  },
+  {
+    path: 'classes-details/:id',
+    redirectTo: 'classes/:id',
+  },
+  {
+    path: 'classes-details',
+    redirectTo: 'classes',
   },
   {
     path: 'account',

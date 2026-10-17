@@ -33,9 +33,12 @@ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
 
   const currentLang = translationService?.currentLang() ?? DEFAULT_LANGUAGE;
 
-  // 3. Resolve auth token from localStorage or AuthService
+  // 3. Resolve auth token from storage or AuthService
   let token: string | null = null;
-  if (typeof localStorage !== 'undefined') {
+  if (typeof sessionStorage !== 'undefined') {
+    token = sessionStorage.getItem(AUTH_TOKEN_KEY) ?? sessionStorage.getItem('token');
+  }
+  if (!token && typeof localStorage !== 'undefined') {
     token = localStorage.getItem(AUTH_TOKEN_KEY) ?? localStorage.getItem('token');
   }
   if (!token && authService) {
@@ -61,7 +64,9 @@ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
   // 6. Forward request and handle 401 globally
   return next(modifiedReq).pipe(
     catchError((error: unknown) => {
-      if (error instanceof HttpErrorResponse && error.status === 401 && isApiRequest) {
+      const isIgnoredFromAutoLogout =
+        req.url.includes('/auth/editProfile') || req.url.includes('/auth/change-password');
+      if (error instanceof HttpErrorResponse && error.status === 401 && isApiRequest && !isIgnoredFromAutoLogout) {
         authService?.clearSession();
         if (router) {
           void router.navigate(['/auth/login']);

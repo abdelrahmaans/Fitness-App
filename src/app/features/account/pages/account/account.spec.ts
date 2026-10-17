@@ -40,4 +40,12 @@ describe('Account Page', () => {
     const overlay = fixture.nativeElement.querySelector('.account__bg-overlay');
     expect(overlay).toBeTruthy();
   });
+  it('should render the app-basic-metrics component inside the account content', () => {
+    const basicMetrics = fixture.nativeElement.querySelector('app-basic-metrics');
+    expect(basicMetrics).toBeTruthy();
+  });
+  it('should render the app-settings-menu component inside the account content', () => {
+    const settingsMenu = fixture.nativeElement.querySelector('app-settings-menu');
+    expect(settingsMenu).toBeTruthy();
+  });
 });

@@ -131,10 +131,15 @@ export class AuthService {
 
   /** Retrieves the active JWT token from storage */
   getToken(): string | null {
-    if (typeof sessionStorage === 'undefined') {
-      return null;
+    if (typeof sessionStorage !== 'undefined') {
+      const sToken = sessionStorage.getItem(AUTH_TOKEN_KEY);
+      if (sToken) return sToken;
     }
-    return sessionStorage.getItem(AUTH_TOKEN_KEY);
+    if (typeof localStorage !== 'undefined') {
+      const lToken = localStorage.getItem(AUTH_TOKEN_KEY) ?? localStorage.getItem('token');
+      if (lToken) return lToken;
+    }
+    return null;
   }
 
   /** Retrieves the active user profile */
@@ -152,6 +157,9 @@ export class AuthService {
     if (typeof sessionStorage !== 'undefined') {
       sessionStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
     }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+    }
     this.currentUserSubject.next(user);
   }
 
@@ -160,6 +168,11 @@ export class AuthService {
     if (typeof sessionStorage !== 'undefined') {
       sessionStorage.removeItem(AUTH_TOKEN_KEY);
       sessionStorage.removeItem(AUTH_USER_KEY);
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem(AUTH_TOKEN_KEY);
+      localStorage.removeItem(AUTH_USER_KEY);
+      localStorage.removeItem('token');
     }
     this.currentUserSubject.next(null);
     this.isAuthenticatedSubject.next(false);
@@ -190,6 +203,12 @@ export class AuthService {
         sessionStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
       }
     }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(AUTH_TOKEN_KEY, token);
+      if (user) {
+        localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+      }
+    }
 
     const resolvedUser = user ?? this.getStoredUser() ?? this.decodeUserFromToken(token);
     this.currentUserSubject.next(resolvedUser);
@@ -201,10 +220,13 @@ export class AuthService {
   }
 
   private getStoredUser(): AuthUser | null {
-    if (typeof sessionStorage === 'undefined') {
-      return null;
+    let raw: string | null = null;
+    if (typeof sessionStorage !== 'undefined') {
+      raw = sessionStorage.getItem(AUTH_USER_KEY);
     }
-    const raw = sessionStorage.getItem(AUTH_USER_KEY);
+    if (!raw && typeof localStorage !== 'undefined') {
+      raw = localStorage.getItem(AUTH_USER_KEY);
+    }
     if (!raw) {
       return null;
     }

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { TranslationService } from '../../../../core/services/translation.service';
@@ -173,5 +173,17 @@ describe('Workouts', () => {
     dots[1].click();
     fixture.detectChanges();
     expect(component.currentSlide()).toBe(1);
+  });
+
+  it('should navigate to /classes/:id when onCardClick is called', () => {
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigate');
+    const mockItem = {
+      id: 'm1',
+      title: 'Pectoralis Major',
+      image: 'https://iili.io/33pYHNI.png',
+    };
+    component.onCardClick(mockItem);
+    expect(navigateSpy).toHaveBeenCalledWith(['/classes', 'm1']);
   });
 });
