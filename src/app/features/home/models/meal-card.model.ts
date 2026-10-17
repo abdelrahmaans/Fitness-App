@@ -12,3 +12,9 @@ export interface MealCard {
   /** Accessible alt text for the image. */
   readonly alt: string;
 }
+
+/** Maximum number of featured meals loaded per category for the carousel */
+export const MAX_MEALS_PER_CATEGORY = 6;
+
+/** Number of meal cards visible per carousel page */
+export const MEALS_PER_PAGE = 3;

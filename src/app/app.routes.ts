@@ -17,6 +17,11 @@ export const routes: Routes = [
     loadChildren: () => import('./features/about/about.routes').then((m) => m.aboutRoutes),
   },
   {
+    path: 'healthy',
+    loadChildren: () =>
+      import('./features/healthy-page/healthy-page.routes').then((m) => m.healthyRoutes),
+  },
+  {
     path: 'classes',
     loadChildren: () =>
       import('./features/classes-details/classes-details.routes').then(
