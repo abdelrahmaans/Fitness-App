@@ -1,0 +1,202 @@
+// =============================================================================
+// Recommendation For You — Classes Details
+// Horizontal carousel track matching Figma design:
+// Card 1 (100%), Card 2 (100%), Card 3 (50% visible, 50% extending off-screen)
+// Smooth left/right scroll navigation with touch swipe and theme support
+// =============================================================================
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.recommendation {
+  --rec-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  container-type: inline-size;
+  container-name: recommendation;
+
+  // =========================================================================
+  // Header: Heading + Carousel Scroll Navigation Controls
+  // =========================================================================
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+
+  &__heading {
+    font-family: var(--font-baloo), sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    line-height: 140%;
+    letter-spacing: 0px;
+
+    :host-context(.light) & {
+      color: var(--color-ink, #242424);
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__scroll-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(30, 30, 30, 0.75);
+    color: #ffffff;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    &:hover:not(:disabled) {
+      background: var(--color-orange-500, #ff4100);
+      border-color: var(--color-orange-500, #ff4100);
+      color: #ffffff;
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(255, 65, 0, 0.45);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:disabled,
+    &--disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      pointer-events: none;
+      transform: none !important;
+    }
+
+    :host-context(.light) & {
+      border-color: rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.95);
+      color: #1f2937;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+      &:hover:not(:disabled) {
+        background: var(--color-orange-500, #ff4100);
+        border-color: var(--color-orange-500, #ff4100);
+        color: #ffffff;
+      }
+    }
+  }
+
+  // =========================================================================
+  // Carousel Viewport & Track
+  // =========================================================================
+  &__viewport {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-block: 4px 16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-orange-500, #ff4100);
+      outline-offset: 4px;
+      border-radius: 16px;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--rec-gap);
+    width: max-content;
+    align-items: stretch;
+  }
+
+  &__card-item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+
+    // Desktop: exactly 2.5 cards visible in viewport (card 1 full, card 2 full, card 3 half visible)
+    // Formula: (Container Width - 2 Gaps) / 2.5
+    width: clamp(260px, calc((100% - (2 * var(--rec-gap))) / 2.5), 420px);
+    flex: 0 0 clamp(260px, calc((100% - (2 * var(--rec-gap))) / 2.5), 420px);
+
+    @supports (width: 1cqw) {
+      width: calc((100cqw - (2 * var(--rec-gap))) / 2.5);
+      flex: 0 0 calc((100cqw - (2 * var(--rec-gap))) / 2.5);
+      min-width: calc((100cqw - (2 * var(--rec-gap))) / 2.5);
+      max-width: calc((100cqw - (2 * var(--rec-gap))) / 2.5);
+    }
+  }
+}
+
+// =============================================================================
+// Responsive Breakpoints
+// =============================================================================
+@container recommendation (max-width: 900px) {
+  .recommendation {
+    &__heading {
+      font-size: 24px;
+    }
+
+    &__card-item {
+      @supports (width: 1cqw) {
+        width: calc((100cqw - var(--rec-gap)) / 1.5);
+        flex: 0 0 calc((100cqw - var(--rec-gap)) / 1.5);
+        min-width: calc((100cqw - var(--rec-gap)) / 1.5);
+        max-width: calc((100cqw - var(--rec-gap)) / 1.5);
+      }
+    }
+  }
+}
+
+@container recommendation (max-width: 540px) {
+  .recommendation {
+    &__heading {
+      font-size: 20px;
+    }
+
+    &__card-item {
+      @supports (width: 1cqw) {
+        width: calc(100cqw - 40px);
+        flex: 0 0 calc(100cqw - 40px);
+        min-width: calc(100cqw - 40px);
+        max-width: calc(100cqw - 40px);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .recommendation__heading {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .recommendation__heading {
+    font-size: 20px;
+  }
+}

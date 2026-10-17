@@ -7,6 +7,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 import { ReusableCard } from '../../../../shared/ui/reusable-card/reusable-card';
@@ -27,6 +28,7 @@ import {
 export class Workouts implements OnInit {
   private readonly workoutsService = inject(WorkoutsService);
   private readonly translationService = inject(TranslationService, { optional: true });
+  private readonly router = inject(Router);
 
   /** Muscle groups loaded from backend API */
   readonly muscleGroups = signal<MuscleGroup[]>([]);
@@ -201,8 +203,10 @@ export class Workouts implements OnInit {
     }
   }
 
-  /** Card click handler */
+  /** Card click handler: navigates to classes details page based on the API ID */
   onCardClick(item: WorkoutCardItem): void {
-    // Interactive action hook
+    if (item.id) {
+      this.router.navigate(['/classes', item.id]);
+    }
   }
 }

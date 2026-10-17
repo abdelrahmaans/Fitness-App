@@ -296,5 +296,26 @@
     "PRIVACY_POLICY": "سياسة الخصوصية",
     "HELP": "المساعدة",
     "LOGOUT": "تسجيل الخروج"
+  },
+  "VIDEO_PLAYLIST": {
+    "BEGINNER": "مبتدئ",
+    "INTERMEDIATE": "متوسط",
+    "ADVANCED": "متقدم"
+  },
+  "RECOMMENDATION": {
+    "TITLE": "توصيات لك"
+  },
+  "CLASSES_DETAILS": {
+    "WATERMARK": "WORKOUTS",
+    "CATEGORIES": {
+      "FULL_BODY": "كامل الجسم",
+      "CHEST": "الصدر",
+      "ARM": "الذراعين",
+      "SHOULDER": "الأكتاف",
+      "BACK": "الظهر",
+      "LEGS": "الأرجل",
+      "STOMACH": "البطن"
+    },
+    "EXPERTLY_DESIGNED": "تمارين مصممة باحترافية."
   }
 }

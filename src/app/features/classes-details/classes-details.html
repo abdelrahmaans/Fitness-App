@@ -1,0 +1,99 @@
+<section class="relative min-h-dvh bg-ink flex flex-col overflow-x-hidden">
+  <!-- Top Navigation Bar -->
+  <app-navbar />
+
+  <!-- Page Content -->
+  <main class="classes-details">
+    <!-- Header: Watermark Outline + Horizontal Categories Filter -->
+    <header class="classes-details__header" aria-label="Workout Categories">
+      <app-section-title
+        class="classes-details__watermark"
+        backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
+        align="center"
+      />
+
+      <nav class="classes-details__categories" aria-label="Muscle categories">
+        @for (group of muscleGroups(); track group._id) {
+          <button
+            type="button"
+            class="classes-details__category-btn"
+            [class.classes-details__category-btn--active]="activeCategory() === group._id"
+            (click)="selectCategory(group._id)"
+          >
+            {{ group.name }}
+          </button>
+        }
+      </nav>
+
+      <!-- Sub-strip: Prime Mover Muscles within Selected Category -->
+      @if (primeMoverMuscles().length > 1) {
+        <nav class="classes-details__prime-movers" aria-label="Prime mover muscles">
+          @for (muscle of primeMoverMuscles(); track muscle._id) {
+            <button
+              type="button"
+              class="classes-details__prime-mover-btn"
+              [class.classes-details__prime-mover-btn--active]="
+                activePrimeMoverMuscleId() === muscle._id
+              "
+              (click)="selectPrimeMoverMuscle(muscle._id)"
+            >
+              @if (muscle.image) {
+                <img
+                  [src]="muscle.image"
+                  [alt]="muscle.name"
+                  class="classes-details__prime-mover-icon"
+                  loading="lazy"
+                />
+              }
+              <span>{{ muscle.name }}</span>
+            </button>
+          }
+        </nav>
+      }
+    </header>
+
+    <!-- Top Row: Playlist (left) + Content Column (right) -->
+    <div class="classes-details__top">
+      <app-video-playlist
+        class="classes-details__playlist"
+        [exercises]="exercises()"
+        [muscles]="primeMoverMuscles()"
+        [selectedExerciseId]="selectedExercise()?._id"
+        [primeMoverMuscleId]="activePrimeMoverMuscleId()"
+        (levelChange)="onLevelChange($event)"
+        (exerciseSelect)="onSelectExercise($event)"
+      />
+
+      <div class="classes-details__content">
+        <app-main-video class="classes-details__video" [exercise]="selectedExercise()" />
+
+        <!-- Expertly Designed Badges Row -->
+        <div class="classes-details__badges">
+          @for (badge of badges(); track badge.id) {
+            <div class="classes-details__badge">
+              <span class="classes-details__badge-icon">
+                <img
+                  [src]="badge.icon"
+                  [alt]="badge.alt"
+                  class="classes-details__badge-arrow"
+                  width="14"
+                  height="14"
+                  aria-hidden="true"
+                />
+              </span>
+              <span class="classes-details__badge-text">{{ badge.textKey | translate }}</span>
+            </div>
+          }
+        </div>
+
+        <!-- Recommendation Section -->
+        <app-recommendation-for-you />
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Preferences Widget (Language & Theme) -->
+  <aside class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 pointer-events-auto">
+    <app-language-switcher />
+  </aside>
+</section>

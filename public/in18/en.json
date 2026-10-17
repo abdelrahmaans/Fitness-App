@@ -296,5 +296,26 @@
     "PRIVACY_POLICY": "Privacy Policy",
     "HELP": "Help",
     "LOGOUT": "Logout"
+  },
+  "VIDEO_PLAYLIST": {
+    "BEGINNER": "Beginner",
+    "INTERMEDIATE": "Intermediate",
+    "ADVANCED": "Advanced"
+  },
+  "RECOMMENDATION": {
+    "TITLE": "Recommendation For You"
+  },
+  "CLASSES_DETAILS": {
+    "WATERMARK": "WORKOUTS",
+    "CATEGORIES": {
+      "FULL_BODY": "Full Body",
+      "CHEST": "Chest",
+      "ARM": "Arm",
+      "SHOULDER": "Shoulder",
+      "BACK": "Back",
+      "LEGS": "Legs",
+      "STOMACH": "Stomach"
+    },
+    "EXPERTLY_DESIGNED": "Expertly designed workout."
   }
 }

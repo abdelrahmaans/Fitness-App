@@ -1,0 +1,264 @@
+// =============================================================================
+// Video Playlist Component — Matches Figma Design
+// Dark-themed scrollable playlist with difficulty tabs and play buttons
+// =============================================================================
+
+.video-playlist {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  max-width: 420px;
+  background-color: rgba(36, 36, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 22px 16px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  // =========================================================================
+  // Difficulty Level Tabs
+  // =========================================================================
+  &__tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 4px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__tab {
+    flex-shrink: 0;
+    padding: 6px 18px;
+    border: none;
+    border-radius: 9999px;
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &--active {
+      background-color: var(--color-orange-500, #ff4100);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.4);
+    }
+  }
+
+  // =========================================================================
+  // Scrollable Playlist List
+  // =========================================================================
+  &__list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+    }
+  }
+
+  // =========================================================================
+  // Individual Playlist Item
+  // =========================================================================
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    &--selected {
+      background-color: rgba(255, 65, 0, 0.12);
+      border-left: 3px solid var(--color-orange-500, #ff4100);
+      padding-left: 7px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // =========================================================================
+  // Thumbnail
+  // =========================================================================
+  &__thumbnail-wrapper {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  &__thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  // =========================================================================
+  // Exercise Info
+  // =========================================================================
+  &__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__title {
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  &__groups {
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--color-orange-500, #ff4100);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  &__desc {
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 10.5px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.58);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  // =========================================================================
+  // Play Button — Compact Orange Circle with Centered Play Triangle
+  // =========================================================================
+  &__play-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-orange-500, #ff4100);
+    color: black;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(255, 65, 0, 0.35);
+
+    &:hover {
+      background-color: var(--color-orange-600, #cc3300);
+      transform: scale(1.08);
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.5);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__play-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 2px; // Optical centering for play triangle
+  }
+}
+
+// =============================================================================
+// Light Theme Support
+// =============================================================================
+:host-context(html.light),
+:host-context(.light) {
+  .video-playlist {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+    &__tabs {
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    &__tab {
+      color: rgba(0, 0, 0, 0.6);
+
+      &:hover {
+        color: #111827;
+      }
+
+      &--active {
+        background-color: var(--color-orange-500, #ff4100);
+        color: #ffffff;
+      }
+    }
+
+    &__item {
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+    }
+
+    &__title {
+      color: #111827;
+    }
+
+    &__desc {
+      color: rgba(0, 0, 0, 0.55);
+    }
+
+    &__list {
+      scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
