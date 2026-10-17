@@ -9,6 +9,11 @@ export const classesRoutes: Routes = [
         path: '',
         loadComponent: () => import('./pages/classes/classes').then((m) => m.Classes),
       },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('../classes-details/classes-details').then((m) => m.ClassesDetails),
+      },
     ],
   },
 ];

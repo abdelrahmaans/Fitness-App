@@ -9,7 +9,7 @@ export const classesDetailsRoutes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/home',
+        redirectTo: '/classes',
       },
       {
         path: ':id',
