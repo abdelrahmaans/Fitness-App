@@ -124,10 +124,14 @@
     "HEALTHY": {
       "WATERMARK": "HEALTHY",
       "LABEL": "Healthy Nutritions",
-      "HEADING_PART1": "FUEL YOUR FITNESS JOURNEY WITH CUSTOMIZED",
+      "HEADING_MAIN": "FUEL YOUR FITNESS JOURNEY WITH",
+      "HEADING_PART1": "CUSTOMIZED",
       "HEADING_HIGHLIGHT": "MEAL PLANS",
       "HEADING_PART2": "FOR YOU",
-      "SEE_MORE": "See More"
+      "SEE_MORE": "See More",
+      "FILTER_BREAKFAST": "Breakfast",
+      "FILTER_LUNCH": "Lunch",
+      "FILTER_DINNER": "Dinner"
     },
     "WHY_US": {
       "WATERMARK": "WHY US",
@@ -222,6 +226,7 @@
   },
   "MEAL_CARD": {
     "READ_MORE": "Read More",
+    "EXPLORE": "Explore",
     "BREAKFAST": "BREAKFAST",
     "LUNCH": "LUNCH",
     "DINNER": "DINNER"
@@ -357,5 +362,26 @@
         "CANCEL": "Cancel"
       }
     }
+  },
+  "VIDEO_PLAYLIST": {
+    "BEGINNER": "Beginner",
+    "INTERMEDIATE": "Intermediate",
+    "ADVANCED": "Advanced"
+  },
+  "RECOMMENDATION": {
+    "TITLE": "Recommendation For You"
+  },
+  "CLASSES_DETAILS": {
+    "WATERMARK": "WORKOUTS",
+    "CATEGORIES": {
+      "FULL_BODY": "Full Body",
+      "CHEST": "Chest",
+      "ARM": "Arm",
+      "SHOULDER": "Shoulder",
+      "BACK": "Back",
+      "LEGS": "Legs",
+      "STOMACH": "Stomach"
+    },
+    "EXPERTLY_DESIGNED": "Expertly designed workout."
   }
 }

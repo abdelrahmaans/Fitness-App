@@ -44,7 +44,6 @@ describe('Account Page', () => {
     const basicMetrics = fixture.nativeElement.querySelector('app-basic-metrics');
     expect(basicMetrics).toBeTruthy();
   });
-
   it('should render the app-settings-menu component inside the account content', () => {
     const settingsMenu = fixture.nativeElement.querySelector('app-settings-menu');
     expect(settingsMenu).toBeTruthy();

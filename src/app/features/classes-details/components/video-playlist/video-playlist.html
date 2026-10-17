@@ -1,0 +1,67 @@
+<div class="video-playlist">
+  <!-- Difficulty Level Tabs -->
+  <nav
+    class="video-playlist__tabs"
+    aria-label="Difficulty level filter"
+  >
+    @for (level of levels(); track level.id) {
+      <button
+        type="button"
+        class="video-playlist__tab"
+        [class.video-playlist__tab--active]="activeLevelId() === level.id"
+        (click)="selectLevel(level.id)"
+      >
+        {{ level.name }}
+      </button>
+    }
+  </nav>
+
+  <!-- Scrollable Playlist Items -->
+  <div class="video-playlist__list" role="list">
+    @for (item of playlistItems(); track item.id) {
+      <div
+        class="video-playlist__item"
+        [class.video-playlist__item--selected]="selectedExerciseId() === item.id"
+        role="listitem"
+        tabindex="0"
+        (click)="onSelectItem(item)"
+        (keydown.enter)="onSelectItem(item)"
+      >
+        <!-- Thumbnail -->
+        <div class="video-playlist__thumbnail-wrapper">
+          <img
+            class="video-playlist__thumbnail"
+            [src]="item.thumbnail"
+            [alt]="item.alt"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Exercise Info -->
+        <div class="video-playlist__info">
+          <h3 class="video-playlist__title">{{ item.title }}</h3>
+          <p class="video-playlist__groups">{{ item.groups }}</p>
+          <p class="video-playlist__desc">{{ item.descriptionLine1 }}</p>
+          <p class="video-playlist__desc">{{ item.descriptionLine2 }}</p>
+        </div>
+
+        <!-- Play Button -->
+        <button
+          type="button"
+          class="video-playlist__play-btn"
+          [attr.aria-label]="'Play ' + item.title"
+          (click)="$event.stopPropagation(); onSelectItem(item)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="video-playlist__play-icon"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+      </div>
+    }
+  </div>
+</div>
