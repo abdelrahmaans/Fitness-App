@@ -1,0 +1,119 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.basic-metrics {
+  &__card {
+    width: 240px;
+    height: 148px;
+  }
+
+  &__title {
+    color: #ffffff;
+    font-family: 'Baloo Thambi 2', sans-serif;
+    font-weight: 800;
+  }
+
+  &__helper {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--color-orange-500, #ff4100);
+    }
+  }
+
+  &__btn {
+    width: 240px;
+    height: 50px;
+    background-color: var(--color-orange-500, #ff4100);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    border-radius: 9999px;
+
+    &:hover {
+      background-color: #e03a00;
+    }
+  }
+
+  &__modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &__modal-card {
+    background-color: rgba(26, 27, 30, 0.95);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  }
+
+  &__modal-title {
+    color: #ffffff;
+    font-family: 'Baloo Thambi 2', sans-serif;
+  }
+
+  &__modal-close {
+    color: #94a3b8;
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// =============================================================================
+// Light Theme Support
+// =============================================================================
+:host-context(html.light),
+:host-context(.light) {
+  .basic-metrics {
+    &__title {
+      color: #0f172a;
+    }
+
+    &__helper {
+      color: #1e293b;
+
+      &:hover {
+        color: var(--color-orange-500, #ff4100);
+      }
+    }
+
+    &__btn {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 14px rgba(255, 65, 0, 0.35);
+    }
+
+    &__modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.45);
+    }
+
+    &__modal-card {
+      background-color: rgba(255, 255, 255, 0.97);
+      border-color: #e2e8f0;
+      color: #0f172a;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+    }
+
+    &__modal-title {
+      color: #0f172a;
+    }
+
+    &__modal-close {
+      color: #64748b;
+
+      &:hover {
+        color: #0f172a;
+        background-color: rgba(15, 23, 42, 0.06);
+      }
+    }
+  }
+}
