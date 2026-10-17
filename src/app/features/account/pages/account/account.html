@@ -13,12 +13,13 @@
 <section class="account__layout relative z-10 flex min-h-dvh flex-col overflow-x-hidden">
   <!-- Main Account Container -->
   <main class="account__content flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 flex flex-col items-center">
-    <!-- Slot for Basic Metrics & Settings Menu tasks -->
-    <div class="w-full flex flex-col items-center gap-8 md:gap-12 transition-all duration-300">
+    <!-- Slot for Basic Metrics & Settings Menu tasks (Both 880px aligned) -->
+    <div class="w-full max-w-[880px] flex flex-col items-center gap-10 md:gap-14 transition-all duration-300">
       <!-- Task 1: Basic Metrics (Goal, Level, Weight) -->
-      <app-basic-metrics />
+      <app-basic-metrics class="w-full" />
 
-      <!-- Task 2: Settings Menu slot -->
+      <!-- Task 2: Settings Menu Grid -->
+      <app-settings-menu class="w-full" />
     </div>
   </main>
 

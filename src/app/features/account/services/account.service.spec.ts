@@ -57,6 +57,23 @@ describe('AccountService', () => {
     expect(authService.getUser()?.goal).toBe('Lose Weight');
   });
 
+  it('should call PATCH /auth/change-password and update token', () => {
+    const payload = { password: 'OldPassword123!', newPassword: 'NewPassword123!' };
+    const mockResponse = { message: 'success', token: 'new-jwt-token' };
+
+    service.changePassword(payload).subscribe((res) => {
+      expect(res.message).toBe('success');
+      expect(res.token).toBe('new-jwt-token');
+    });
+
+    const req = httpTesting.expectOne(`${environment.apiBaseUrl}/auth/change-password`);
+    expect(req.request.method).toBe('PATCH');
+    expect(req.request.body).toEqual(payload);
+
+    req.flush(mockResponse);
+    expect(authService.getToken()).toBe('new-jwt-token');
+  });
+
   it('should correctly resolve activity level label', () => {
     expect(service.getActivityLevelLabel('level1')).toBe('Rookie');
     expect(service.getActivityLevelLabel('level2')).toBe('Beginner');

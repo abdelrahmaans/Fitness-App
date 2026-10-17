@@ -1,0 +1,157 @@
+// =============================================================================
+// Settings Menu Styles
+// 209px width x 168px height, rounded corners, full Dark & Light theme support.
+// =============================================================================
+
+.settings-card {
+  width: 100%;
+  max-width: 209px;
+  height: 168px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #fff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(255, 65, 0, 0.65);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(255, 65, 0, 0.18);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+  }
+
+  &__label {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  &--logout {
+    color: #ff4100 !important;
+
+    .settings-card__label {
+      color: #ff4100 !important;
+      font-weight: 600;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: #ff4100;
+      background: rgba(255, 65, 0, 0.08);
+      box-shadow: 0 10px 25px -5px rgba(255, 65, 0, 0.25);
+    }
+  }
+}
+
+.settings-toggle {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &__thumb {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.settings-modal-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.settings-modal-content {
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+// Light Theme
+:host-context(html.light),
+:host-context(.light) {
+  .settings-card {
+    border-color: rgba(15, 23, 42, 0.45);
+    background: rgba(255, 255, 255, 0.32);
+    color: #0f172a;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba(255, 65, 0, 0.75);
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 25px -5px rgba(255, 65, 0, 0.15);
+    }
+
+    &--logout {
+      border-color: rgba(15, 23, 42, 0.45);
+      background: rgba(255, 255, 255, 0.32);
+
+      &:hover,
+      &:focus-visible {
+        border-color: #ff4100;
+        background: rgba(255, 65, 0, 0.08);
+      }
+    }
+  }
+
+  .settings-modal-content {
+    background: #fff;
+    border-color: rgba(15, 23, 42, 0.1);
+    color: #0f172a;
+
+    h3, h4 { color: #0f172a !important; }
+    p, .text-slate-400, .text-slate-300 { color: #64748b !important; }
+
+    .settings-input {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+      color: #0f172a;
+      &::placeholder { color: #94a3b8; }
+    }
+
+    .settings-modal-close {
+      color: #64748b;
+      &:hover {
+        color: #0f172a;
+        background: rgba(15, 23, 42, 0.06);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

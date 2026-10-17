@@ -46,3 +46,23 @@ export const ACTIVITY_LEVEL_OPTIONS: readonly { id: string; labelKey: string; va
   { id: '4', labelKey: 'ACCOUNT.LEVELS.ADVANCE', value: 'level4', displayLabel: 'Advance' },
   { id: '5', labelKey: 'ACCOUNT.LEVELS.TRUE_BEAST', value: 'level5', displayLabel: 'True Beast' },
 ];
+
+export interface ChangePasswordRequest {
+  password: string;
+  newPassword: string;
+}
+
+export interface ChangePasswordResponse {
+  message: string;
+  token?: string;
+}
+
+export type SettingsModalType =
+  | 'change-password'
+  | 'language'
+  | 'security'
+  | 'privacy-policy'
+  | 'help'
+  | 'logout'
+  | null;
+

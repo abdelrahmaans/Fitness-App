@@ -300,7 +300,68 @@
     "SECURITY": "Security",
     "PRIVACY_POLICY": "Privacy Policy",
     "HELP": "Help",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "SETTINGS": {
+      "CHANGE_PASSWORD": {
+        "TITLE": "Change Password",
+        "SUBTITLE": "Ensure your account is using a long, random password to stay secure.",
+        "CURRENT_PASSWORD": "Current Password",
+        "NEW_PASSWORD": "New Password",
+        "CONFIRM_NEW_PASSWORD": "Confirm New Password",
+        "CURRENT_PASSWORD_PLACEHOLDER": "Enter current password",
+        "NEW_PASSWORD_PLACEHOLDER": "Enter new password",
+        "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm new password",
+        "SUBMIT": "Update Password",
+        "UPDATING": "Updating...",
+        "SUCCESS": "Password updated successfully!",
+        "MISMATCH_ERROR": "New password and confirmation do not match.",
+        "REQUIRED_ERROR": "Please fill in all password fields."
+      },
+      "LANGUAGE": {
+        "TITLE": "Select Language",
+        "SUBTITLE": "Choose your preferred application language.",
+        "EN": "English",
+        "AR": "العربية"
+      },
+      "SECURITY": {
+        "TITLE": "Security",
+        "SUBTITLE": "Manage your security settings and authentication methods.",
+        "STATUS_TITLE": "Account Security Status",
+        "STATUS_GOOD": "Protected",
+        "TWO_FACTOR": "Two-Factor Authentication",
+        "TWO_FACTOR_DESC": "An extra layer of security for your account credentials.",
+        "CHANGE_PASS_DESC": "Keep your password updated regularly.",
+        "CLOSE": "Close"
+      },
+      "PRIVACY": {
+        "TITLE": "Privacy Policy",
+        "SUBTITLE": "How we manage and protect your personal fitness data.",
+        "SEC1_TITLE": "1. Data Collection",
+        "SEC1_DESC": "We only collect data necessary to tailor your fitness routines and calculate accurate workout targets.",
+        "SEC2_TITLE": "2. Security & Encryption",
+        "SEC2_DESC": "Your sensitive profile details are encrypted during transit and stored securely on Elevate cloud infrastructure.",
+        "SEC3_TITLE": "3. Your Control",
+        "SEC3_DESC": "You can view, edit, or remove your personal data at any moment directly from your profile settings.",
+        "CLOSE": "I Understand"
+      },
+      "HELP": {
+        "TITLE": "Help & Support",
+        "SUBTITLE": "Find quick answers or get in touch with our support team.",
+        "FAQ1_Q": "How do I update my workout schedule?",
+        "FAQ1_A": "You can manage workouts and routines directly from the workouts section on your dashboard.",
+        "FAQ2_Q": "Can I change my fitness goal anytime?",
+        "FAQ2_A": "Yes! Tap on 'Your Goal' at the top of your Account page to update it whenever you want.",
+        "SUPPORT_EMAIL_TITLE": "Need more help?",
+        "SUPPORT_EMAIL": "support@elevateegy.com",
+        "CLOSE": "Close"
+      },
+      "LOGOUT": {
+        "TITLE": "Sign Out",
+        "MESSAGE": "Are you sure you want to sign out of Super Fitness?",
+        "CONFIRM": "Sign Out",
+        "CANCEL": "Cancel"
+      }
+    }
   },
   "VIDEO_PLAYLIST": {
     "BEGINNER": "Beginner",
