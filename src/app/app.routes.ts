@@ -23,10 +23,7 @@ export const routes: Routes = [
   },
   {
     path: 'classes',
-    loadChildren: () =>
-      import('./features/classes-details/classes-details.routes').then(
-        (m) => m.classesDetailsRoutes
-      ),
+    loadChildren: () => import('./features/classes/classes.routes').then((m) => m.classesRoutes),
   },
   {
     path: 'classes-details/:id',
@@ -34,7 +31,7 @@ export const routes: Routes = [
   },
   {
     path: 'classes-details',
-    redirectTo: 'home',
+    redirectTo: 'classes',
   },
   {
     path: 'account',
