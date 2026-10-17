@@ -19,6 +19,7 @@ import {
   MealCard,
   MealFilterTab,
 } from './models/healthy-page.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-healthy-page',
@@ -30,6 +31,7 @@ import {
 export class HealthyPage {
   private readonly mealCategoryService = inject(MealCategoryService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
 
   /** Filter tabs matching Figma: Breakfast, Lunch, Dinner */
   readonly filterTabs = MEAL_FILTER_TABS;
@@ -106,4 +108,11 @@ export class HealthyPage {
       this.activeIndex.set(pageIndex);
     }
   }
+
+      onCardClick(card: MealCard): void {
+      if (card.id) {
+        this.router.navigate(['/meals', card.id]);
+      }
+
+    }
 }

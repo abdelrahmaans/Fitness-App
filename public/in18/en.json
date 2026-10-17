@@ -383,5 +383,21 @@
       "STOMACH": "Stomach"
     },
     "EXPERTLY_DESIGNED": "Expertly designed workout."
+  },
+  "MEALS": {
+    "CATEGORIES": {
+      "BREAKFAST": "Breakfast",
+      "LUNCH": "Lunch",
+      "DINNER": "Dinner"
+    },
+    "WATERMARK": "Healthy",
+    "NUTRITION": {
+      "ENERGY": "Energy",
+      "PROTEIN": "Protein",
+      "CARBS": "Carbs",
+      "FAT": "Fat"
+    },
+    "INGREDIENTS": "Ingredients",
+    "LOADING": "Loading meal details..."
   }
 }

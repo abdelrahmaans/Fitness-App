@@ -383,5 +383,21 @@
       "STOMACH": "البطن"
     },
     "EXPERTLY_DESIGNED": "تمارين مصممة باحترافية."
+  },
+  "MEALS": {
+    "CATEGORIES": {
+      "BREAKFAST": "إفطار",
+      "LUNCH": "غداء",
+      "DINNER": "عشاء"
+    },
+    "WATERMARK": "صحـي",
+    "NUTRITION": {
+      "ENERGY": "الطاقة",
+      "PROTEIN": "بروتين",
+      "CARBS": "كارب",
+      "FAT": "دهون"
+    },
+    "INGREDIENTS": "المكونات",
+    "LOADING": "جاري تحميل تفاصيل الوجبة..."
   }
 }

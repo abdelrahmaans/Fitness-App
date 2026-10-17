@@ -15,6 +15,7 @@ import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 import { ReusableCard } from '../../../../shared/ui/reusable-card/reusable-card';
 import { MealCard } from '../../../home/models/meal-card.model';
 import { MealCategoryService } from '../../../home/services/meal-category.service';
+import { Router } from '@angular/router';
 
 /** Curated initial meal plans matching Figma design with high-resolution assets */
 const FIGMA_MEALS: readonly MealCard[] = [
@@ -49,6 +50,7 @@ export class RecommendationForYou {
   private readonly mealCategoryService = inject(MealCategoryService);
   private readonly translationService = inject(TranslationService, { optional: true });
   private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
 
   /** Viewport element for scrolling cards */
   readonly viewport = viewChild<ElementRef<HTMLElement>>('viewport');
@@ -160,4 +162,10 @@ export class RecommendationForYou {
       event.preventDefault();
     }
   }
+      onCardClick(card: MealCard): void {
+      if (card.id) {
+        this.router.navigate(['/meals', card.id]);
+      }
+
+    }
 }
