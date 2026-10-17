@@ -47,9 +47,7 @@ export class MealDetails {
         }
         this.isLoading = false;
       },
-      error: () => {
-        this.isLoading = false;
-      }
+
     });
   }
 
@@ -64,9 +62,6 @@ export class MealDetails {
         if (meals.length > 0 && !this.selectedMeal()) {
           this.fetchMealDetails(meals[0].id);
         }
-        this.isLoading = false;
-      },
-      error: () => {
         this.isLoading = false;
       }
     });
