@@ -1,0 +1,59 @@
+<section class="recommendation" aria-label="Meal Recommendations">
+  <!-- Section Header: Title + Carousel Scroll Navigation Handles -->
+  <div class="recommendation__header">
+    <h2 class="recommendation__heading">
+      {{ 'RECOMMENDATION.TITLE' | translate }}
+    </h2>
+
+    <div class="recommendation__controls" aria-label="Carousel Controls">
+      <button
+        type="button"
+        class="recommendation__scroll-btn recommendation__scroll-btn--prev"
+        (click)="scroll('prev')"
+        [disabled]="!canScrollPrev()"
+        [class.recommendation__scroll-btn--disabled]="!canScrollPrev()"
+        [attr.aria-label]="'COMMON.PREVIOUS' | translate"
+      >
+        <svg lucideChevronLeft class="size-4.5 rtl:-scale-x-100" aria-hidden="true"></svg>
+      </button>
+
+      <button
+        type="button"
+        class="recommendation__scroll-btn recommendation__scroll-btn--next"
+        (click)="scroll('next')"
+        [disabled]="!canScrollNext()"
+        [class.recommendation__scroll-btn--disabled]="!canScrollNext()"
+        [attr.aria-label]="'COMMON.NEXT' | translate"
+      >
+        <svg lucideChevronRight class="size-4.5 rtl:-scale-x-100" aria-hidden="true"></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Carousel Viewport & Continuous Track -->
+  <div
+    #viewport
+    class="recommendation__viewport no-scrollbar"
+    (scroll)="updateScrollState()"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+    (keydown)="onKeyDown($event)"
+    tabindex="0"
+    role="region"
+    aria-label="Meal Cards Carousel"
+  >
+    <div class="recommendation__track">
+      @for (card of cards(); track card.id) {
+        <div class="recommendation__card-item">
+          <app-reusable-card
+            [title]="card.titleKey"
+            [image]="card.image"
+            [alt]="card.alt"
+            ctaLabel="MEAL_CARD.READ_MORE"
+            (cardClick)="onCardClick(card)"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>

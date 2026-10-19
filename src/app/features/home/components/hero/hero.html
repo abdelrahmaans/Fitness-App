@@ -1,13 +1,24 @@
-<section class="hero relative isolate w-full overflow-hidden flex flex-col justify-center min-h-dvh pt-20">
-  <!-- Subtle Ambient Radial Glows -->
-  <div class="hero__glow-1 absolute -top-40 -left-40 size-[500px] rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
-  <div class="hero__glow-2 absolute top-1/3 -right-20 size-[600px] rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+<section class="hero relative isolate flex h-full min-h-0 w-full flex-1 flex-col overflow-hidden pt-20">
+  <!-- Hero Background Image & Frosted Overlay Canvas -->
+  <div class="hero__bg-wrapper absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <img
+      src="/images/bg-img.webp"
+      alt=""
+      class="hero__bg-image w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="hero__bg-overlay absolute inset-0 transition-colors duration-300"></div>
+  </div>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+  <!-- Subtle Ambient Radial Glows -->
+  <div class="hero__glow-1 absolute -top-40 -left-40 size-[500px] rounded-full blur-[120px] pointer-events-none z-0" aria-hidden="true"></div>
+  <div class="hero__glow-2 absolute top-1/3 -right-20 size-[600px] rounded-full blur-[140px] pointer-events-none z-0" aria-hidden="true"></div>
+
+  <div class="relative z-10 mx-auto grid h-full min-h-0 w-full max-w-7xl flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)] items-stretch gap-2 px-4 pt-1 pb-0 sm:gap-3 sm:px-6 lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-8 lg:px-8 lg:pt-6">
     <!-- Left Column: Content & Statistics & Buttons -->
-    <div class="lg:col-span-7 flex flex-col justify-center z-10 pt-4 lg:pt-0">
+    <div class="z-10 flex min-h-0 flex-col justify-center lg:col-span-7 lg:self-center">
       <!-- Headline with STAND and ALMOST highlighted in orange -->
-      <h1 class="hero__headline font-baloo font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.08] mb-6">
+      <h1 class="hero__headline mb-3 font-baloo text-3xl font-extrabold uppercase leading-[1.08] tracking-tight sm:mb-4 sm:text-4xl lg:mb-6 lg:text-5xl xl:text-6xl">
         <!-- Desktop / Tablet layout (sm and up) -->
         <span class="hidden sm:block text-white hero__headline-text">
           {{ 'HERO.TITLE_PART1' | translate }}
@@ -31,17 +42,17 @@
       </h1>
 
       <!-- Motivational Subtext bordered by a vertical orange line on the left/inline-start -->
-      <div class="hero__subtext-wrapper border-s-4 border-orange-500 ps-4 sm:ps-5 mb-8 sm:mb-10 max-w-xl">
-        <p class="hero__subtext font-rubik text-sm sm:text-base leading-relaxed text-silver">
+      <div class="hero__subtext-wrapper mb-3 max-w-xl border-s-4 border-orange-500 ps-3 sm:mb-5 sm:ps-5 lg:mb-10">
+        <p class="hero__subtext font-rubik text-xs leading-relaxed text-silver sm:text-sm lg:text-base">
           {{ 'HERO.SUBTEXT' | translate }}
         </p>
       </div>
 
       <!-- Three Statistical Figures (Stacked vertically on mobile, horizontal on tablet/desktop) -->
-      <div class="hero__stats flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 sm:gap-10 lg:gap-12 mb-8 sm:mb-10">
+      <div class="hero__stats mb-3 flex flex-col items-start gap-2 sm:mb-5 sm:gap-3 lg:mb-10 lg:flex-row lg:flex-wrap lg:items-center lg:gap-12">
         @for (stat of stats; track stat.labelKey) {
           <div class="hero__stat-item flex flex-col">
-            <span class="hero__stat-value font-baloo font-bold text-2xl sm:text-3xl text-white">
+            <span class="hero__stat-value font-baloo text-xl font-bold text-white sm:text-2xl lg:text-3xl">
               {{ stat.valueKey | translate }}
             </span>
             <span class="hero__stat-label font-rubik text-xs sm:text-sm text-metal">
@@ -79,13 +90,13 @@
       </div>
     </div>
 
-    <!-- Right Column: Fitness Trainer Image -->
-    <div class="lg:col-span-5 relative flex items-end justify-center lg:justify-end mt-4 lg:mt-0">
-      <div class="hero__trainer-wrapper relative w-full max-w-[440px] lg:max-w-none flex items-end justify-center">
+    <!-- Trainer sits on the marquee: below the copy on small screens, beside it from lg -->
+    <div class="relative flex h-full min-h-0 items-end justify-center self-stretch lg:col-span-5 lg:justify-end">
+      <div class="hero__trainer-wrapper relative flex h-full min-h-0 w-full items-end justify-center lg:justify-end">
         <img
           src="images/hero.webp"
           [alt]="'HERO.TRAINER_ALT' | translate"
-          class="hero__trainer-img w-auto h-auto max-h-[500px] sm:max-h-[580px] lg:max-h-[660px] xl:max-h-[720px] object-contain object-bottom drop-shadow-2xl z-10"
+          class="hero__trainer-img z-10 h-full max-h-full w-auto max-w-full object-contain object-bottom drop-shadow-2xl"
           width="550"
           height="750"
           loading="eager"

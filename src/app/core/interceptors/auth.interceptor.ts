@@ -27,7 +27,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((error: unknown) => {
-      if (error instanceof HttpErrorResponse && error.status === 401) {
+      const isIgnoredFromAutoLogout =
+        req.url.includes('/auth/editProfile') || req.url.includes('/auth/change-password');
+      if (error instanceof HttpErrorResponse && error.status === 401 && !isIgnoredFromAutoLogout) {
         authService.clearSession();
         void router.navigate(['/auth/login']);
       }

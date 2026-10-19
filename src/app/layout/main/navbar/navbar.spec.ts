@@ -31,6 +31,7 @@ describe('Navbar', () => {
         'NAV.LOGIN': 'LOGIN',
         'NAV.SIGN_UP': 'SIGN UP',
         'NAV.LOGOUT': 'Logout',
+        'NAV.ACCOUNT': 'Account',
         'NAV.PROFILE': 'Profile',
         'NAV.LOGO_ALT': 'Super Fitness Logo',
         'NAV.TOGGLE_MENU': 'Toggle Navigation Menu',
@@ -130,6 +131,21 @@ describe('Navbar', () => {
 
       avatarBtn.click();
       fixture.detectChanges();
+      expect(component.isUserMenuOpen()).toBe(false);
+    });
+
+    it('should display Account link in dropdown pointing to /account and close menu when clicked', () => {
+      component.toggleUserMenu();
+      fixture.detectChanges();
+
+      const accountLink = fixture.nativeElement.querySelector(
+        '.navbar__dropdown a',
+      ) as HTMLAnchorElement;
+      expect(accountLink).toBeTruthy();
+      expect(accountLink.textContent).toContain('Account');
+      expect(accountLink.getAttribute('href') ?? accountLink.getAttribute('routerLink')).toBe('/account');
+
+      component.closeUserMenu();
       expect(component.isUserMenuOpen()).toBe(false);
     });
 

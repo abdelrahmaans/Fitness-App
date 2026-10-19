@@ -1,0 +1,83 @@
+<section class="healthy-page relative flex min-h-dvh flex-col overflow-x-hidden bg-white dark:bg-ink transition-colors duration-300">
+  <div class="healthy-page__container pt-20 lg:pt-24">
+    <!-- Section Title: watermark + label -->
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.HEALTHY.WATERMARK"
+      labelKey="SECTION_TITLE.HEALTHY.LABEL"
+      align="center"
+    />
+
+    <!-- Main Heading with highlighted "MEAL PLANS" -->
+    <h2 class="healthy-page__heading">
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_MAIN' | translate }}
+      <br />
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART1' | translate }}
+      <span class="healthy-page__heading--highlight">
+        {{ 'SECTION_TITLE.HEALTHY.HEADING_HIGHLIGHT' | translate }}
+      </span>
+      {{ 'SECTION_TITLE.HEALTHY.HEADING_PART2' | translate }}
+    </h2>
+
+    <!-- Breakfast / Lunch / Dinner Filter Tabs -->
+    <nav class="healthy-page__filters" aria-label="Meal time filter" role="tablist">
+      @for (tab of filterTabs; track tab.id) {
+        <button
+          type="button"
+          role="tab"
+          [attr.aria-selected]="activeTabId() === tab.id"
+          class="healthy-page__filter-btn"
+          [class.healthy-page__filter-btn--active]="activeTabId() === tab.id"
+          (click)="selectTab(tab)"
+        >
+          {{ tab.labelKey | translate }}
+        </button>
+      }
+    </nav>
+
+    <!-- Loading State -->
+    @if (isLoading()) {
+      <div class="healthy-page__loading" aria-busy="true">
+        <div class="healthy-page__spinner"></div>
+      </div>
+    } @else {
+      <!-- 6 Meal Cards Grid (2 rows x 3 columns) -->
+      <div class="healthy-page__cards">
+        @for (card of visibleCards(); track card.id) {
+          <app-reusable-card
+            [title]="card.titleKey"
+            [image]="card.image"
+            [alt]="card.alt"
+            ctaLabel="MEAL_CARD.EXPLORE"
+            (cardClick)="onCardClick(card)"
+          />
+        }
+      </div>
+    }
+
+    <!-- Pagination Dots -->
+    @if (!isLoading() && pages().length > 1) {
+      <div
+        class="healthy-page__pagination"
+        role="tablist"
+        aria-label="Meal plans pagination"
+      >
+        @for (pageIndex of pages(); track pageIndex) {
+          <button
+            type="button"
+            role="tab"
+            class="healthy-page__dot"
+            [class.healthy-page__dot--active]="activeIndex() === pageIndex"
+            [attr.aria-selected]="activeIndex() === pageIndex"
+            [attr.aria-label]="'Go to page ' + (pageIndex + 1)"
+            (click)="setPage(pageIndex)"
+          ></button>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Floating Preferences Widget (Language & Theme) -->
+  <aside class="pointer-events-auto fixed bottom-4 left-4 z-50 sm:bottom-6 sm:left-6">
+    <app-language-switcher />
+  </aside>
+</section>

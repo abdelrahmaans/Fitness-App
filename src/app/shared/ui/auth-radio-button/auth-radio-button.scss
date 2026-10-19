@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+:host-context(html.light),
+:host-context(.light) {
+  label {
+    border-color: rgba(15, 23, 42, 0.15) !important;
+    background-color: rgba(15, 23, 42, 0.03) !important;
+    color: #1e293b !important;
+
+    &:hover {
+      background-color: rgba(15, 23, 42, 0.06) !important;
+    }
+  }
+
+  label.border-orange-500 {
+    border-color: #ff4100 !important;
+    background-color: rgba(255, 65, 0, 0.06) !important;
+    color: #ff4100 !important;
+  }
+}

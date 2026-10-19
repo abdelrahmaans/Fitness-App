@@ -1,0 +1,118 @@
+<section class="classes relative isolate flex min-h-dvh flex-col overflow-x-hidden">
+  <div class="classes__bg-photo pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+    <img
+      src="/images/workouts-bg.webp"
+      alt=""
+      class="h-full w-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="classes__bg-overlay absolute inset-0"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pb-16 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+    <app-section-title
+      backgroundTitleKey="SECTION_TITLE.WORKOUTS.WATERMARK"
+      labelKey="SECTION_TITLE.WORKOUTS.LABEL"
+      align="center"
+    />
+
+    <h1 class="classes__headline mt-1 mb-3 max-w-3xl text-center font-baloo text-xl font-extrabold uppercase leading-snug tracking-tight sm:mt-2 sm:mb-4 sm:text-2xl md:text-3xl lg:text-[30px]">
+      {{ 'WORKOUTS.TITLE_MAIN' | translate }}<br />
+      <span>{{ 'WORKOUTS.TITLE_DYNAMIC' | translate }} </span>
+      <span class="text-orange-500">{{ 'WORKOUTS.TITLE_HIGHLIGHT' | translate }}</span>
+    </h1>
+
+    <nav
+      class="classes__filters no-scrollbar flex w-full max-w-4xl items-center justify-start gap-2 overflow-x-auto px-2 py-2 sm:justify-center sm:gap-3"
+      aria-label="Muscle Categories Filter"
+    >
+      <button
+        type="button"
+        (click)="selectCategory('all')"
+        class="classes__filter-btn shrink-0 cursor-pointer rounded-full px-5 py-2 font-baloo text-sm font-bold uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:text-base"
+        [class.classes__filter-btn--active]="activeCategory() === 'all'"
+        [attr.aria-pressed]="activeCategory() === 'all'"
+      >
+        {{ 'WORKOUTS.FILTER_FULL_BODY' | translate }}
+      </button>
+
+      @for (group of muscleGroups(); track group._id) {
+        <button
+          type="button"
+          (click)="selectCategory(group._id)"
+          class="classes__filter-btn shrink-0 cursor-pointer rounded-full px-4 py-2 font-baloo text-sm font-semibold normal-case tracking-normal transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 sm:px-5 sm:text-base"
+          [class.classes__filter-btn--active]="activeCategory() === group._id"
+          [attr.aria-pressed]="activeCategory() === group._id"
+        >
+          {{ group.name }}
+        </button>
+      }
+    </nav>
+
+    <div
+      class="relative mx-auto mt-4 w-full max-w-6xl select-none overflow-hidden sm:mt-6"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      @if (isLoading()) {
+        <div class="flex min-h-[380px] w-full items-center justify-center" aria-busy="true">
+          <div class="size-12 animate-spin rounded-full border-4 border-orange-500 border-t-transparent"></div>
+        </div>
+      } @else if (items().length === 0) {
+        <div class="flex min-h-[300px] w-full items-center justify-center text-center">
+          <p class="font-rubik text-base text-gray-300 sm:text-lg">
+            {{ 'WORKOUTS.NO_WORKOUTS' | translate }}
+          </p>
+        </div>
+      } @else {
+        <div
+          class="flex transition-transform duration-500 ease-out will-change-transform"
+          [style.transform]="trackTransform()"
+        >
+          @for (page of cardPages(); track $index) {
+            <div class="box-border w-full shrink-0 px-1">
+              <div
+                class="grid gap-4 sm:gap-5"
+                [class.grid-cols-1]="columns() === 1"
+                [class.grid-cols-2]="columns() === 2"
+                [class.grid-cols-3]="columns() === 3"
+              >
+                @for (item of page; track item.id) {
+                  <app-reusable-card
+                    [title]="item.title"
+                    [image]="item.image"
+                    [alt]="item.alt ?? item.title"
+                    ctaLabel="WORKOUTS.EXPLORE"
+                  />
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    @if (!isLoading() && cardPages().length > 1) {
+      <div
+        class="classes__pagination mt-8 flex items-center justify-center gap-2.5 sm:mt-10"
+        role="tablist"
+        aria-label="Classes carousel pagination"
+      >
+        @for (page of cardPages(); track $index) {
+          <button
+            type="button"
+            (click)="goToSlide($index)"
+            class="classes__dot cursor-pointer rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            [class.classes__dot--active]="currentSlide() === $index"
+            [attr.aria-label]="'Slide ' + ($index + 1)"
+            [attr.aria-selected]="currentSlide() === $index"
+          ></button>
+        }
+      </div>
+    }
+  </div>
+
+  <aside class="pointer-events-auto fixed bottom-4 left-4 z-50 sm:bottom-6 sm:left-6">
+    <app-language-switcher />
+  </aside>
+</section>

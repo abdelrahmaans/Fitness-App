@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Navbar } from '../../../../layout/main/navbar/navbar';
 import { Hero } from '../../components/hero/hero';
 import { HealthyNutrition } from '../../components/healthy-nutrition/healthy-nutrition';
 import { WhyUs } from '../../components/why-us/why-us';
@@ -12,7 +11,6 @@ import { LanguageSwitcher } from '../../../../shared/components/language-switche
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    Navbar,
     Hero,
     LanguageSwitcher,
     MarqueeBanner,

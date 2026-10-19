@@ -16,7 +16,7 @@ describe('ChatBotService', () => {
 
   it('should initialize with default greeting message', () => {
     expect(service.messages().length).toBe(1);
-    expect(service.messages()[0].text).toBe('Hello, how can I assist you?');
+    expect(service.messages()[0].text).toBe('Hello How Can I Assist You Today ?');
     expect(service.messages()[0].sender).toBe('bot');
   });
 
@@ -31,7 +31,7 @@ describe('ChatBotService', () => {
   it('should start a new conversation with default greeting message', () => {
     service.startNewConversation();
     expect(service.messages().length).toBe(1);
-    expect(service.messages()[0].text).toBe('Hello, how can I assist you?');
+    expect(service.messages()[0].text).toBe('Hello How Can I Assist You Today ?');
   });
 
   it('should delete a conversation and persist changes to localStorage', () => {

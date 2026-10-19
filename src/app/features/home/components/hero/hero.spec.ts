@@ -114,4 +114,15 @@ describe('Hero', () => {
     expect(trainerImg).toBeTruthy();
     expect(trainerImg.getAttribute('src')).toContain('images/hero.webp');
   });
+
+  it('should render the frosted background image with the correct asset path', () => {
+    const bgImg = fixture.nativeElement.querySelector('.hero__bg-image') as HTMLImageElement;
+    expect(bgImg).toBeTruthy();
+    expect(bgImg.getAttribute('src')).toBe('/images/bg-img.webp');
+  });
+
+  it('should render the background overlay canvas for dark and light backdrop styling', () => {
+    const overlay = fixture.nativeElement.querySelector('.hero__bg-overlay');
+    expect(overlay).toBeTruthy();
+  });
 });

@@ -2,12 +2,35 @@
   position: relative;
   background-color: transparent;
 
-  &__glow-1 {
-    background: radial-gradient(circle, rgba(255, 65, 0, 0.09) 0%, transparent 70%);
+  &__bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
 
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(86px);
+    -webkit-filter: blur(86px);
+    transform: scale(1.25);
+  }
+
+  &__bg-overlay {
+    // Dark mode overlay matching account page
+    background: rgba(18, 19, 21, 0.72);
+    backdrop-filter: blur(86px);
+    -webkit-backdrop-filter: blur(86px);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  &__glow-1,
   &__glow-2 {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    display: none;
   }
 
   &__headline-text {
@@ -36,10 +59,31 @@
 }
 
 // =============================================================================
+// Dark Theme Support (matches account page backdrop overlay)
+// =============================================================================
+:host-context(html.dark),
+:host-context(.dark) {
+  .hero {
+    &__bg-overlay {
+      background: rgba(18, 19, 21, 0.72);
+      backdrop-filter: blur(86px);
+      -webkit-backdrop-filter: blur(86px);
+    }
+  }
+}
+
+// =============================================================================
 // Light Theme Support (matches modern silver-slate aesthetic in mockups)
 // =============================================================================
-:host-context(html.light) {
+:host-context(html.light),
+:host-context(.light) {
   .hero {
+    &__bg-overlay {
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(86px);
+      -webkit-backdrop-filter: blur(86px);
+    }
+
     &__glow-1 {
       background: radial-gradient(circle, rgba(255, 65, 0, 0.06) 0%, transparent 70%);
     }

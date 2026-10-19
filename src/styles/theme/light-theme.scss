@@ -62,7 +62,7 @@ html.light {
   .auth-heading__headline,
   .login__title,
   .register-form__title,
-  h1:not(.text-orange-500),
+  h1:not(.text-orange-500):not(.main-video__title),
   h2:not(.text-orange-500) {
     color: #0f172a !important;
   }
@@ -397,5 +397,13 @@ html.light {
   // Workouts Section (Light Mode)
   .workouts__banner-strip {
     background-color: #AEAEAD !important;
+  }
+
+  // Hero & Account Page (Light Mode - Frosted white blur overlay over background image)
+  .hero__bg-overlay,
+  .account__bg-overlay {
+    background: rgba(255, 255, 255, 0.58) !important;
+    backdrop-filter: blur(86px) !important;
+    -webkit-backdrop-filter: blur(86px) !important;
   }
 }
