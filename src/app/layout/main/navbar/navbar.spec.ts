@@ -182,6 +182,18 @@ describe('Navbar', () => {
       expect(component.isMobileMenuOpen()).toBe(false);
     });
 
+    it('should render authenticated user profile and account link in mobile menu', () => {
+      isAuthenticatedSignal.set(true);
+      currentUserSignal.set({ email: 'user@example.com' });
+      component.isMobileMenuOpen.set(true);
+      fixture.detectChanges();
+
+      const mobileMenu = fixture.nativeElement.querySelector('.navbar__mobile-menu');
+      expect(mobileMenu).toBeTruthy();
+      expect(mobileMenu.querySelector('.navbar__mobile-user-email')).toBeTruthy();
+      expect(mobileMenu.querySelector('.navbar__mobile-account-link')).toBeTruthy();
+    });
+
     it('should close menus on Escape key press', () => {
       component.isMobileMenuOpen.set(true);
       component.isUserMenuOpen.set(true);
