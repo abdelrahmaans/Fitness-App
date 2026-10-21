@@ -169,7 +169,7 @@
         }
       </nav>
 
-      <div class="border-t border-metal/20 pt-4">
+      <div class="navbar__mobile-divider border-t border-metal/20 pt-4">
         @if (authService.isAuthenticated()) {
           <div class="flex flex-col gap-3">
             <div class="flex items-center justify-between">
@@ -179,7 +179,7 @@
                 </div>
                 <div class="min-w-0">
                   <p class="text-xs text-metal font-rubik">{{ 'NAV.PROFILE' | translate }}</p>
-                  <p class="text-sm font-semibold truncate font-rubik">
+                  <p class="navbar__mobile-user-email text-sm font-semibold truncate font-rubik">
                     {{ authService.currentUser()?.email ?? ('APP_TITLE' | translate) }}
                   </p>
                 </div>
@@ -197,7 +197,7 @@
             <a
               routerLink="/account"
               (click)="closeMobileMenu()"
-              class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-rubik font-medium transition-colors hover:bg-orange-500/10 hover:text-orange-500 bg-metal/10"
+              class="navbar__mobile-account-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-rubik font-medium transition-colors"
             >
               <svg lucideUser class="size-4" aria-hidden="true"></svg>
               <span>{{ 'NAV.ACCOUNT' | translate }}</span>
