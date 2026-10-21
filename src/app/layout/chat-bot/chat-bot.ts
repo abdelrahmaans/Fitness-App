@@ -21,6 +21,9 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
   templateUrl: './chat-bot.html',
   styleUrl: './chat-bot.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.chat-bot-host--open]': 'isChatOpen()',
+  },
 })
 export class ChatBot {
   protected readonly chatBotService = inject(ChatBotService);

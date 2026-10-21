@@ -27,4 +27,17 @@ describe('ChatBot', () => {
   it('should start with drawer closed', () => {
     expect(component['isDrawerOpen']()).toBe(false);
   });
+
+  it('should render chat window with background and overlay when open', () => {
+    component['isChatOpen'].set(true);
+    fixture.detectChanges();
+
+    const chatWindow = fixture.nativeElement.querySelector('.chat-window');
+    const bgElement = fixture.nativeElement.querySelector('.chat-window__bg');
+    const overlayElement = fixture.nativeElement.querySelector('.chat-window__overlay');
+
+    expect(chatWindow).toBeTruthy();
+    expect(bgElement).toBeTruthy();
+    expect(overlayElement).toBeTruthy();
+  });
 });
