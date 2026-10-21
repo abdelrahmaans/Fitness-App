@@ -21,11 +21,11 @@ describe('MarqueeBannerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render default services array in marquee groups', () => {
+  it('should render default services array repeated in marquee groups', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('.marquee-group:first-child .marquee-item');
 
-    expect(items.length).toBe(component.services.length);
+    expect(items.length).toBe(component.repeatedServices().length);
     expect(items[0].textContent?.trim()).toBe('CLASSES');
     expect(items[1].textContent?.trim()).toBe('OUTDOOR & ONLINE TRAINERS');
   });
@@ -38,7 +38,7 @@ describe('MarqueeBannerComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('.marquee-group:first-child .marquee-item');
 
-    expect(items.length).toBe(customServices.length);
+    expect(items.length).toBe(component.repeatedServices().length);
     expect(items[0].textContent?.trim()).toBe('HIIT');
     expect(items[1].textContent?.trim()).toBe('YOGA');
     expect(items[2].textContent?.trim()).toBe('PILATES');
@@ -48,7 +48,7 @@ describe('MarqueeBannerComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const stars = compiled.querySelectorAll('.marquee-group:first-child .star-icon');
 
-    expect(stars.length).toBe(component.services.length);
+    expect(stars.length).toBe(component.repeatedServices().length);
     expect(stars[0].textContent?.trim()).toBe('✦');
   });
 
@@ -60,7 +60,7 @@ describe('MarqueeBannerComponent', () => {
     expect(groups.length).toBe(2);
 
     const secondaryItems = groups[1].querySelectorAll('.marquee-item');
-    expect(secondaryItems.length).toBe(component.services.length);
+    expect(secondaryItems.length).toBe(component.repeatedServices().length);
   });
 
   it('should apply the animation duration style based on input', () => {
@@ -69,5 +69,14 @@ describe('MarqueeBannerComponent', () => {
 
     const trackElement = fixture.nativeElement.querySelector('.marquee-track') as HTMLElement;
     expect(trackElement.style.animationDuration).toBe('15s');
+  });
+
+  it('should repeat services enough times to prevent gaps on wide displays', () => {
+    const customServices = ['HIIT & CARDIO', 'CROSSFIT ZONE', 'NUTRITION CONSULTING', 'YOGA & PILATES'];
+    fixture.componentRef.setInput('services', customServices);
+    fixture.detectChanges();
+
+    // 4 items repeated at least 3 times = 12 items, ensuring wide-screen coverage (> 2000px)
+    expect(component.repeatedServices().length).toBeGreaterThanOrEqual(12);
   });
 });

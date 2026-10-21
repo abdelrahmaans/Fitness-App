@@ -49,6 +49,27 @@
     background-color: rgba(28, 29, 31, 0.98);
     border-color: rgba(109, 109, 109, 0.25);
     backdrop-filter: blur(16px);
+    color: #ffffff;
+
+    .navbar__mobile-divider {
+      border-color: rgba(109, 109, 109, 0.25);
+    }
+
+    .navbar__mobile-user-email {
+      color: #ffffff;
+    }
+
+    .navbar__mobile-account-link {
+      color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background-color: rgba(255, 65, 0, 0.12);
+        color: var(--color-orange-500, #ff4100);
+        border-color: rgba(255, 65, 0, 0.35);
+      }
+    }
   }
 }
 
@@ -97,9 +118,35 @@
     &__mobile-menu {
       background-color: rgba(255, 255, 255, 0.98);
       border-color: #e2e8f0;
+      color: #0f172a;
 
       .navbar__link {
         color: #1e293b;
+
+        &:hover,
+        &--active {
+          color: var(--color-orange-500, #ff4100) !important;
+        }
+      }
+
+      .navbar__mobile-divider {
+        border-color: #e2e8f0;
+      }
+
+      .navbar__mobile-user-email {
+        color: #0f172a;
+      }
+
+      .navbar__mobile-account-link {
+        color: #1e293b;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+
+        &:hover {
+          background-color: rgba(255, 65, 0, 0.08);
+          color: var(--color-orange-500, #ff4100);
+          border-color: rgba(255, 65, 0, 0.3);
+        }
       }
     }
   }

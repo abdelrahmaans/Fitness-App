@@ -83,6 +83,7 @@
                     [image]="item.image"
                     [alt]="item.alt ?? item.title"
                     ctaLabel="WORKOUTS.EXPLORE"
+                    (cardClick)="onCardClick(item)"
                   />
                 }
               </div>
