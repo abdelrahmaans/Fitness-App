@@ -11,6 +11,7 @@ import {
   untracked,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 import { TranslationService } from '../../../../core/services/translation.service';
 import { LanguageSwitcher } from '../../../../shared/components/language-switcher/language-switcher';
 import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
@@ -33,6 +34,7 @@ export class Classes {
   private readonly workoutsService = inject(WorkoutsService);
   private readonly translationService = inject(TranslationService, { optional: true });
   private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
   private requestId = 0;
 
   readonly muscleGroups = signal<MuscleGroup[]>([]);
@@ -177,5 +179,12 @@ export class Classes {
       }
       return current > 0 ? current - 1 : max;
     });
+  }
+
+  /** Card click handler: navigates to classes details page based on the API ID */
+  onCardClick(item: WorkoutCardItem): void {
+    if (item.id) {
+      this.router.navigate(['/classes', item.id]);
+    }
   }
 }
